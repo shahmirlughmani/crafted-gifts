@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand — taken from the studio logo: forest green + gold on warm cream */
+  --color-forest-950: #16251a;
+  --color-forest-900: #1f3324;
+  --color-forest-800: #2b4630;
+  --color-forest-700: #37563b;
+  --color-forest-600: #456a48;
+  --color-forest-500: #5a815a;
+  --color-forest-400: #7d9d78;
+  --color-forest-300: #a3bd9c;
+  --color-forest-200: #cadcc3;
+  --color-forest-100: #e5efe1;
+
+  --color-gold-700: #8f6f22;
+  --color-gold-600: #a9862f;
+  --color-gold-500: #c4a03d;
+  --color-gold-400: #d9bb66;
+  --color-gold-300: #e6d09a;
+  --color-gold-200: #f0e2c2;
+  --color-gold-100: #f8f0dd;
+
+  --color-cream-50: #fdfbf6;
+  --color-cream-100: #faf6ec;
+  --color-cream-200: #f4ecdb;
+  --color-cream-300: #ebdfc7;
+
+  --color-ink: #241f1a;
+  --color-muted: #6f665b;
+
+  --font-display: var(--font-display), Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
+  --font-script: var(--font-script), cursive;
+
+  --radius-xl2: 1.25rem;
+}
+
+:root {
+  --gold-sheen: linear-gradient(
+    100deg,
+    #a9862f 0%,
+    #e6d09a 28%,
+    #c4a03d 48%,
+    #f0e2c2 68%,
+    #a9862f 100%
+  );
+}
+
+/* Base element styles MUST live in @layer base — unlayered rules would
+   outrank every Tailwind utility (e.g. text-cream-50 on a dark section). */
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-cream-100);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: 350;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-forest-900);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-forest-800);
+    color: var(--color-cream-100);
+  }
+}
+
+/* ---------- utilities ---------- */
+.u-wrap {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .u-wrap {
+    padding-inline: 2rem;
+  }
+}
+
+.u-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-gold-700);
+}
+
+.u-gold-text {
+  background: var(--gold-sheen);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.u-rule {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold-300),
+    transparent
+  );
+}
+
+.u-paper {
+  background-image: radial-gradient(
+      circle at 20% 15%,
+      rgba(196, 160, 61, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(circle at 85% 70%, rgba(69, 106, 72, 0.05), transparent 45%);
+}
+
+/* ---------- reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- marquee ---------- */
+@keyframes u-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.u-marquee {
+  animation: u-marquee 38s linear infinite;
+}
+
+/* ---------- shimmer for image placeholders ---------- */
+@keyframes u-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ---------- scrollbars ---------- */
+.u-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.u-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-forest-200);
+  border-radius: 99px;
+}
+.u-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- hide number spinners ---------- */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
