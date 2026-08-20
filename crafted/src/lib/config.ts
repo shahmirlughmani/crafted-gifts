@@ -13,7 +13,7 @@ export const CONFIG = {
   payment: {
     method: "NayaPay",
     name: "Saba Khan",
-    number: "0327-5023235",
+    number: "0304-5400058",
   },
 
   contact: {
@@ -28,16 +28,31 @@ export const CONFIG = {
   fulfilment: {
     pickupArea: "E-11, Islamabad",
     pickupLine: "Pickup available in E-11, Islamabad.",
-    urgentLine: "Urgent orders available. Extra charges apply.",
+    urgentLine: "Urgent orders depend on the queue and the city — just ask.",
     readyIn: "Gifts ready in 4–5 days",
   },
 
+  delivery: {
+    /** Flat inDrive charge inside the twin cities. */
+    localFee: 1200,
+    localAreas: "Islamabad & Rawalpindi",
+    localLine: "Rs. 1,200 flat within Islamabad & Rawalpindi",
+    /** Everywhere else ships via TCS and is quoted after the order. */
+    outsideLine:
+      "Outside the twin cities we ship via TCS. The Rs. 1,200 covers the minimum TCS rate for 2–3 kg — if your order is heavier we'll message you the exact charge from the TCS rate card before dispatch.",
+    shortNote: "Rs. 1,200 delivery · heavier out-of-city orders quoted after",
+  },
+
   currency: "Rs.",
-  freeDeliveryOver: 2499,
-  deliveryFee: 200,
 } as const;
 
 export const waLink = (text?: string) =>
   `https://wa.me/${CONFIG.contact.whatsappNumber}${
     text ? `?text=${encodeURIComponent(text)}` : ""
   }`;
+
+/**
+ * Instagram DMs can't be pre-filled from a link, so callers that need to send
+ * order details copy the text to the clipboard first and open the thread.
+ */
+export const igDm = () => CONFIG.contact.instagramDm;

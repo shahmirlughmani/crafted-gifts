@@ -20,9 +20,6 @@ export function CartDrawer() {
     count,
   } = useCart();
 
-  const toFree = CONFIG.freeDeliveryOver - subtotal;
-  const pct = Math.min(100, (subtotal / CONFIG.freeDeliveryOver) * 100);
-
   return (
     <div
       className={cx(
@@ -92,26 +89,12 @@ export function CartDrawer() {
           </div>
         ) : (
           <>
-            {/* free delivery progress */}
             <div className="px-5 pt-4 pb-3 border-b border-gold-200/70">
-              {delivery === 0 ? (
-                <p className="text-[0.78rem] text-forest-700 flex items-center gap-2 font-medium">
-                  <IconTruck className="w-4 h-4" />
-                  You&apos;ve unlocked free delivery
-                </p>
-              ) : (
-                <p className="text-[0.78rem] text-muted">
-                  Add{" "}
-                  <b className="text-forest-800">{money(toFree)}</b> more for
-                  free delivery
-                </p>
-              )}
-              <div className="mt-2 h-1 rounded-full bg-forest-100 overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-gold-500 transition-[width] duration-500"
-                  style={{ width: `${pct}%` }}
-                />
-              </div>
+              <p className="text-[0.78rem] text-muted flex items-start gap-2">
+                <IconTruck className="w-4 h-4 mt-0.5 shrink-0 text-gold-600" />
+                {CONFIG.delivery.localLine}. Heavier out-of-city orders are
+                quoted after you order.
+              </p>
             </div>
 
             <div className="flex-1 overflow-y-auto u-scroll px-5 py-4 space-y-4">
@@ -196,9 +179,7 @@ export function CartDrawer() {
               </div>
               <div className="flex justify-between text-sm text-muted">
                 <span>Delivery</span>
-                <span className="tabular-nums">
-                  {delivery === 0 ? "Free" : money(delivery)}
-                </span>
+                <span className="tabular-nums">{money(delivery)}</span>
               </div>
               <div className="flex justify-between font-display text-lg text-forest-900 pt-1.5 border-t border-gold-200/70">
                 <span>Total</span>

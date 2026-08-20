@@ -4,17 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useCart } from "@/lib/cart";
-import { CONFIG, waLink } from "@/lib/config";
+import { CONFIG } from "@/lib/config";
 import { money, orderId as newOrderId, cx } from "@/lib/format";
 import {
   IconCheck,
   IconCopy,
   IconGift,
   IconUpload,
-  IconWhatsApp,
+  IconInstagram,
   IconX,
   IconPin,
 } from "./Icons";
+import { IgOrderButton } from "./IgOrderButton";
 
 type Fields = {
   name: string;
@@ -93,7 +94,7 @@ export function Checkout() {
       ),
       "",
       `Subtotal: ${money(subtotal)}`,
-      `Delivery: ${delivery === 0 ? "Free" : money(delivery)}`,
+      `Delivery: ${money(delivery)}`,
       `Total: ${money(total)}`,
       "",
       `Name: ${f.name}`,
@@ -149,7 +150,7 @@ export function Checkout() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
       setBusy(false);
-      say("Couldn't reach us — try WhatsApp instead");
+      say("Couldn't reach us — try Instagram instead");
     }
   };
 
@@ -169,21 +170,23 @@ export function Checkout() {
         </p>
         <p className="mt-5 text-sm text-muted leading-relaxed">
           {method === "transfer"
-            ? `We'll verify your ${CONFIG.payment.method} payment and confirm on WhatsApp shortly.`
-            : "We'll confirm your order on WhatsApp shortly."}{" "}
+            ? `We'll verify your ${CONFIG.payment.method} payment and confirm with you shortly.`
+            : "We'll confirm your order with you shortly."}{" "}
           {CONFIG.fulfilment.readyIn}.
         </p>
 
         <a
-          href={waLink(
-            `Hi! I just placed order ${placed}. Sending my payment screenshot here too.`
-          )}
+          href={CONFIG.contact.instagramDm}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-7 py-3.5 font-medium hover:brightness-105 transition"
+          className="mt-7 inline-flex items-center gap-2 rounded-full text-white px-7 py-3.5 font-medium transition hover:brightness-110"
+          style={{
+            background:
+              "linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+          }}
         >
-          <IconWhatsApp className="w-5 h-5" />
-          Message us on WhatsApp
+          <IconInstagram className="w-5 h-5" />
+          Message us on Instagram
         </a>
 
         <div className="mt-8 pt-8 border-t border-gold-200">
@@ -248,7 +251,7 @@ export function Checkout() {
                 autoComplete="name"
               />
               <Field
-                label="Phone (WhatsApp)"
+                label="Phone / WhatsApp"
                 value={f.phone}
                 onChange={set("phone")}
                 error={errors.phone}
@@ -487,9 +490,7 @@ export function Checkout() {
               </div>
               <div className="flex justify-between text-sm text-muted">
                 <span>Delivery</span>
-                <span className="tabular-nums">
-                  {delivery === 0 ? "Free" : money(delivery)}
-                </span>
+                <span className="tabular-nums">{money(delivery)}</span>
               </div>
               <div className="flex justify-between font-display text-xl text-forest-900 pt-2 border-t border-gold-200/70">
                 <span>Total</span>
@@ -507,20 +508,14 @@ export function Checkout() {
                 {busy ? "Placing your order…" : `Place order · ${money(total)}`}
               </button>
 
-              <a
-                href={waLink(orderText("(new)"))}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 rounded-full border border-forest-800 text-forest-900 py-3.5 text-sm font-medium hover:bg-forest-100 transition-colors"
-              >
-                <IconWhatsApp className="w-4 h-4" />
-                Order on WhatsApp instead
-              </a>
+              <IgOrderButton
+                className="w-full text-sm"
+                label="Order on Instagram instead"
+                text={orderText("(new)")}
+              />
 
               <p className="text-[0.68rem] text-muted text-center pt-1 leading-relaxed">
-                {CONFIG.fulfilment.pickupLine}
-                <br />
-                {CONFIG.fulfilment.urgentLine}
+                {CONFIG.delivery.localLine}. {CONFIG.delivery.outsideLine}
               </p>
             </div>
           </div>

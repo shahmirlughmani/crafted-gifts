@@ -150,10 +150,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo<CartState>(() => {
     const subtotal = lines.reduce((s, l) => s + l.price * l.qty, 0);
-    const delivery =
-      subtotal === 0 || subtotal >= CONFIG.freeDeliveryOver
-        ? 0
-        : CONFIG.deliveryFee;
+    const delivery = subtotal === 0 ? 0 : CONFIG.delivery.localFee;
     return {
       lines,
       count: lines.reduce((s, l) => s + l.qty, 0),

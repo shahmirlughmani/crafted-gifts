@@ -123,8 +123,7 @@ export default async function ProductPage({ params }: Params) {
               )}
             </div>
             <p className="mt-1 text-[0.75rem] text-muted">
-              Delivery calculated at checkout · Free over{" "}
-              {money(CONFIG.freeDeliveryOver)}
+              {CONFIG.delivery.shortNote}
             </p>
 
             <p className="mt-5 text-[1.02rem] text-muted leading-relaxed">
@@ -164,15 +163,15 @@ export default async function ProductPage({ params }: Params) {
                 items={[
                   {
                     q: "Delivery & pickup",
-                    a: `${CONFIG.fulfilment.pickupLine} ${CONFIG.fulfilment.readyIn}. Delivery is ${money(CONFIG.deliveryFee)} within Pakistan, free on orders over ${money(CONFIG.freeDeliveryOver)}. ${CONFIG.fulfilment.urgentLine}`,
+                    a: `${CONFIG.fulfilment.pickupLine} ${CONFIG.fulfilment.readyIn}. ${CONFIG.delivery.localLine}. ${CONFIG.delivery.outsideLine} ${CONFIG.fulfilment.urgentLine}`,
                   },
                   {
                     q: "Can I customise this?",
-                    a: "Yes. Colours, stem counts, item swaps and add-ons are all possible — message us on WhatsApp before you order and we'll confirm what's doable and any price difference. You can also build a basket from scratch on the Build Your Own page.",
+                    a: "Yes. Colours, stem counts, item swaps and add-ons are all possible — message us on Instagram before you order and we'll confirm what's doable and any price difference. You can also build a basket from scratch on the Build Your Own page.",
                   },
                   {
                     q: "How do I pay?",
-                    a: `We accept ${CONFIG.payment.method} transfer. At checkout you'll see the account details, send the amount, then upload a screenshot of the payment. We confirm every order on WhatsApp before it's made.`,
+                    a: `We accept ${CONFIG.payment.method} transfer. At checkout you'll see the account details, send the amount, then upload a screenshot of the payment. We confirm every order with you before it's made.`,
                   },
                   {
                     q: "Care instructions",

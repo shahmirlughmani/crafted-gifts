@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { CATEGORIES, PRODUCTS } from "@/data/products";
 import { CONFIG } from "@/lib/config";
-import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { LogoMark } from "@/components/Logo";
 import {
@@ -16,7 +15,6 @@ import {
   IconClock,
 } from "@/components/Icons";
 
-const featured = PRODUCTS.filter((p) => p.featured).slice(0, 8);
 export default function Home() {
   return (
     <>
@@ -66,7 +64,7 @@ export default function Home() {
               </li>
               <li className="flex items-center gap-2">
                 <IconClock className="w-4 h-4 text-gold-600" />
-                Urgent orders available
+                {CONFIG.fulfilment.readyIn}
               </li>
             </ul>
           </Reveal>
@@ -128,7 +126,8 @@ export default function Home() {
                   "Custom Baskets",
                   "Keepsakes",
                   "Handmade to Order",
-                  "Free Delivery over Rs. 2,499",
+                  "Rs. 1,200 Delivery in Twin Cities",
+                  "Nationwide via TCS",
                 ].map((t) => (
                   <li key={t} className="flex items-center gap-10">
                     {t}
@@ -237,40 +236,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============================ FEATURED =========================== */}
-      <section className="u-wrap pb-16 lg:pb-24">
-        <Reveal className="flex items-end justify-between gap-6 flex-wrap">
-          <div>
-            <p className="u-eyebrow">Loved most</p>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl">
-              Our best sellers
-            </h2>
-          </div>
-          <Link
-            href="/shop"
-            className="group inline-flex items-center gap-1.5 text-sm font-medium text-forest-800 border-b border-gold-400 pb-0.5 hover:text-gold-700 transition-colors"
-          >
-            View all {PRODUCTS.length} gifts
-            <IconChevron className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        </Reveal>
-
-        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10 lg:gap-x-7">
-          {featured.map((p, i) => (
-            <Reveal key={p.id} delay={(i % 4) * 80}>
-              <ProductCard p={p} priority={i < 4} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* ============================== STORY ============================ */}
       <section className="u-wrap pb-16 lg:pb-24">
         <div className="rounded-[2rem] bg-cream-50 border border-gold-200 overflow-hidden grid lg:grid-cols-2">
           <Reveal className="relative min-h-[20rem] lg:min-h-[26rem]">
             <Image
-              src="/crochet/teddy-shadow-box.webp"
-              alt="Crochet teddy shadow box with fairy lights"
+              src="/crochet/rose-tulip-bouquet.webp"
+              alt="Hand-crocheted rose and tulip bouquet"
               fill
               sizes="(min-width:1024px) 50vw, 100vw"
               className="object-cover"
@@ -310,8 +282,8 @@ export default function Home() {
         <div className="u-wrap py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             [IconLeaf, "Genuinely handmade", "No factory pieces. Every stitch is ours."],
-            [IconPin, "Pickup in E-11", "Collect from us, usually ready in 24 hours."],
-            [IconSparkle, "Urgent orders", "Need it today? We can often do it."],
+            [IconPin, "Pickup in E-11", "Collect from us, or we deliver nationwide."],
+            [IconSparkle, "Urgent orders", "Depends on the queue and your city — just ask."],
             [IconGift, "Wrapped to gift", "Arrives ready to hand over."],
           ].map(([Icon, t, d], i) => {
             const I = Icon as React.ElementType;

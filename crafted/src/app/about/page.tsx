@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONFIG, waLink } from "@/lib/config";
+import { CONFIG } from "@/lib/config";
 import { LogoMark } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
 import { FulfilmentNote } from "@/components/FulfilmentNote";
 import {
   IconChevron,
   IconInstagram,
-  IconWhatsApp,
   IconLeaf,
   IconGift,
   IconSparkle,
@@ -90,19 +89,19 @@ export default function AboutPage() {
               We&apos;re easy to reach
             </h2>
             <p className="mt-4 text-cream-200/75 leading-relaxed">
-              Questions about a piece, a custom idea, or an urgent order for
-              tomorrow — WhatsApp is fastest, and it&apos;s a real person on the
+              Questions about a piece, a custom idea, or an urgent order — our
+              Instagram DMs are fastest, and it&apos;s a real person on the
               other end.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
-                href={waLink("Hi! I have a question 🎁")}
+                href={CONFIG.contact.instagramDm}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-gold-500 text-forest-950 px-6 py-3.5 font-semibold hover:bg-gold-400 transition-colors"
               >
-                <IconWhatsApp className="w-[1.1rem] h-[1.1rem]" />
-                {CONFIG.contact.whatsappDisplay}
+                <IconInstagram className="w-[1.1rem] h-[1.1rem]" />
+                Send us a DM
               </a>
               <a
                 href={CONFIG.contact.instagram}

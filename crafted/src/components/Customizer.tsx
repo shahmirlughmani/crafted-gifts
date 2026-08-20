@@ -10,15 +10,15 @@ import {
   ALL_ITEMS,
 } from "@/data/customizer";
 import { useCart } from "@/lib/cart";
-import { CONFIG, waLink } from "@/lib/config";
+import { CONFIG } from "@/lib/config";
 import { money, cx } from "@/lib/format";
 import {
   IconCheck,
   IconGift,
   IconSparkle,
-  IconWhatsApp,
   IconX,
 } from "./Icons";
+import { IgOrderButton } from "./IgOrderButton";
 import { FulfilmentNote } from "./FulfilmentNote";
 
 export function Customizer() {
@@ -419,7 +419,7 @@ export function Customizer() {
               </span>
             </div>
             <p className="text-[0.7rem] text-muted mt-0.5">
-              Excluding delivery · free over {money(CONFIG.freeDeliveryOver)}
+              Excluding delivery · {CONFIG.delivery.localLine}
             </p>
 
             <button
@@ -428,19 +428,13 @@ export function Customizer() {
             >
               Add to basket
             </button>
-            <a
-              href={waLink(
-                `Hi! I built a custom basket:\n\n${buildLines().join(
-                  "\n"
-                )}\n\nTotal: ${money(total)}`
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 w-full flex items-center justify-center gap-2 rounded-full border border-forest-800 text-forest-900 py-3.5 text-sm font-medium hover:bg-forest-100 transition-colors"
-            >
-              <IconWhatsApp className="w-4 h-4" />
-              Send to WhatsApp instead
-            </a>
+            <IgOrderButton
+              className="mt-2 w-full text-sm"
+              label="Send to Instagram instead"
+              text={`Hi! I built a custom basket:\n\n${buildLines().join(
+                "\n"
+              )}\n\nTotal: ${money(total)}`}
+            />
             <p className="mt-3 text-center text-[0.7rem] text-muted">
               Not sure?{" "}
               <Link

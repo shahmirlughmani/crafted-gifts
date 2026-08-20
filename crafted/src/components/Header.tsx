@@ -58,11 +58,11 @@ export function Header() {
           </span>
           <span className="hidden sm:inline-flex items-center gap-1.5">
             <IconTruck className="w-3.5 h-3.5 text-gold-300" />
-            Free delivery over {CONFIG.currency} {CONFIG.freeDeliveryOver.toLocaleString("en-PK")}
+            {CONFIG.delivery.localLine}
           </span>
           <span className="hidden md:inline-flex items-center gap-1.5">
             <IconSparkle className="w-3.5 h-3.5 text-gold-300" />
-            Urgent orders available
+            Nationwide via TCS
           </span>
         </div>
       </div>

@@ -10,8 +10,8 @@ import {
   type CategoryId,
 } from "@/data/products";
 import { ShopBrowser } from "@/components/ShopBrowser";
-import { IconChevron, IconGift, IconWhatsApp } from "@/components/Icons";
-import { waLink } from "@/lib/config";
+import { IconChevron, IconGift, IconInstagram } from "@/components/Icons";
+import { CONFIG } from "@/lib/config";
 
 type Params = { params: Promise<{ category: string }> };
 
@@ -96,13 +96,17 @@ export default async function CategoryPage({ params }: Params) {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
               <a
-                href={waLink(`Hi! I'd like to ask about ${c.name}.`)}
+                href={CONFIG.contact.instagramDm}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-6 py-3 text-sm font-medium hover:brightness-105 transition"
+                className="inline-flex items-center gap-2 rounded-full text-white px-6 py-3 text-sm font-medium transition hover:brightness-110"
+                style={{
+                  background:
+                    "linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+                }}
               >
-                <IconWhatsApp className="w-4 h-4" />
-                Ask on WhatsApp
+                <IconInstagram className="w-4 h-4" />
+                Ask on Instagram
               </a>
               <Link
                 href="/shop"

@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { CATEGORIES } from "@/data/products";
-import { CONFIG, waLink } from "@/lib/config";
+import { CONFIG } from "@/lib/config";
 import { LogoMark, Wordmark } from "./Logo";
 import {
   IconInstagram,
   IconPin,
   IconClock,
-  IconWhatsApp,
 } from "./Icons";
 import { Newsletter } from "./Newsletter";
 
@@ -33,15 +32,7 @@ export function Footer() {
             >
               <IconInstagram className="w-[1.05rem] h-[1.05rem]" />
             </a>
-            <a
-              href={waLink("Hi! I have a question about a gift.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="grid place-items-center w-10 h-10 rounded-full border border-cream-200/25 hover:border-gold-400 hover:text-gold-300 transition-colors"
-            >
-              <IconWhatsApp className="w-[1.05rem] h-[1.05rem]" />
-            </a>
+
           </div>
         </div>
 
@@ -108,14 +99,14 @@ export function Footer() {
               <span>{CONFIG.fulfilment.readyIn}</span>
             </li>
             <li className="flex gap-2.5">
-              <IconWhatsApp className="w-4 h-4 mt-0.5 shrink-0 text-gold-400" />
+              <IconInstagram className="w-4 h-4 mt-0.5 shrink-0 text-gold-400" />
               <a
-                href={waLink()}
+                href={CONFIG.contact.instagramDm}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gold-200 transition-colors"
               >
-                {CONFIG.contact.whatsappDisplay}
+                DM @{CONFIG.contact.instagramHandle}
               </a>
             </li>
           </ul>

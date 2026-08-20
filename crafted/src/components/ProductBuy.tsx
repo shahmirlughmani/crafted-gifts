@@ -3,9 +3,10 @@
 import { useState } from "react";
 import type { Product } from "@/data/products";
 import { useCart } from "@/lib/cart";
-import { CONFIG, waLink } from "@/lib/config";
+import { CONFIG } from "@/lib/config";
 import { money, cx } from "@/lib/format";
-import { IconBag, IconHeart, IconShare, IconWhatsApp, IconCheck } from "./Icons";
+import { IconBag, IconHeart, IconShare, IconCheck } from "./Icons";
+import { IgOrderButton } from "./IgOrderButton";
 
 export function ProductBuy({ p }: { p: Product }) {
   const { add, saved, toggleSaved, say } = useCart();
@@ -80,17 +81,10 @@ export function ProductBuy({ p }: { p: Product }) {
         </button>
       </div>
 
-      <a
-        href={waLink(
-          `Hi! I'd like to order the ${p.name} (${money(p.price)}) × ${qty}.`
-        )}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 rounded-full border border-forest-800 text-forest-900 h-12 font-medium hover:bg-forest-100 transition-colors"
-      >
-        <IconWhatsApp className="w-[1.1rem] h-[1.1rem]" />
-        Order on WhatsApp instead
-      </a>
+      <IgOrderButton
+        text={`Hi! I'd like to order the ${p.name} (${money(p.price)}) × ${qty}.`}
+        label="Order on Instagram instead"
+      />
 
       <div className="flex items-center gap-5 pt-1">
         <button
