@@ -6,7 +6,7 @@ import Link from "next/link";
 import { CATEGORIES, PRODUCTS, type CategoryId } from "@/data/products";
 import { ProductCard } from "./ProductCard";
 import { IconSearch, IconX } from "./Icons";
-import { cx, money } from "@/lib/format";
+import { cx } from "@/lib/format";
 
 type Sort = "featured" | "low" | "high" | "az";
 
@@ -17,21 +17,13 @@ const SORTS: { id: Sort; label: string }[] = [
   { id: "az", label: "A – Z" },
 ];
 
-const ALL_OCCASIONS = Array.from(
-  new Set(PRODUCTS.flatMap((p) => p.occasions ?? []))
-).sort();
-
 export function ShopBrowser({ fixedCategory }: { fixedCategory?: CategoryId }) {
   const sp = useSearchParams();
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<CategoryId | "all">(fixedCategory ?? "all");
-  const [occasion, setOccasion] = useState<string | null>(null);
   const [sort, setSort] = useState<Sort>("featured");
-  const [maxPrice, setMaxPrice] = useState<number | null>(null);
 
   useEffect(() => {
-    const o = sp.get("occasion");
-    if (o) setOccasion(o);
     const c = sp.get("category");
     if (!fixedCategory && c) setCat(c as CategoryId);
   }, [sp, fixedCategory]);
@@ -39,9 +31,6 @@ export function ShopBrowser({ fixedCategory }: { fixedCategory?: CategoryId }) {
   const results = useMemo(() => {
     let list = [...PRODUCTS];
     if (cat !== "all") list = list.filter((p) => p.categories.includes(cat));
-    if (occasion)
-      list = list.filter((p) => (p.occasions ?? []).includes(occasion));
-    if (maxPrice) list = list.filter((p) => p.price <= maxPrice);
     if (q.trim()) {
       const needle = q.trim().toLowerCase();
       list = list.filter(
@@ -67,18 +56,12 @@ export function ShopBrowser({ fixedCategory }: { fixedCategory?: CategoryId }) {
         );
     }
     return list;
-  }, [cat, occasion, q, sort, maxPrice]);
+  }, [cat, q, sort]);
 
-  const hasFilters =
-    q.trim() !== "" ||
-    occasion !== null ||
-    maxPrice !== null ||
-    (!fixedCategory && cat !== "all");
+  const hasFilters = q.trim() !== "" || (!fixedCategory && cat !== "all");
 
   const reset = () => {
     setQ("");
-    setOccasion(null);
-    setMaxPrice(null);
     if (!fixedCategory) setCat("all");
   };
 
@@ -132,44 +115,19 @@ export function ShopBrowser({ fixedCategory }: { fixedCategory?: CategoryId }) {
           </label>
         </div>
 
-        {/* chips */}
-        <div className="mt-2.5 flex gap-2 overflow-x-auto u-scroll pb-1 -mb-1">
-          {!fixedCategory && (
-            <>
-              <Chip active={cat === "all"} onClick={() => setCat("all")}>
-                All
+        {/* category chips */}
+        {!fixedCategory && (
+          <div className="mt-2.5 flex gap-2 overflow-x-auto u-scroll pb-1 -mb-1">
+            <Chip active={cat === "all"} onClick={() => setCat("all")}>
+              All
+            </Chip>
+            {CATEGORIES.map((c) => (
+              <Chip key={c.id} active={cat === c.id} onClick={() => setCat(c.id)}>
+                {c.name}
               </Chip>
-              {CATEGORIES.map((c) => (
-                <Chip
-                  key={c.id}
-                  active={cat === c.id}
-                  onClick={() => setCat(c.id)}
-                >
-                  {c.name}
-                </Chip>
-              ))}
-              <span className="w-px bg-gold-200 shrink-0 mx-1" />
-            </>
-          )}
-          {[5000, 10000, 20000].map((p) => (
-            <Chip
-              key={p}
-              active={maxPrice === p}
-              onClick={() => setMaxPrice(maxPrice === p ? null : p)}
-            >
-              Under {money(p)}
-            </Chip>
-          ))}
-          {ALL_OCCASIONS.map((o) => (
-            <Chip
-              key={o}
-              active={occasion === o}
-              onClick={() => setOccasion(occasion === o ? null : o)}
-            >
-              {o}
-            </Chip>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* meta row */}
@@ -177,7 +135,6 @@ export function ShopBrowser({ fixedCategory }: { fixedCategory?: CategoryId }) {
         <p className="text-sm text-muted">
           <b className="text-forest-900">{results.length}</b>{" "}
           {results.length === 1 ? "gift" : "gifts"}
-          {occasion && <> for {occasion}</>}
         </p>
         {hasFilters && (
           <button

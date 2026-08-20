@@ -159,23 +159,6 @@ export default async function ProductPage({ params }: Params) {
               </p>
             </section>
 
-            {p.occasions && p.occasions.length > 0 && (
-              <section className="mt-7">
-                <h2 className="u-eyebrow">Good for</h2>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {p.occasions.map((o) => (
-                    <Link
-                      key={o}
-                      href={`/shop?occasion=${encodeURIComponent(o)}`}
-                      className="rounded-full border border-gold-300 bg-cream-50 px-3.5 py-1.5 text-[0.75rem] text-forest-800 hover:border-forest-600 transition-colors"
-                    >
-                      {o}
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            )}
-
             <div className="mt-8">
               <Accordion
                 items={[

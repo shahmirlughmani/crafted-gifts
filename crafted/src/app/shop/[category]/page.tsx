@@ -10,7 +10,8 @@ import {
   type CategoryId,
 } from "@/data/products";
 import { ShopBrowser } from "@/components/ShopBrowser";
-import { IconChevron } from "@/components/Icons";
+import { IconChevron, IconGift, IconWhatsApp } from "@/components/Icons";
+import { waLink } from "@/lib/config";
 
 type Params = { params: Promise<{ category: string }> };
 
@@ -76,16 +77,46 @@ export default async function CategoryPage({ params }: Params) {
           <p className="mt-4 max-w-xl text-cream-200/80 leading-relaxed">
             {c.blurb}
           </p>
-          <p className="mt-5 text-[0.8rem] text-cream-200/60">
-            {items.length} {items.length === 1 ? "piece" : "pieces"} available
-          </p>
+          {items.length > 0 && (
+            <p className="mt-5 text-[0.8rem] text-cream-200/60">
+              {items.length} {items.length === 1 ? "piece" : "pieces"} available
+            </p>
+          )}
         </div>
       </div>
 
       <div className="u-wrap pt-6 pb-20">
-        <Suspense fallback={<div className="h-32" />}>
-          <ShopBrowser fixedCategory={c.id as CategoryId} />
-        </Suspense>
+        {items.length === 0 ? (
+          <div className="py-20 text-center max-w-md mx-auto">
+            <IconGift className="w-14 h-14 mx-auto text-gold-400" />
+            <h2 className="mt-5 font-display text-2xl">Coming soon</h2>
+            <p className="mt-3 text-muted text-sm leading-relaxed">
+              {c.comingSoon ??
+                "We're adding pieces to this category right now."}
+            </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
+              <a
+                href={waLink(`Hi! I'd like to ask about ${c.name}.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-6 py-3 text-sm font-medium hover:brightness-105 transition"
+              >
+                <IconWhatsApp className="w-4 h-4" />
+                Ask on WhatsApp
+              </a>
+              <Link
+                href="/shop"
+                className="rounded-full border border-forest-800 px-6 py-3 text-sm font-medium hover:bg-forest-100 transition-colors"
+              >
+                Browse everything else
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <Suspense fallback={<div className="h-32" />}>
+            <ShopBrowser fixedCategory={c.id as CategoryId} />
+          </Suspense>
+        )}
 
         {/* other categories */}
         <div className="mt-20 pt-10 border-t border-gold-200">

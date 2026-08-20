@@ -17,15 +17,6 @@ import {
 } from "@/components/Icons";
 
 const featured = PRODUCTS.filter((p) => p.featured).slice(0, 8);
-const OCCASIONS = [
-  "Birthday",
-  "Anniversary",
-  "Eid",
-  "Get Well Soon",
-  "Thank You",
-  "Just Because",
-];
-
 export default function Home() {
   return (
     <>
@@ -159,7 +150,7 @@ export default function Home() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 lg:gap-6">
           {CATEGORIES.map((c, i) => (
             <Reveal key={c.id} delay={i * 90}>
               <Link href={`/shop/${c.id}`} className="group block">
@@ -169,7 +160,7 @@ export default function Home() {
                       src={c.image}
                       alt={c.name}
                       fill
-                      sizes="(min-width:1024px) 280px, 45vw"
+                      sizes="(min-width:1024px) 230px, 45vw"
                       className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]"
                     />
                   )}
@@ -271,27 +262,6 @@ export default function Home() {
             </ol>
           </Reveal>
         </div>
-      </section>
-
-      {/* ============================ OCCASIONS ========================== */}
-      <section className="u-wrap py-16 lg:py-24 text-center">
-        <Reveal>
-          <p className="u-eyebrow">What&apos;s the occasion?</p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl">
-            Gifts for every moment
-          </h2>
-          <div className="mt-9 flex flex-wrap justify-center gap-2.5">
-            {OCCASIONS.map((o) => (
-              <Link
-                key={o}
-                href={`/shop?occasion=${encodeURIComponent(o)}`}
-                className="rounded-full border border-gold-300 bg-cream-50 px-5 py-2.5 text-sm text-forest-800 hover:bg-forest-800 hover:text-cream-50 hover:border-forest-800 transition-colors"
-              >
-                {o}
-              </Link>
-            ))}
-          </div>
-        </Reveal>
       </section>
 
       {/* ============================== STORY ============================ */}
