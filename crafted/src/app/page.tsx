@@ -33,9 +33,9 @@ export default function Home() {
               </span>
             </h1>
             <p className="mt-6 text-[1.02rem] text-muted max-w-lg leading-relaxed">
-              Crocheted flowers that never wilt, plushies with real character,
-              and gift boxes packed one at a time. Choose something ready-made —
-              or build a basket from scratch, item by item.
+              Choose something ready-made or build a basket from scratch, item
+              by item. Crocheted flowers that never wilt, plushies with real
+              character, and gift boxes packed one at a time.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -76,8 +76,8 @@ export default function Home() {
             <div className="relative aspect-[4/5] sm:aspect-[5/5] max-w-[30rem] mx-auto lg:max-w-none">
               <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-[0_40px_80px_-40px_rgba(31,51,36,.55)]">
                 <Image
-                  src="/crochet/rose-tulip-bouquet.webp"
-                  alt="Hand-crocheted rose and tulip bouquet"
+                  src="/baskets/lamb-sweetheart-basket.webp"
+                  alt="Pink gift basket with a hand-crocheted lamb"
                   fill
                   priority
                   sizes="(min-width:1024px) 46vw, 90vw"
@@ -181,33 +181,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============================ FEATURED =========================== */}
-      <section className="u-wrap pb-16 lg:pb-24">
-        <Reveal className="flex items-end justify-between gap-6 flex-wrap">
-          <div>
-            <p className="u-eyebrow">Loved most</p>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl">
-              Our best sellers
-            </h2>
-          </div>
-          <Link
-            href="/shop"
-            className="group inline-flex items-center gap-1.5 text-sm font-medium text-forest-800 border-b border-gold-400 pb-0.5 hover:text-gold-700 transition-colors"
-          >
-            View all {PRODUCTS.length} gifts
-            <IconChevron className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        </Reveal>
-
-        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10 lg:gap-x-7">
-          {featured.map((p, i) => (
-            <Reveal key={p.id} delay={(i % 4) * 80}>
-              <ProductCard p={p} priority={i < 4} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* ========================== BUILD YOUR OWN ======================= */}
       <section className="relative overflow-hidden bg-forest-900 text-cream-100">
         <div className="absolute inset-0 opacity-[0.07]">
@@ -261,6 +234,33 @@ export default function Home() {
               ))}
             </ol>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ============================ FEATURED =========================== */}
+      <section className="u-wrap pb-16 lg:pb-24">
+        <Reveal className="flex items-end justify-between gap-6 flex-wrap">
+          <div>
+            <p className="u-eyebrow">Loved most</p>
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl">
+              Our best sellers
+            </h2>
+          </div>
+          <Link
+            href="/shop"
+            className="group inline-flex items-center gap-1.5 text-sm font-medium text-forest-800 border-b border-gold-400 pb-0.5 hover:text-gold-700 transition-colors"
+          >
+            View all {PRODUCTS.length} gifts
+            <IconChevron className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </Reveal>
+
+        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10 lg:gap-x-7">
+          {featured.map((p, i) => (
+            <Reveal key={p.id} delay={(i % 4) * 80}>
+              <ProductCard p={p} priority={i < 4} />
+            </Reveal>
+          ))}
         </div>
       </section>
 

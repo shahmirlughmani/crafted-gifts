@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Toast } from "@/components/Toast";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { InstagramFab } from "@/components/InstagramFab";
 import { CONFIG } from "@/lib/config";
 
 /* Fonts are self-hosted (no runtime call to Google) — faster and privacy-safe. */
@@ -101,7 +101,7 @@ export default function RootLayout({
           <Footer />
           <CartDrawer />
           <Toast />
-          <WhatsAppFab />
+          <InstagramFab />
         </CartProvider>
       </body>
     </html>

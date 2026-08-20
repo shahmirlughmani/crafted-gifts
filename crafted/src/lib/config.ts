@@ -20,6 +20,7 @@ export const CONFIG = {
     whatsappNumber: "923275023235",
     whatsappDisplay: "+92 327 5023235",
     instagram: "https://www.instagram.com/craftedgiftsbys/",
+    instagramDm: "https://ig.me/m/craftedgiftsbys",
     instagramHandle: "craftedgiftsbys",
     email: "craftedgiftsbys@gmail.com",
   },
@@ -28,7 +29,7 @@ export const CONFIG = {
     pickupArea: "E-11, Islamabad",
     pickupLine: "Pickup available in E-11, Islamabad.",
     urgentLine: "Urgent orders available. Extra charges apply.",
-    readyIn: "Usually ready in 24 hours",
+    readyIn: "Gifts ready in 4–5 days",
   },
 
   currency: "Rs.",

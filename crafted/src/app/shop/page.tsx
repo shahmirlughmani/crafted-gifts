@@ -6,7 +6,7 @@ import { PRODUCTS } from "@/data/products";
 export const metadata: Metadata = {
   title: "Shop All Gifts",
   description:
-    "Browse every gift — handmade crochet, plushies, hampers and boxes for him and for her. Filter by occasion and price.",
+    "Browse every gift — handmade crochet, baskets, hampers and boxes for him and for her. Search by name or by what's inside.",
 };
 
 export default function ShopPage() {

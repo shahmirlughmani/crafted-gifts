@@ -436,6 +436,71 @@ const BASKETS: Product[] = [
     featured: true,
   },
   {
+    id: "b17",
+    slug: "designer-essentials-tray",
+    name: "Designer Essentials Tray",
+    price: 46500,
+    pricePending: true,
+    categories: ["for-him"],
+    badge: "Premium",
+    image: "/baskets/designer-essentials-tray.webp",
+    gallery: ["/baskets/designer-essentials-tray-full.webp"],
+    summary:
+      "Our most expensive box — Prada fragrance, a Mont Blanc card holder and a silver chain, laid out on a clear acrylic tray.",
+    contents: [
+      "Prada Luna Rossa Carbon EDT 50 ml",
+      "Mont Blanc leather card holder",
+      "Silver chain in a gift box",
+      "Black ribbed polo shirt",
+      "Nivea Men face wash",
+      "3 × Pepsi",
+      "Mackintosh's Quality Street",
+      "Noms Havsalt crisps",
+      "Tiva gummy sweets",
+    ],
+    featured: true,
+  },
+  {
+    id: "b18",
+    slug: "birthday-knit-box",
+    name: "Birthday Knit Box",
+    price: 21500,
+    pricePending: true,
+    categories: ["for-him"],
+    badge: "New",
+    image: "/baskets/birthday-knit-box.webp",
+    gallery: ["/baskets/birthday-knit-box-full.webp"],
+    summary:
+      "A Jack & Jones premium knit polo folded under fairy lights in a clear-panel box, with a birthday card ready to sign.",
+    contents: [
+      "Jack & Jones premium knit polo",
+      "Warm fairy lights",
+      "Happy Birthday card",
+      "Blue satin bow",
+      "Burgundy clear-panel gift box",
+    ],
+    featured: true,
+  },
+  {
+    id: "b19",
+    slug: "chocolate-lovers-box",
+    name: "Chocolate Lover's Box",
+    price: 11500,
+    pricePending: true,
+    categories: ["for-him", "for-her"],
+    image: "/baskets/chocolate-lovers-box.webp",
+    gallery: ["/baskets/chocolate-lovers-box-full.webp"],
+    summary:
+      "Nothing but good chocolate — Lindt Excellence, milk chocolate and a tin of treats behind a clear panel.",
+    contents: [
+      "Lindt Excellence Extra Creamy",
+      "Milk chocolate bar",
+      "Assorted chocolate tin",
+      "Chocolate selection box",
+      "Burgundy clear-panel gift box",
+    ],
+  },
+  {
     id: "b16",
     slug: "movie-night-snack-box",
     name: "Movie Night Snack Box",
@@ -753,7 +818,105 @@ const HANDMADE: Product[] = [
   },
 ];
 
-export const PRODUCTS: Product[] = [...BASKETS, ...HANDMADE];
+
+/* --------------------------------------------------------------------------
+   EARLIER RANGE — the original 15 boxes and baskets.
+   PRICES HERE ARE THE REAL ONES FROM THE OLD SITE.
+   -------------------------------------------------------------------------- */
+const LEGACY: Product[] = [
+  {
+    id: "l1", slug: "blue-snack-box", name: "Blue Snack Box", price: 32500,
+    categories: ["for-him"], badge: "Best Seller", image: "/products/blue-snack-box.webp",
+    summary: "Our biggest snack spread — an overflowing box of imported chocolate, chips and energy drinks.",
+    contents: ["2 × Doritos","2 × Lindt chocolate bars","6 × Red Bull","Fox's candy tin","2 × Takis","2 × Pringles","Cookie box","Smarties","Ice Breakers mints","Trident gum","Oreo wafers box"],
+  },
+  {
+    id: "l2", slug: "eastern-clothes-box", name: "Eastern Clothes Box", price: 35000,
+    categories: ["for-him"], badge: "Premium", image: "/products/eastern-clothes-box.webp",
+    summary: "A complete eastern look, boxed — tailored suit, handmade chappal and finishing details.",
+    contents: ["Dynasty unstitched suit","Mocciani Peshawari chappal","Royal Tag cufflinks"],
+  },
+  {
+    id: "l3", slug: "dry-fruit-basket", name: "Dry Fruit Basket", price: 9000,
+    categories: ["for-him","for-her"], image: "/products/dry-fruit-basket.webp",
+    summary: "Six premium dry fruits arranged in a woven basket — the gift that always lands well.",
+    contents: ["Almonds","Cashews","Pistachios","Walnuts","Dried apricots","Raisins","Presented in a woven gift basket"],
+  },
+  {
+    id: "l4", slug: "western-clothes-box", name: "Western Clothes Box", price: 23000,
+    categories: ["for-him"], image: "/products/western-clothes-box.webp",
+    summary: "Smart-casual essentials in an elegant presentation box.",
+    contents: ["Lama loafers","Lama shirt","Elegant gift presentation box"],
+  },
+  {
+    id: "l5", slug: "signature-gift-box", name: "Signature Gift Box", price: 15500,
+    categories: ["for-him"], image: "/products/signature-gift-box.webp",
+    summary: "Our signature mix — one wardrobe piece, one leather piece, and the small handmade touches we're known for.",
+    contents: ["Engine shirt","Jafferjees wallet","Janan Sports mini fragrance","Handmade crochet rose","Mini letter bottle","Mini Bounty bar"],
+  },
+  {
+    id: "l6", slug: "gentlemans-essentials-box", name: "Gentleman's Essentials Box", price: 23500,
+    categories: ["for-him"], image: "/products/gentlemans-essentials-box.webp",
+    summary: "Everything he reaches for daily, upgraded — shirt, leather goods and a steel bracelet.",
+    contents: ["Lama shirt","Jafferjees wallet","Jafferjees card holder","Jafferjees keyring","Stainless steel bracelet"],
+  },
+  {
+    id: "l7", slug: "luxe-green-box", name: "Luxe Green Box", price: 38500,
+    categories: ["for-him"], badge: "Premium", image: "/products/luxe-green-box.webp",
+    summary: "Our most luxurious box — watch, sunglasses and knitwear for the milestone occasions.",
+    contents: ["Sveston watch","Lacoste sunglasses","Outfitters knit polo"],
+  },
+  {
+    id: "l8", slug: "classic-snack-box", name: "Classic Snack Box", price: 17500,
+    categories: ["for-him","for-her"], image: "/products/classic-snack-box.webp",
+    summary: "Snacks and self-care together — the crowd-pleaser of our range.",
+    contents: ["6 × Pepsi","Mövenpick coffee","2 × Nom Nachos","Fox's toffee","2 × Pringles","2 × Piper's Gold biscuits","Vaseline lip balm","Nivea lotion","Nivea shaving gel"],
+  },
+  {
+    id: "l9", slug: "cambridge-clothes-box", name: "Cambridge Clothes Box", price: 20500,
+    categories: ["for-him"], image: "/products/cambridge-clothes-box.webp",
+    summary: "A crisp dress shirt with the grooming pieces to match.",
+    contents: ["Cambridge dress shirt","J. perfume","Nivea face wash","Nivea after-shave lotion"],
+  },
+  {
+    id: "l10", slug: "deluxe-care-basket", name: "Deluxe Care Basket", price: 11500,
+    categories: ["for-him","for-her"], image: "/products/deluxe-care-basket.webp",
+    summary: "A full skincare and body-care line-up, cushioned with treats.",
+    contents: ["Cocoa wafers","Crisp nimko","2 × Pepsi","Nivea face wash","Nivea face cream","Nivea lotion","Nivea body wash","Nivea deodorant","Nivea body spray"],
+  },
+  {
+    id: "l11", slug: "classic-care-basket", name: "Classic Care Basket", price: 9500,
+    categories: ["for-him","for-her"], image: "/products/classic-care-basket.webp",
+    summary: "The essentials edit of our care basket, at a friendlier price.",
+    contents: ["Cocoa wafers","Crisp nimko","2 × Pepsi","Nivea lotion","Nivea body wash","Nivea deodorant","Nivea body spray"],
+  },
+  {
+    id: "l12", slug: "birthday-box", name: "Birthday Box", price: 16500,
+    categories: ["for-him"], image: "/products/birthday-box.webp",
+    summary: "Built for the day itself — a wearable gift, a fragrance and a card to sign.",
+    contents: ["Outfitters men's T-shirt","Janan Musk 30 ml","Nivea face wash","Nivea body spray","Nivea face cream","Birthday card"],
+  },
+  {
+    id: "l13", slug: "cougar-shirt-box", name: "Cougar Shirt Box", price: 15000,
+    categories: ["for-him"], image: "/products/cougar-shirt-box.webp",
+    summary: "A shirt, grooming basics and a handwritten note in a bottle.",
+    contents: ["Cougar shirt","Nivea body spray","Nivea face wash","Janan Sports mini fragrance","Bounty bar","Letter bottle"],
+  },
+  {
+    id: "l14", slug: "mini-treat-box", name: "Mini Treat Box", price: 5000,
+    categories: ["for-him","for-her"], badge: "Popular", image: "/products/mini-treat-box.webp",
+    summary: "Small, sweet and always in stock — perfect as an add-on or a first gift.",
+    contents: ["Nike body spray","Pepsi Diet","Piper's Gold biscuits","Vaseline lip balm","2 × Mars bars"],
+  },
+  {
+    id: "l15", slug: "snack-care-box", name: "Snack & Care Box", price: 15500,
+    categories: ["for-him","for-her"], image: "/products/snack-care-box.webp",
+    summary: "Half pantry, half vanity — the balanced box when you're not sure what they'd pick.",
+    contents: ["2 × Pepsi Zero","Nom Nachos","Nivea body spray","Nivea cream","Nivea face wash","Piper's Gold biscuits","Vaseline lip balm","Janan perfume","Fox's candy"],
+  },
+];
+
+export const PRODUCTS: Product[] = [...BASKETS, ...LEGACY, ...HANDMADE];
 
 export const getProduct = (slug: string) =>
   PRODUCTS.find((p) => p.slug === slug);
