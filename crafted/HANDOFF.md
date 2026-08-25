@@ -118,9 +118,19 @@ ever comes back, that's the one place to change.
 6. Product pages still route orders through WhatsApp, but the floating contact
    button was changed to an Instagram DM. The owner hasn't said whether the
    rest should move to Instagram too.
-7. **Photo resolution.** The 9 products added from his Word document were
-   extracted from embedded images (~500–800 px), so their cards are upscaled to
-   the 1000×1000 house size. Ask for the originals when he has them.
+7. **Photo resolution.** Every product photo taken from his Word document was
+   extracted from an embedded image (~500–1100 px), so the cards are upscaled to
+   the 1000×1000 house size and are softer than the older studio shots. Ask for
+   the originals when he has them.
+
+## Photo naming
+
+- `<slug>.webp` — 1000×1000 card image
+- `<slug>-full.webp` — the same shot uncropped, first thumbnail in the gallery
+- `<slug>-catalogue.webp` / `-catalogue-full.webp` — the shot from the owner's
+  *Choose Your Vessel* document. On the 14 products that already existed he asked
+  for these to lead, so they are the `image` and the older studio photo drops
+  into the gallery behind them.
 
 ## Working with the owner
 
