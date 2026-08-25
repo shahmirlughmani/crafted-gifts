@@ -37,24 +37,32 @@ utility, which silently breaks `text-cream-50` on dark sections.
 
 | What | File |
 |---|---|
-| Payment, WhatsApp, Instagram, pickup wording, delivery rules | `src/lib/config.ts` |
-| All 49 products | `src/data/products.ts` |
-| Gift customizer options and prices | `src/data/customizer.ts` |
-| Product photos | `public/baskets`, `public/crochet`, `public/products` |
+| Payment, WhatsApp, Instagram, pickup wording, delivery rules, cake lead time | `src/lib/config.ts` |
+| All 72 products | `src/data/products.ts` |
+| Gift builder vessels, items and prices | `src/data/customizer.ts` |
+| Product photos | `public/baskets`, `public/crochet`, `public/products`, `public/cakes` |
 
-`src/data/products.ts` has three arrays that merge into `PRODUCTS`:
+`src/data/products.ts` has four arrays that merge into `PRODUCTS`:
 
-- `BASKETS` — 19 current baskets and boxes (`b1`–`b19`)
+- `LATEST` — 22 products added from the owner's own studio photography (`n1`–`n22`)
+- `BASKETS` — 20 baskets and boxes (`b1`–`b20`)
 - `LEGACY` — 15 boxes from the original site (`l1`–`l15`)
 - `HANDMADE` — 15 crochet and plushie pieces (`h1`–`h15`)
+
+> **The `b`/`l`/`n` ids are the safety net.** A gap in the sequence means a
+> product was deleted. `b10` and `b13` went missing in commit `37c8a8a` and were
+> only caught because their photos were still sitting unreferenced in
+> `public/baskets`. Before committing a products change, check the id sequence
+> and check that every `.webp` on disk is referenced.
 
 ## Categories
 
 Five: `for-him`, `for-her`, `crochet`, `plushies`, `cakes`.
 
-A product can belong to more than one. Plushies and Cakes are intentionally
-empty and render a "coming soon" state driven by the `comingSoon` field on the
-category — the owner will add products later.
+A product can belong to more than one. Every category now has products —
+`comingSoon` on a category is the empty state and is currently unused. Cakes
+carries a `note` (lead time and coverage area) that renders on the category
+header and on every cake product page.
 
 There are deliberately **no occasion or price-band filters**. The owner asked
 for these to be removed: the baskets aren't fixed products, so grouping them
@@ -74,24 +82,45 @@ Prices come from the client, so they can be tampered with. Acceptable for now
 given every order is confirmed manually on WhatsApp before it's made, but
 worth flagging if the business grows.
 
+## Delivery
+
+There is **no flat delivery fee**. Per the owner's *Choose Your Vessel* brief:
+
+- Islamabad — within 3 days; outside Islamabad — within 6–7 days.
+- Orders are confirmed only after full advance payment.
+- The charge depends on the address and is quoted on WhatsApp after confirmation.
+
+So `useCart().delivery` is `null` and `total === subtotal`. The cart and
+checkout render "Quoted on WhatsApp" where the figure used to be. If a flat fee
+ever comes back, that's the one place to change.
+
 ## Still outstanding
 
-1. **31 products have placeholder prices.** Everything with
-   `pricePending: true` shows a "Price to be confirmed" badge — all 19 baskets
-   and all 15 crochet pieces except where noted. The 15 `LEGACY` boxes have
-   real prices. Getting real numbers from the owner is the last thing blocking
-   real sales.
-2. **3 basket photos never uploaded** — a black box with a burnt-paper letter,
-   a pink anniversary basket with a penguin plushie, and a Dove Eid basket in
-   dark wicker. The owner wants these added to For Her.
-3. **Contents lists were written from the photos**, not from the owner. Some
-   items are guesses (the Gym Essentials Box especially). Worth a review pass.
-4. **The Vercel project is named `crafted-giftss`** — double S, likely a typo.
+1. **45 products still have placeholder prices** (`pricePending: true` shows a
+   "Price to be confirmed" badge). The owner's price list covered For Him, the
+   four For Her baskets, the cakes and the plushies; the remaining baskets and
+   most crochet pieces are still waiting on real numbers.
+2. **Two products need a decision.** The owner's list names both `l6`
+   (Rs. 23,500) and `l12` (Rs. 20,500) "Gentleman's Essentials Box". `l12` kept
+   its old name, *Birthday Box*, to avoid the collision — ask him which is which.
+   And the Pink Anniversary Basket (`n3`) is the one product in his list with no
+   price against it.
+3. **Vessel prices are missing.** The builder offers the six vessels and their
+   sizes but prices none of them — the list gives sizes only. Right now the
+   vessel shows as "Included" and the builder totals the contents and card. Get
+   vessel prices and they slot straight into `VESSELS` in `customizer.ts`.
+4. **Contents lists for the older baskets were written from the photos**, not
+   from the owner. Some items are guesses (the Gym Essentials Box especially).
+   Everything covered by his price list is now his own wording.
+5. **The Vercel project is named `crafted-giftss`** — double S, likely a typo.
    Renaming it changes the public URL, so `CONFIG.brand.url` would need
    updating too.
-5. Product pages still route orders through WhatsApp, but the floating contact
+6. Product pages still route orders through WhatsApp, but the floating contact
    button was changed to an Instagram DM. The owner hasn't said whether the
    rest should move to Instagram too.
+7. **Photo resolution.** The 9 products added from his Word document were
+   extracted from embedded images (~500–800 px), so their cards are upscaled to
+   the 1000×1000 house size. Ask for the originals when he has them.
 
 ## Working with the owner
 

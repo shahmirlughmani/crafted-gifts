@@ -126,8 +126,8 @@ export default function Home() {
                   "Custom Baskets",
                   "Keepsakes",
                   "Handmade to Order",
-                  "Rs. 1,200 Delivery in Twin Cities",
-                  "Nationwide via TCS",
+                  "Islamabad in 3 Days",
+                  "Nationwide in 6–7 Days",
                 ].map((t) => (
                   <li key={t} className="flex items-center gap-10">
                     {t}

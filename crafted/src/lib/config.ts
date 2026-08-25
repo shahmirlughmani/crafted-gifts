@@ -29,18 +29,31 @@ export const CONFIG = {
     pickupArea: "E-11, Islamabad",
     pickupLine: "Pickup available in E-11, Islamabad.",
     urgentLine: "Urgent orders depend on the queue and the city — just ask.",
-    readyIn: "Gifts ready in 4–5 days",
+    readyIn: "Every order is prepared and packed by hand",
+    /** Orders are only put into the queue once payment has cleared. */
+    advanceLine: "Orders are confirmed only after full advance payment.",
   },
 
   delivery: {
-    /** Flat inDrive charge inside the twin cities. */
-    localFee: 1200,
-    localAreas: "Islamabad & Rawalpindi",
-    localLine: "Rs. 1,200 flat within Islamabad & Rawalpindi",
-    /** Everywhere else ships via TCS and is quoted after the order. */
-    outsideLine:
-      "Outside the twin cities we ship via TCS. The Rs. 1,200 covers the minimum TCS rate for 2–3 kg — if your order is heavier we'll message you the exact charge from the TCS rate card before dispatch.",
-    shortNote: "Rs. 1,200 delivery · heavier out-of-city orders quoted after",
+    localAreas: "Islamabad",
+    localLine: "Islamabad — delivery within 3 days",
+    outsideAreas: "Outside Islamabad",
+    outsideLine: "Outside Islamabad — delivery within 6–7 days",
+    /**
+     * There is no flat rate any more. The charge depends on the address and is
+     * quoted on WhatsApp once the order is confirmed, so the cart never adds a
+     * delivery line — see `delivery: null` in lib/cart.tsx.
+     */
+    chargeLine:
+      "Delivery charges depend on your location and are shared on WhatsApp once your order is confirmed.",
+    shortNote: "Islamabad in 3 days · elsewhere 6–7 · delivery quoted on WhatsApp",
+    quotedLabel: "Quoted on WhatsApp",
+  },
+
+  cakes: {
+    leadTime: "Cake orders must be placed at least 1 week before delivery.",
+    areas: "Cakes are available in Islamabad & Rawalpindi only.",
+    note: "Cake orders must be placed at least 1 week before delivery and are available in Islamabad & Rawalpindi only.",
   },
 
   currency: "Rs.",

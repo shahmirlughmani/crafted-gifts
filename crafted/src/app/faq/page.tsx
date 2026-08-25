@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CONFIG } from "@/lib/config";
-import { money } from "@/lib/format";
 import { Accordion } from "@/components/Accordion";
 import { FulfilmentNote } from "@/components/FulfilmentNote";
 import { IconInstagram } from "@/components/Icons";
@@ -19,7 +18,11 @@ const FAQS = [
   },
   {
     q: "How much is delivery?",
-    a: `${money(CONFIG.delivery.localFee)} flat within ${CONFIG.delivery.localAreas}, sent by inDrive. ${CONFIG.delivery.outsideLine}`,
+    a: `${CONFIG.delivery.chargeLine} ${CONFIG.delivery.localLine}. ${CONFIG.delivery.outsideLine}.`,
+  },
+  {
+    q: "When will my order arrive?",
+    a: `${CONFIG.delivery.localLine}. ${CONFIG.delivery.outsideLine}. ${CONFIG.fulfilment.advanceLine} ${CONFIG.cakes.note}`,
   },
   {
     q: "I need it sooner — is that possible?",
@@ -35,7 +38,7 @@ const FAQS = [
   },
   {
     q: "How long do crochet pieces take?",
-    a: `Everything is made to order — ${CONFIG.fulfilment.readyIn.toLowerCase()}. Larger pieces like bouquets and shadow boxes sit at the longer end of that. We'll always tell you the honest timeline before you pay.`,
+    a: `Everything is made to order and crocheted by hand. Larger pieces like bouquets and shadow boxes need the most notice, so tell us your date first — we'll give you an honest timeline before you pay.`,
   },
 ];
 

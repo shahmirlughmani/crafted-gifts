@@ -8,7 +8,6 @@ import {
   useMemo,
   useState,
 } from "react";
-import { CONFIG } from "./config";
 import { PRODUCTS } from "@/data/products";
 
 export type CartLine = {
@@ -27,7 +26,8 @@ type CartState = {
   lines: CartLine[];
   count: number;
   subtotal: number;
-  delivery: number;
+  /** null = charged separately, quoted on WhatsApp once the order is confirmed. */
+  delivery: number | null;
   total: number;
   ready: boolean;
   add: (line: Omit<CartLine, "qty">, qty?: number) => void;
@@ -150,13 +150,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo<CartState>(() => {
     const subtotal = lines.reduce((s, l) => s + l.price * l.qty, 0);
-    const delivery = subtotal === 0 ? 0 : CONFIG.delivery.localFee;
+    // Delivery is no longer a flat fee — it depends on the address and is
+    // quoted on WhatsApp after confirmation, so it never enters the total.
+    const delivery = null;
     return {
       lines,
       count: lines.reduce((s, l) => s + l.qty, 0),
       subtotal,
       delivery,
-      total: subtotal + delivery,
+      total: subtotal,
       ready,
       add,
       addProduct,

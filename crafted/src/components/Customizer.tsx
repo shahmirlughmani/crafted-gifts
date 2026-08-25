@@ -4,10 +4,11 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
   CARDS,
-  CONTAINERS,
+  VESSELS,
   ITEM_GROUPS,
-  SIZES,
   ALL_ITEMS,
+  sizesFor,
+  type SizeId,
 } from "@/data/customizer";
 import { useCart } from "@/lib/cart";
 import { CONFIG } from "@/lib/config";
@@ -24,8 +25,8 @@ import { FulfilmentNote } from "./FulfilmentNote";
 export function Customizer() {
   const { add, say } = useCart();
 
-  const [container, setContainer] = useState(CONTAINERS[0].id);
-  const [size, setSize] = useState(SIZES[1].id);
+  const [vessel, setVessel] = useState(VESSELS[0].id);
+  const [size, setSize] = useState<SizeId>("large");
   const [picked, setPicked] = useState<Record<string, number>>({});
   const [card, setCard] = useState(CARDS[0].id);
   const [message, setMessage] = useState("");
@@ -33,8 +34,12 @@ export function Customizer() {
   const [notes, setNotes] = useState("");
   const [openGroup, setOpenGroup] = useState<string>(ITEM_GROUPS[0].id);
 
-  const containerOpt = CONTAINERS.find((c) => c.id === container)!;
-  const sizeOpt = SIZES.find((s) => s.id === size)!;
+  const vesselOpt = VESSELS.find((v) => v.id === vessel)!;
+  const vesselSizes = sizesFor(vessel);
+  // Vessels aren't made in every size, so fall back to the largest they do come
+  // in rather than leaving nothing selected.
+  const sizeOpt =
+    vesselSizes.find((s) => s.id === size) ?? vesselSizes[vesselSizes.length - 1];
   const cardOpt = CARDS.find((c) => c.id === card)!;
 
   const itemCount = useMemo(
@@ -51,7 +56,9 @@ export function Customizer() {
     [picked]
   );
 
-  const total = containerOpt.price + sizeOpt.price + itemsTotal + cardOpt.price;
+  // The vessel and its size are included — the owner's list prices them with the
+  // final quote, so only the contents and the card are totalled here.
+  const total = itemsTotal + cardOpt.price;
   const overCapacity = itemCount > sizeOpt.maxItems;
 
   const bump = (id: string, delta: number) =>
@@ -65,7 +72,7 @@ export function Customizer() {
 
   const buildLines = () => {
     const lines = [
-      `${containerOpt.name} · ${sizeOpt.name}`,
+      `${vesselOpt.name} · ${sizeOpt.name}`,
       ...Object.entries(picked).map(
         ([id, qty]) => `${ALL_ITEMS[id].name}${qty > 1 ? ` ×${qty}` : ""}`
       ),
@@ -90,7 +97,7 @@ export function Customizer() {
     add({
       key: `custom:${Date.now()}`,
       kind: "custom",
-      name: `Custom ${sizeOpt.name} ${containerOpt.name}`,
+      name: `Custom ${sizeOpt.name} ${vesselOpt.name}`,
       price: total,
       image: null,
       details: buildLines(),
@@ -109,14 +116,13 @@ export function Customizer() {
         {/* ---------------- step 1 ---------------- */}
         <Step n={1} title="Choose your vessel" hint="What it all sits in.">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {CONTAINERS.map((c) => (
+            {VESSELS.map((v) => (
               <Tile
-                key={c.id}
-                active={container === c.id}
-                onClick={() => setContainer(c.id)}
-                title={c.name}
-                sub={c.note}
-                price={c.price}
+                key={v.id}
+                active={vessel === v.id}
+                onClick={() => setVessel(v.id)}
+                title={v.name}
+                sub={v.note}
               />
             ))}
           </div>
@@ -126,17 +132,18 @@ export function Customizer() {
         <Step
           n={2}
           title="Pick a size"
-          hint="Bigger sizes hold more — we'll tell you if you overfill."
+          hint={`The ${vesselOpt.name} is made in ${
+            vesselSizes.length === 1 ? "one size" : "these sizes"
+          } — we'll tell you if you overfill.`}
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {SIZES.map((s) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {vesselSizes.map((s) => (
               <Tile
                 key={s.id}
-                active={size === s.id}
+                active={sizeOpt.id === s.id}
                 onClick={() => setSize(s.id)}
                 title={s.name}
                 sub={s.guide}
-                price={s.price}
               />
             ))}
           </div>
@@ -362,13 +369,17 @@ export function Customizer() {
             </h2>
             <p className="text-[0.72rem] text-cream-200/65 mt-0.5">
               {itemCount} {itemCount === 1 ? "item" : "items"} ·{" "}
-              {sizeOpt.name} {containerOpt.name}
+              {sizeOpt.name} {vesselOpt.name}
             </p>
           </div>
 
           <div className="px-5 py-4 space-y-2 max-h-[22rem] overflow-y-auto u-scroll">
-            <Row label={containerOpt.name} value={containerOpt.price} />
-            <Row label={`${sizeOpt.name} size`} value={sizeOpt.price} />
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-[0.82rem] text-muted">
+                {vesselOpt.name} · {sizeOpt.name}
+              </span>
+              <span className="text-[0.82rem] text-gold-700">Included</span>
+            </div>
 
             {itemCount === 0 ? (
               <p className="py-4 text-center text-[0.82rem] text-muted">
@@ -419,7 +430,7 @@ export function Customizer() {
               </span>
             </div>
             <p className="text-[0.7rem] text-muted mt-0.5">
-              Excluding delivery · {CONFIG.delivery.localLine}
+              Vessel included · delivery {CONFIG.delivery.quotedLabel.toLowerCase()}
             </p>
 
             <button
@@ -506,7 +517,8 @@ function Tile({
   onClick: () => void;
   title: string;
   sub?: string;
-  price: number;
+  /** Omitted for vessels and sizes — those are included in the final quote. */
+  price?: number;
 }) {
   return (
     <button
@@ -530,9 +542,11 @@ function Tile({
       {sub && (
         <span className="block text-[0.72rem] text-muted mt-0.5">{sub}</span>
       )}
-      <span className="block text-[0.78rem] text-gold-700 mt-1.5 tabular-nums">
-        {price === 0 ? "Free" : `+ ${money(price)}`}
-      </span>
+      {price !== undefined && (
+        <span className="block text-[0.78rem] text-gold-700 mt-1.5 tabular-nums">
+          {price === 0 ? "Free" : `+ ${money(price)}`}
+        </span>
+      )}
     </button>
   );
 }

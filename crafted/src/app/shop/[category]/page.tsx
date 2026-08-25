@@ -77,6 +77,11 @@ export default async function CategoryPage({ params }: Params) {
           <p className="mt-4 max-w-xl text-cream-200/80 leading-relaxed">
             {c.blurb}
           </p>
+          {c.note && (
+            <p className="mt-4 max-w-xl rounded-xl border border-gold-300/40 bg-cream-50/10 px-4 py-3 text-[0.82rem] text-gold-200 leading-relaxed">
+              {c.note}
+            </p>
+          )}
           {items.length > 0 && (
             <p className="mt-5 text-[0.8rem] text-cream-200/60">
               {items.length} {items.length === 1 ? "piece" : "pieces"} available

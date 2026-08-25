@@ -62,7 +62,7 @@ export function Header() {
           </span>
           <span className="hidden md:inline-flex items-center gap-1.5">
             <IconSparkle className="w-3.5 h-3.5 text-gold-300" />
-            Nationwide via TCS
+            {CONFIG.delivery.outsideLine}
           </span>
         </div>
       </div>

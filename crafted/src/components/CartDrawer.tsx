@@ -92,8 +92,8 @@ export function CartDrawer() {
             <div className="px-5 pt-4 pb-3 border-b border-gold-200/70">
               <p className="text-[0.78rem] text-muted flex items-start gap-2">
                 <IconTruck className="w-4 h-4 mt-0.5 shrink-0 text-gold-600" />
-                {CONFIG.delivery.localLine}. Heavier out-of-city orders are
-                quoted after you order.
+                {CONFIG.delivery.localLine} · {CONFIG.delivery.outsideLine}.{" "}
+                {CONFIG.delivery.chargeLine}
               </p>
             </div>
 
@@ -179,7 +179,11 @@ export function CartDrawer() {
               </div>
               <div className="flex justify-between text-sm text-muted">
                 <span>Delivery</span>
-                <span className="tabular-nums">{money(delivery)}</span>
+                <span>
+                  {delivery === null
+                    ? CONFIG.delivery.quotedLabel
+                    : money(delivery)}
+                </span>
               </div>
               <div className="flex justify-between font-display text-lg text-forest-900 pt-1.5 border-t border-gold-200/70">
                 <span>Total</span>

@@ -134,6 +134,12 @@ export default async function ProductPage({ params }: Params) {
               <ProductBuy p={p} />
             </div>
 
+            {p.categories.includes("cakes") && (
+              <p className="mt-7 rounded-2xl border border-gold-300 bg-gold-100 px-5 py-4 text-[0.85rem] text-gold-700 leading-relaxed">
+                {CONFIG.cakes.note}
+              </p>
+            )}
+
             <div className="mt-7">
               <FulfilmentNote />
             </div>
@@ -163,7 +169,7 @@ export default async function ProductPage({ params }: Params) {
                 items={[
                   {
                     q: "Delivery & pickup",
-                    a: `${CONFIG.fulfilment.pickupLine} ${CONFIG.fulfilment.readyIn}. ${CONFIG.delivery.localLine}. ${CONFIG.delivery.outsideLine} ${CONFIG.fulfilment.urgentLine}`,
+                    a: `${CONFIG.fulfilment.pickupLine} ${CONFIG.delivery.localLine}. ${CONFIG.delivery.outsideLine}. ${CONFIG.delivery.chargeLine} ${CONFIG.fulfilment.advanceLine} ${CONFIG.fulfilment.urgentLine}`,
                   },
                   {
                     q: "Can I customise this?",

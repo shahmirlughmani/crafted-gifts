@@ -20,7 +20,7 @@ export default function CustomizePage() {
         </h1>
         <p className="mt-5 text-muted leading-relaxed">
           Pick the vessel, choose a size, then tick exactly what goes inside.
-          The total updates as you go — nothing is quoted later. Add a card and
+          The total updates as you go, so you always know what the contents cost — only delivery is quoted afterwards. Add a card and
           we&apos;ll handwrite your message.
         </p>
       </header>

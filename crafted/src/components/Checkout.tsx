@@ -94,7 +94,9 @@ export function Checkout() {
       ),
       "",
       `Subtotal: ${money(subtotal)}`,
-      `Delivery: ${money(delivery)}`,
+      `Delivery: ${
+        delivery === null ? CONFIG.delivery.quotedLabel : money(delivery)
+      }`,
       `Total: ${money(total)}`,
       "",
       `Name: ${f.name}`,
@@ -490,7 +492,11 @@ export function Checkout() {
               </div>
               <div className="flex justify-between text-sm text-muted">
                 <span>Delivery</span>
-                <span className="tabular-nums">{money(delivery)}</span>
+                <span>
+                  {delivery === null
+                    ? CONFIG.delivery.quotedLabel
+                    : money(delivery)}
+                </span>
               </div>
               <div className="flex justify-between font-display text-xl text-forest-900 pt-2 border-t border-gold-200/70">
                 <span>Total</span>
@@ -515,7 +521,8 @@ export function Checkout() {
               />
 
               <p className="text-[0.68rem] text-muted text-center pt-1 leading-relaxed">
-                {CONFIG.delivery.localLine}. {CONFIG.delivery.outsideLine}
+                {CONFIG.delivery.localLine} · {CONFIG.delivery.outsideLine}.{" "}
+                {CONFIG.delivery.chargeLine} {CONFIG.fulfilment.advanceLine}
               </p>
             </div>
           </div>
