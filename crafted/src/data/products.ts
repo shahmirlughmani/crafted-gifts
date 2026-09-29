@@ -95,9 +95,6 @@ const BASKETS: Product[] = [
     categories: ["for-her"],
     badge: "Best Seller",
     image: "/baskets/pink-sweetheart-basket-catalogue-full.webp",
-    gallery: [
-      "/baskets/pink-sweetheart-basket-full.webp",
-    ],
     summary:
       "A charming pink-themed basket filled with sweet treats, self-care goodies and adorable surprises. Beautifully arranged and ready to make someone feel extra special.",
     contents: [
@@ -122,9 +119,6 @@ const BASKETS: Product[] = [
     price: 25000,
     categories: ["for-her", "plushies"],
     image: "/baskets/lamb-sweetheart-basket-catalogue-full.webp",
-    gallery: [
-      "/baskets/lamb-sweetheart-basket-full.webp",
-    ],
     summary:
       "A cute and feminine gift basket featuring an adorable plushie, chocolates, snacks and thoughtful little extras. Perfect for birthdays, anniversaries and sweet surprises.",
     contents: [
@@ -214,9 +208,6 @@ const BASKETS: Product[] = [
     categories: ["for-her", "plushies"],
     badge: "New",
     image: "/baskets/pink-fairy-box-catalogue-full.webp",
-    gallery: [
-      "/baskets/pink-fairy-box-full.webp",
-    ],
     summary:
       "A playful pink-themed gift featuring adorable plushies, sweet treats and little surprises, beautifully arranged for a memorable celebration.",
     contents: [
@@ -332,9 +323,6 @@ const HANDMADE: Product[] = [
     categories: ["plushies", "crochet"],
     badge: "New",
     image: "/crochet/duck-plushie-set.webp",
-    gallery: [
-      "/crochet/duck-plushie-set-full.webp",
-    ],
     summary:
       "A nest of hand-crocheted ducklings in bonnets and wings — soft, weighted just right, and impossible to put down.",
     contents: [
@@ -354,9 +342,6 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/race-car-keyring.webp",
-    gallery: [
-      "/crochet/race-car-keyring-full.webp",
-    ],
     summary:
       "A cheerful little racer with safety eyes and a steel split ring — our most-requested small gift.",
     contents: [
@@ -376,9 +361,6 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Bundle",
     image: "/crochet/mini-doll-basket.webp",
-    gallery: [
-      "/crochet/mini-doll-basket-full.webp",
-    ],
     summary:
       "An assortment of tiny crocheted dolls in different outfits — pick the basket, or ask us to build a set around a theme.",
     contents: [
@@ -399,9 +381,6 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Keepsake",
     image: "/crochet/teddy-shadow-box.webp",
-    gallery: [
-      "/crochet/teddy-shadow-box-full.webp",
-    ],
     summary:
       "A lit shadow box with a crocheted teddy, flowers and trailing vines — a gift that sits on a shelf for years.",
     contents: [
@@ -422,9 +401,6 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/crochet-scrunchies.webp",
-    gallery: [
-      "/crochet/crochet-scrunchies-full.webp",
-    ],
     summary:
       "Two soft scrunchies with a crocheted cherry charm — gentle on hair, and they hold their shape.",
     contents: [
@@ -442,9 +418,6 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/octopus-keyring.webp",
-    gallery: [
-      "/crochet/octopus-keyring-full.webp",
-    ],
     summary:
       "A round little octopus with a sweet face — sold as a pair, or singly in the colour you choose.",
     contents: [
@@ -463,9 +436,6 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/teddy-bear-keyring.webp",
-    gallery: [
-      "/crochet/teddy-bear-keyring-full.webp",
-    ],
     summary:
       "A jointed little bear in warm brown with honey paws — the classic, done properly.",
     contents: [
@@ -484,9 +454,6 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Best Seller",
     image: "/crochet/cherry-crossbody-bag.webp",
-    gallery: [
-      "/crochet/cherry-crossbody-bag-full.webp",
-    ],
     summary:
       "A scalloped pink crossbody with a cherry motif and a long crocheted strap. Lined, so nothing catches.",
     contents: [
@@ -506,9 +473,6 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/strawberry-pouch.webp",
-    gallery: [
-      "/crochet/strawberry-pouch-full.webp",
-    ],
     summary:
       "A zip pouch worked in deep berry red with seed stitching and a green top — makeup, cards or cables.",
     contents: [
@@ -527,9 +491,6 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/forget-me-not-stems.webp",
-    gallery: [
-      "/crochet/forget-me-not-stems-full.webp",
-    ],
     summary:
       "Soft blue blooms with pearl centres on wired stems — flowers that never need water.",
     contents: [
@@ -548,9 +509,6 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/granny-square-purse.webp",
-    gallery: [
-      "/crochet/granny-square-purse-full.webp",
-    ],
     summary:
       "Classic granny squares in two colourways, finished as a small wristlet purse.",
     contents: [
@@ -569,9 +527,6 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Premium",
     image: "/crochet/rose-tulip-bouquet.webp",
-    gallery: [
-      "/crochet/rose-tulip-bouquet-full.webp",
-    ],
     summary:
       "Deep red lilies and roses with cream tulips, hand-wrapped in tissue and ribbon. It will still look like this in ten years.",
     contents: [
@@ -591,9 +546,6 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/swiss-roll-keyring.webp",
-    gallery: [
-      "/crochet/swiss-roll-keyring-full.webp",
-    ],
     summary:
       "A spiral swiss roll with a cherry on top, in pink or lilac — small, sweet and quick to make.",
     contents: [
@@ -612,9 +564,6 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Popular",
     image: "/crochet/strawberry-keyring.webp",
-    gallery: [
-      "/crochet/strawberry-keyring-full.webp",
-    ],
     summary:
       "Three strawberries in red, pink and lilac with leafy green tops — buy the set or pick one.",
     contents: [
@@ -632,9 +581,6 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/tulip-vase.webp",
-    gallery: [
-      "/crochet/tulip-vase-full.webp",
-    ],
     summary:
       "Pink and lilac tulips with lily-of-the-valley, set into a crocheted pot beaded with pearls. Arrives ready to place.",
     contents: [
@@ -680,81 +626,54 @@ const LEGACY: Product[] = [
   {
     id: "l5", slug: "signature-gift-box", name: "Classic Gift Box", price: 18000,
     categories: ["for-him"], image: "/products/signature-gift-box-catalogue-full.webp",
-    gallery: [
-      "/products/signature-gift-box.webp",
-    ],
     summary: "A simple, versatile gift that can be customised for birthdays, celebrations or just because.",
     contents: ["Engine shirt","Jafferjees wallet","Janan Sports mini fragrance","Handmade crochet rose","Mini letter bottle","Mini Bounty bar"],
   },
   {
     id: "l6", slug: "gentlemans-essentials-box", name: "Gentleman's Essentials Box", price: 23500,
     categories: ["for-him"], image: "/products/gentlemans-essentials-box-catalogue-full.webp",
-    gallery: [
-      "/products/gentlemans-essentials-box.webp",
-    ],
     summary: "Everything he reaches for daily, upgraded — shirt, leather goods and a steel bracelet.",
     contents: ["Lama shirt","Jafferjees wallet","Jafferjees card holder","Jafferjees keyring","Stainless steel bracelet"],
   },
   {
     id: "l7", slug: "luxe-green-box", name: "Luxe Gentleman's Tray", price: 38500,
     categories: ["for-him"], badge: "Premium", image: "/products/luxe-green-box-catalogue-full.webp",
-    gallery: [
-      "/products/luxe-green-box.webp",
-    ],
     summary: "A statement gift — a luxury watch and sunglasses with an Outfitters knit polo, presented in an acrylic tray. A memorable choice for birthdays and special celebrations.",
     contents: ["Sveston watch","Lacoste sunglasses","Outfitters knit polo"],
   },
   {
     id: "l8", slug: "classic-snack-box", name: "The Snack Box", price: 17500,
     categories: ["for-him"], image: "/products/classic-snack-box-catalogue-full.webp",
-    gallery: [
-      "/products/classic-snack-box.webp",
-    ],
     summary: "Snacks and self-care together — the crowd-pleaser of our range.",
     contents: ["6 × Pepsi","Mövenpick coffee","2 × Nom Nachos","Fox's toffee","2 × Pringles","2 × Piper's Gold biscuits","Vaseline lip balm","Nivea lotion","Nivea shaving gel"],
   },
   {
     id: "l9", slug: "cambridge-clothes-box", name: "Essentials Gift Box", price: 24500,
     categories: ["for-him"], image: "/products/cambridge-clothes-box-catalogue-full.webp",
-    gallery: [
-      "/products/cambridge-clothes-box.webp",
-    ],
     summary: "A sleek transparent gift box filled with carefully selected essentials. Modern, elegant and perfect for a special surprise.",
     contents: ["Cambridge dress shirt","J. perfume","Nivea face wash","Nivea after-shave lotion"],
   },
   {
     id: "l10", slug: "deluxe-care-basket", name: "Gentleman's Grooming Basket", price: 15000,
     categories: ["for-him"], image: "/products/deluxe-care-basket-catalogue-full.webp",
-    gallery: [
-      "/products/deluxe-care-basket.webp",
-    ],
     summary: "A stylish basket filled with men's grooming essentials, chocolates and drinks, beautifully arranged and finished with a navy bow.",
     contents: ["Nivea Men Protect & Care","Nivea Men face wash","Nivea Men cream","Nivea Men deodorant","2 × Pepsi","Balocco Cubes"],
   },
   {
     id: "l11", slug: "classic-care-basket", name: "The Luxe Men's Tray", price: 11000,
     categories: ["for-him"], image: "/products/classic-care-basket-catalogue-full.webp",
-    gallery: [
-      "/products/classic-care-basket.webp",
-    ],
     summary: "A premium navy gift tray featuring carefully selected grooming essentials, drinks and treats.",
     contents: ["Cocoa wafers","Crisp nimko","2 × Pepsi","Nivea lotion","Nivea body wash","Nivea deodorant","Nivea body spray"],
   },
   {
     id: "l12", slug: "birthday-box", name: "Birthday Box", price: 20500,
     categories: ["for-him"], image: "/products/birthday-box-catalogue-full.webp",
-    gallery: [
-      "/products/birthday-box.webp",
-    ],
     summary: "A refined gift set featuring a polo shirt, a fragrance and carefully selected essentials, presented under a lit Happy Birthday banner.",
     contents: ["Outfitters men's T-shirt","Janan Musk 30 ml","Nivea face wash","Nivea body spray","Nivea face cream","Birthday card"],
   },
   {
     id: "l13", slug: "cougar-shirt-box", name: "The Gentleman's Gift Basket", price: 17500,
     categories: ["for-him"], image: "/products/cougar-shirt-box-catalogue-full.webp",
-    gallery: [
-      "/products/cougar-shirt-box.webp",
-    ],
     summary: "A complete gift basket for him featuring grooming essentials and chocolate, finished with a classic navy-blue bow.",
     contents: ["Cougar shirt","Nivea body spray","Nivea face wash","Janan Sports mini fragrance","Bounty bar","Letter bottle"],
   },
@@ -767,9 +686,6 @@ const LEGACY: Product[] = [
   {
     id: "l15", slug: "snack-care-box", name: "Especially For You — Men's Box", price: 14500,
     categories: ["for-him"], image: "/products/snack-care-box-catalogue-full.webp",
-    gallery: [
-      "/products/snack-care-box.webp",
-    ],
     summary: "A thoughtfully curated box combining men's grooming essentials with chocolates, biscuits and favourite snacks — the perfect all-in-one gift for him.",
     contents: ["2 × Pepsi Zero","Nom Nachos","Nivea body spray","Nivea cream","Nivea face wash","Piper's Gold biscuits","Vaseline lip balm","Janan perfume","Fox's candy"],
   },
