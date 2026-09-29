@@ -42,7 +42,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Gifts He'll Love",
     blurb:
       "Trays, boxes and hampers filled with things he'll actually love — grooming essentials, snacks, clothing and thoughtful little extras, packed and finished by hand.",
-    image: "/baskets/midnight-snack-tray.webp",
+    image: "/baskets/midnight-snack-tray-full.webp",
   },
   {
     id: "for-her",
@@ -50,7 +50,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Made to Feel Special",
     blurb:
       "Thoughtful little luxuries, pretty keepsakes and feel-good treats — all put together with care and wrapped beautifully.",
-    image: "/baskets/hello-kitty-hamper.webp",
+    image: "/baskets/hello-kitty-hamper-full.webp",
   },
   {
     id: "crochet",
@@ -91,8 +91,7 @@ const BASKETS: Product[] = [
     price: 8500,
     pricePending: true,
     categories: ["for-her"],
-    image: "/baskets/pink-blossom-basket.webp",
-    gallery: ["/baskets/pink-blossom-basket-full.webp"],
+    image: "/baskets/pink-blossom-basket-full.webp",
     summary:
       "A soft pink basket built around a hand-crocheted lamb, with skincare, sweets and dried blooms tucked in around it.",
     contents: [
@@ -117,7 +116,6 @@ const BASKETS: Product[] = [
     image: "/baskets/pink-sweetheart-basket-catalogue.webp",
     gallery: [
       "/baskets/pink-sweetheart-basket-catalogue-full.webp",
-      "/baskets/pink-sweetheart-basket.webp",
       "/baskets/pink-sweetheart-basket-full.webp",
     ],
     summary:
@@ -146,7 +144,6 @@ const BASKETS: Product[] = [
     image: "/baskets/lamb-sweetheart-basket-catalogue.webp",
     gallery: [
       "/baskets/lamb-sweetheart-basket-catalogue-full.webp",
-      "/baskets/lamb-sweetheart-basket.webp",
       "/baskets/lamb-sweetheart-basket-full.webp",
     ],
     summary:
@@ -176,8 +173,7 @@ const BASKETS: Product[] = [
     pricePending: true,
     categories: ["for-her"],
     badge: "Premium",
-    image: "/baskets/hello-kitty-hamper.webp",
-    gallery: ["/baskets/hello-kitty-hamper-full.webp"],
+    image: "/baskets/hello-kitty-hamper-full.webp",
     summary:
       "A full Hello Kitty set in a cream wicker hamper — towel, tumbler, mirror, jewellery and a bow necklace.",
     contents: [
@@ -199,8 +195,7 @@ const BASKETS: Product[] = [
     price: 12500,
     pricePending: true,
     categories: ["for-him"],
-    image: "/baskets/umrah-mubarak-box.webp",
-    gallery: ["/baskets/umrah-mubarak-box-full.webp"],
+    image: "/baskets/umrah-mubarak-box-full.webp",
     summary:
       "A keepsake box for the return from Umrah — a cream polo, grooming basics and a printed Umrah Mubarak card.",
     contents: [
@@ -222,8 +217,7 @@ const BASKETS: Product[] = [
     pricePending: true,
     categories: ["for-him"],
     badge: "Best Seller",
-    image: "/baskets/midnight-snack-tray.webp",
-    gallery: ["/baskets/midnight-snack-tray-full.webp"],
+    image: "/baskets/midnight-snack-tray-full.webp",
     summary:
       "A lit acrylic tray packed edge to edge in navy — energy drinks, imported chocolate and everything salty.",
     contents: [
@@ -247,8 +241,7 @@ const BASKETS: Product[] = [
     price: 13500,
     pricePending: true,
     categories: ["for-him"],
-    image: "/baskets/snack-and-tee-tray.webp",
-    gallery: ["/baskets/snack-and-tee-tray-full.webp"],
+    image: "/baskets/snack-and-tee-tray-full.webp",
     summary:
       "A black tray with a folded tee under a full row of snacks, finished with a hand-crocheted tulip.",
     contents: [
@@ -272,8 +265,7 @@ const BASKETS: Product[] = [
     pricePending: true,
     categories: ["for-her"],
     badge: "Premium",
-    image: "/baskets/floral-glam-basket.webp",
-    gallery: ["/baskets/floral-glam-basket-full.webp"],
+    image: "/baskets/floral-glam-basket-full.webp",
     summary:
       "Fresh chrysanthemums packed around Color WOW haircare, makeup and a glass mug — our most giftable basket.",
     contents: [
@@ -296,8 +288,7 @@ const BASKETS: Product[] = [
     pricePending: true,
     categories: ["for-him"],
     badge: "With Cake",
-    image: "/baskets/birthday-celebration-box.webp",
-    gallery: ["/baskets/birthday-celebration-box-full.webp"],
+    image: "/baskets/birthday-celebration-box-full.webp",
     summary:
       "A lit box with a Happy Birthday banner and a matching iced cake alongside — the whole celebration in one delivery.",
     contents: [
@@ -319,7 +310,9 @@ const BASKETS: Product[] = [
     pricePending: true,
     categories: ["for-him"],
     image: "/baskets/wooden-essentials-tray.webp",
-    gallery: ["/baskets/wooden-essentials-tray-full.webp"],
+    gallery: [
+      "/baskets/wooden-essentials-tray-full.webp",
+    ],
     summary:
       "A clean wooden tray with a folded tee, grooming basics and white roses — simple, and it always lands.",
     contents: [
@@ -339,8 +332,7 @@ const BASKETS: Product[] = [
     price: 19500,
     pricePending: true,
     categories: ["for-him"],
-    image: "/baskets/gym-essentials-box.webp",
-    gallery: ["/baskets/gym-essentials-box-full.webp"],
+    image: "/baskets/gym-essentials-box-full.webp",
     summary:
       "For the one who never misses a session — supplements and training kit in a navy presentation box.",
     contents: [
@@ -358,8 +350,7 @@ const BASKETS: Product[] = [
     price: 12500,
     pricePending: true,
     categories: ["for-him"],
-    image: "/baskets/blue-rose-snack-tray.webp",
-    gallery: ["/baskets/blue-rose-snack-tray-full.webp"],
+    image: "/baskets/blue-rose-snack-tray-full.webp",
     summary:
       "Deep blue roses and lavender packed alongside Nivea Men grooming and Italian wafers on a wooden tray.",
     contents: [
@@ -380,8 +371,7 @@ const BASKETS: Product[] = [
     pricePending: true,
     categories: ["for-him"],
     badge: "Premium",
-    image: "/baskets/grooms-grand-box.webp",
-    gallery: ["/baskets/grooms-grand-box-full.webp"],
+    image: "/baskets/grooms-grand-box-full.webp",
     summary:
       "Our largest men's set — a full navy suit and shoes on an acrylic tray, with a complete grooming line-up beneath.",
     contents: [
@@ -409,7 +399,9 @@ const BASKETS: Product[] = [
     categories: ["for-him"],
     badge: "Popular",
     image: "/baskets/mini-mens-box.webp",
-    gallery: ["/baskets/mini-mens-box-full.webp"],
+    gallery: [
+      "/baskets/mini-mens-box-full.webp",
+    ],
     summary:
       "Small, sharp and always in stock — grooming basics and energy drinks in a black clear-panel box.",
     contents: [
@@ -429,7 +421,6 @@ const BASKETS: Product[] = [
     image: "/baskets/pink-fairy-box-catalogue.webp",
     gallery: [
       "/baskets/pink-fairy-box-catalogue-full.webp",
-      "/baskets/pink-fairy-box.webp",
       "/baskets/pink-fairy-box-full.webp",
     ],
     summary:
@@ -460,8 +451,7 @@ const BASKETS: Product[] = [
     pricePending: true,
     categories: ["for-him"],
     badge: "Premium",
-    image: "/baskets/designer-essentials-tray.webp",
-    gallery: ["/baskets/designer-essentials-tray-full.webp"],
+    image: "/baskets/designer-essentials-tray-full.webp",
     summary:
       "Our most expensive box — Prada fragrance, a Mont Blanc card holder and a silver chain, laid out on a clear acrylic tray.",
     contents: [
@@ -485,8 +475,7 @@ const BASKETS: Product[] = [
     pricePending: true,
     categories: ["for-him"],
     badge: "New",
-    image: "/baskets/birthday-knit-box.webp",
-    gallery: ["/baskets/birthday-knit-box-full.webp"],
+    image: "/baskets/birthday-knit-box-full.webp",
     summary:
       "A Jack & Jones premium knit polo folded under fairy lights in a clear-panel box, with a birthday card ready to sign.",
     contents: [
@@ -505,8 +494,7 @@ const BASKETS: Product[] = [
     price: 11500,
     pricePending: true,
     categories: ["for-him"],
-    image: "/baskets/chocolate-lovers-box.webp",
-    gallery: ["/baskets/chocolate-lovers-box-full.webp"],
+    image: "/baskets/chocolate-lovers-box-full.webp",
     summary:
       "Nothing but good chocolate — Lindt Excellence, milk chocolate and a tin of treats behind a clear panel.",
     contents: [
@@ -525,8 +513,7 @@ const BASKETS: Product[] = [
     pricePending: true,
     categories: ["for-him"],
     badge: "New",
-    image: "/baskets/white-rose-balloon-set.webp",
-    gallery: ["/baskets/white-rose-balloon-set-full.webp"],
+    image: "/baskets/white-rose-balloon-set-full.webp",
     summary:
       "A black-wrapped bouquet of white roses and baby's breath, with lit bubble balloons and a chocolate box tied to the ribbon.",
     contents: [
@@ -545,8 +532,7 @@ const BASKETS: Product[] = [
     price: 8500,
     pricePending: true,
     categories: ["for-him"],
-    image: "/baskets/movie-night-snack-box.webp",
-    gallery: ["/baskets/movie-night-snack-box-full.webp"],
+    image: "/baskets/movie-night-snack-box-full.webp",
     summary:
       "Pure snacks, nothing else — crisps, sour sweets and gummies packed into a clear-panel box.",
     contents: [
@@ -571,7 +557,9 @@ const HANDMADE: Product[] = [
     categories: ["plushies", "crochet"],
     badge: "New",
     image: "/crochet/duck-plushie-set.webp",
-    gallery: ["/crochet/duck-plushie-set-full.webp"],
+    gallery: [
+      "/crochet/duck-plushie-set-full.webp",
+    ],
     summary:
       "A nest of hand-crocheted ducklings in bonnets and wings — soft, weighted just right, and impossible to put down.",
     contents: [
@@ -591,7 +579,9 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/race-car-keyring.webp",
-    gallery: ["/crochet/race-car-keyring-full.webp"],
+    gallery: [
+      "/crochet/race-car-keyring-full.webp",
+    ],
     summary:
       "A cheerful little racer with safety eyes and a steel split ring — our most-requested small gift.",
     contents: [
@@ -611,7 +601,9 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Bundle",
     image: "/crochet/mini-doll-basket.webp",
-    gallery: ["/crochet/mini-doll-basket-full.webp"],
+    gallery: [
+      "/crochet/mini-doll-basket-full.webp",
+    ],
     summary:
       "An assortment of tiny crocheted dolls in different outfits — pick the basket, or ask us to build a set around a theme.",
     contents: [
@@ -632,7 +624,9 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Keepsake",
     image: "/crochet/teddy-shadow-box.webp",
-    gallery: ["/crochet/teddy-shadow-box-full.webp"],
+    gallery: [
+      "/crochet/teddy-shadow-box-full.webp",
+    ],
     summary:
       "A lit shadow box with a crocheted teddy, flowers and trailing vines — a gift that sits on a shelf for years.",
     contents: [
@@ -653,7 +647,9 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/crochet-scrunchies.webp",
-    gallery: ["/crochet/crochet-scrunchies-full.webp"],
+    gallery: [
+      "/crochet/crochet-scrunchies-full.webp",
+    ],
     summary:
       "Two soft scrunchies with a crocheted cherry charm — gentle on hair, and they hold their shape.",
     contents: [
@@ -671,7 +667,9 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/octopus-keyring.webp",
-    gallery: ["/crochet/octopus-keyring-full.webp"],
+    gallery: [
+      "/crochet/octopus-keyring-full.webp",
+    ],
     summary:
       "A round little octopus with a sweet face — sold as a pair, or singly in the colour you choose.",
     contents: [
@@ -690,7 +688,9 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/teddy-bear-keyring.webp",
-    gallery: ["/crochet/teddy-bear-keyring-full.webp"],
+    gallery: [
+      "/crochet/teddy-bear-keyring-full.webp",
+    ],
     summary:
       "A jointed little bear in warm brown with honey paws — the classic, done properly.",
     contents: [
@@ -709,7 +709,9 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Best Seller",
     image: "/crochet/cherry-crossbody-bag.webp",
-    gallery: ["/crochet/cherry-crossbody-bag-full.webp"],
+    gallery: [
+      "/crochet/cherry-crossbody-bag-full.webp",
+    ],
     summary:
       "A scalloped pink crossbody with a cherry motif and a long crocheted strap. Lined, so nothing catches.",
     contents: [
@@ -729,7 +731,9 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/strawberry-pouch.webp",
-    gallery: ["/crochet/strawberry-pouch-full.webp"],
+    gallery: [
+      "/crochet/strawberry-pouch-full.webp",
+    ],
     summary:
       "A zip pouch worked in deep berry red with seed stitching and a green top — makeup, cards or cables.",
     contents: [
@@ -748,7 +752,9 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/forget-me-not-stems.webp",
-    gallery: ["/crochet/forget-me-not-stems-full.webp"],
+    gallery: [
+      "/crochet/forget-me-not-stems-full.webp",
+    ],
     summary:
       "Soft blue blooms with pearl centres on wired stems — flowers that never need water.",
     contents: [
@@ -767,7 +773,9 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/granny-square-purse.webp",
-    gallery: ["/crochet/granny-square-purse-full.webp"],
+    gallery: [
+      "/crochet/granny-square-purse-full.webp",
+    ],
     summary:
       "Classic granny squares in two colourways, finished as a small wristlet purse.",
     contents: [
@@ -786,7 +794,9 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Premium",
     image: "/crochet/rose-tulip-bouquet.webp",
-    gallery: ["/crochet/rose-tulip-bouquet-full.webp"],
+    gallery: [
+      "/crochet/rose-tulip-bouquet-full.webp",
+    ],
     summary:
       "Deep red lilies and roses with cream tulips, hand-wrapped in tissue and ribbon. It will still look like this in ten years.",
     contents: [
@@ -806,7 +816,9 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/swiss-roll-keyring.webp",
-    gallery: ["/crochet/swiss-roll-keyring-full.webp"],
+    gallery: [
+      "/crochet/swiss-roll-keyring-full.webp",
+    ],
     summary:
       "A spiral swiss roll with a cherry on top, in pink or lilac — small, sweet and quick to make.",
     contents: [
@@ -825,7 +837,9 @@ const HANDMADE: Product[] = [
     categories: ["crochet"],
     badge: "Popular",
     image: "/crochet/strawberry-keyring.webp",
-    gallery: ["/crochet/strawberry-keyring-full.webp"],
+    gallery: [
+      "/crochet/strawberry-keyring-full.webp",
+    ],
     summary:
       "Three strawberries in red, pink and lilac with leafy green tops — buy the set or pick one.",
     contents: [
@@ -843,7 +857,9 @@ const HANDMADE: Product[] = [
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/tulip-vase.webp",
-    gallery: ["/crochet/tulip-vase-full.webp"],
+    gallery: [
+      "/crochet/tulip-vase-full.webp",
+    ],
     summary:
       "Pink and lilac tulips with lily-of-the-valley, set into a crocheted pot beaded with pearls. Arrives ready to place.",
     contents: [
@@ -1007,8 +1023,7 @@ const LATEST: Product[] = [
     pricePending: true,
     categories: ["cakes"],
     badge: "New",
-    image: "/cakes/birthday-cupcake-box.webp",
-    gallery: ["/cakes/birthday-cupcake-box-full.webp"],
+    image: "/cakes/birthday-cupcake-box-full.webp",
     summary:
       "Charcoal-frosted cupcakes and macarons under a lit acrylic lid, with a black-wrapped red rose bouquet alongside.",
     contents: [
@@ -1029,8 +1044,7 @@ const LATEST: Product[] = [
     pricePending: true,
     categories: ["for-her"],
     badge: "New",
-    image: "/baskets/mehndi-celebration-box.webp",
-    gallery: ["/baskets/mehndi-celebration-box-full.webp"],
+    image: "/baskets/mehndi-celebration-box-full.webp",
     summary:
       "Everything for the mehndi — green glass bangles, jhumkas and sweets in a scalloped white box tied with pink satin.",
     contents: [
@@ -1056,7 +1070,6 @@ const LATEST: Product[] = [
     image: "/baskets/penguin-anniversary-basket-catalogue.webp",
     gallery: [
       "/baskets/penguin-anniversary-basket-catalogue-full.webp",
-      "/baskets/penguin-anniversary-basket.webp",
       "/baskets/penguin-anniversary-basket-full.webp",
     ],
     summary:
@@ -1085,8 +1098,7 @@ const LATEST: Product[] = [
     price: 13500,
     pricePending: true,
     categories: ["for-her"],
-    image: "/baskets/pink-pamper-basket.webp",
-    gallery: ["/baskets/pink-pamper-basket-full.webp"],
+    image: "/baskets/pink-pamper-basket-full.webp",
     summary:
       "A full self-care afternoon in a basket — hair wrap, masks, nails and something sweet, with a crochet chick for company.",
     contents: [
@@ -1112,8 +1124,7 @@ const LATEST: Product[] = [
     handmade: true,
     categories: ["crochet"],
     badge: "New",
-    image: "/crochet/batman-keyring.webp",
-    gallery: ["/crochet/batman-keyring-full.webp"],
+    image: "/crochet/batman-keyring-full.webp",
     summary:
       "A tiny caped crusader in grey and black with a yellow belt — crocheted stitch by stitch and finished with a steel ring.",
     contents: [
@@ -1131,8 +1142,7 @@ const LATEST: Product[] = [
     pricePending: true,
     handmade: true,
     categories: ["crochet"],
-    image: "/crochet/tulip-rose-pot-pair.webp",
-    gallery: ["/crochet/tulip-rose-pot-pair-full.webp"],
+    image: "/crochet/tulip-rose-pot-pair-full.webp",
     summary:
       "Two little potted flowers — a butter-yellow tulip and a deep red rose — in scalloped crochet pots that sit anywhere.",
     contents: [
@@ -1153,8 +1163,7 @@ const LATEST: Product[] = [
     handmade: true,
     categories: ["plushies", "crochet"],
     badge: "Best Seller",
-    image: "/crochet/chenille-teddy-bear.webp",
-    gallery: ["/crochet/chenille-teddy-bear-full.webp"],
+    image: "/crochet/chenille-teddy-bear-full.webp",
     summary:
       "Worked in soft chenille yarn so it feels like velvet — a proper sit-on-the-bed bear with safety eyes and jointed limbs.",
     contents: [
@@ -1174,8 +1183,7 @@ const LATEST: Product[] = [
     pricePending: true,
     categories: ["for-her"],
     badge: "Anniversary",
-    image: "/baskets/red-anniversary-basket.webp",
-    gallery: ["/baskets/red-anniversary-basket-full.webp"],
+    image: "/baskets/red-anniversary-basket-full.webp",
     summary:
       "Our fullest anniversary basket — imported chocolate, skincare and a hand-crocheted carnation, all in deep red.",
     contents: [
@@ -1201,8 +1209,7 @@ const LATEST: Product[] = [
     price: 14500,
     pricePending: true,
     categories: ["for-her"],
-    image: "/baskets/berry-treat-box.webp",
-    gallery: ["/baskets/berry-treat-box-full.webp"],
+    image: "/baskets/berry-treat-box-full.webp",
     summary:
       "Snacks and small beauty bits together in a magnetic maroon box — the easy gift when you're not sure what to send.",
     contents: [
@@ -1226,8 +1233,7 @@ const LATEST: Product[] = [
     pricePending: true,
     categories: ["for-her"],
     badge: "Premium",
-    image: "/baskets/dove-pamper-set.webp",
-    gallery: ["/baskets/dove-pamper-set-full.webp"],
+    image: "/baskets/dove-pamper-set-full.webp",
     summary:
       "The full Dove range with towels and a loofah, paired with a hatbox of fresh pink and cream roses.",
     contents: [
@@ -1251,8 +1257,7 @@ const LATEST: Product[] = [
     pricePending: true,
     categories: ["for-him"],
     badge: "New",
-    image: "/baskets/cosy-clothing-box.webp",
-    gallery: ["/baskets/cosy-clothing-box-full.webp"],
+    image: "/baskets/cosy-clothing-box-full.webp",
     summary:
       "Three pieces ribbon-tied in a two-tier black box, with a handwritten letter on burnt-edge paper in the lid.",
     contents: [
@@ -1273,8 +1278,7 @@ const LATEST: Product[] = [
     pricePending: true,
     categories: ["for-him"],
     badge: "Eid",
-    image: "/baskets/eid-mubarak-box.webp",
-    gallery: ["/baskets/eid-mubarak-box-full.webp"],
+    image: "/baskets/eid-mubarak-box-full.webp",
     summary:
       "A grooming set and sweets behind a clear panel, wrapped in Eid Mubarak ribbon and ready to hand over.",
     contents: [
@@ -1295,8 +1299,7 @@ const LATEST: Product[] = [
     price: 16500,
     pricePending: true,
     categories: ["for-him"],
-    image: "/baskets/red-snack-box.webp",
-    gallery: ["/baskets/red-snack-box-full.webp"],
+    image: "/baskets/red-snack-box-full.webp",
     summary:
       "Packed corner to corner with imported snacks — including the 2× Spicy ramen for anyone who thinks they can handle it.",
     contents: [
@@ -1322,7 +1325,9 @@ const LATEST: Product[] = [
     categories: ["cakes"],
     badge: "New",
     image: "/cakes/birthday-floral-cake.webp",
-    gallery: ["/cakes/birthday-floral-cake-full.webp"],
+    gallery: [
+      "/cakes/birthday-floral-cake-full.webp",
+    ],
     summary:
       "A beautiful celebration cake decorated with purple buttercream flowers, butterflies and a personalised birthday message.",
     contents: [
@@ -1342,7 +1347,9 @@ const LATEST: Product[] = [
     categories: ["cakes"],
     badge: "New",
     image: "/cakes/blue-balloon-cake-box.webp",
-    gallery: ["/cakes/blue-balloon-cake-box-full.webp"],
+    gallery: [
+      "/cakes/blue-balloon-cake-box-full.webp",
+    ],
     summary:
       "A dreamy arrangement of clear balloons trimmed with delicate blue bows, over a celebration cake finished in a lit acrylic box.",
     contents: [
@@ -1360,7 +1367,9 @@ const LATEST: Product[] = [
     price: 13000,
     categories: ["cakes"],
     image: "/cakes/acrylic-chocolate-cake-box.webp",
-    gallery: ["/cakes/acrylic-chocolate-cake-box-full.webp"],
+    gallery: [
+      "/cakes/acrylic-chocolate-cake-box-full.webp",
+    ],
     summary:
       "A layered German fudge cake dressed with white roses and Dairy Milk bars, finished in a ribboned acrylic box.",
     contents: [
@@ -1379,7 +1388,9 @@ const LATEST: Product[] = [
     categories: ["plushies", "crochet"],
     badge: "New",
     image: "/crochet/crochet-bunny-navy.webp",
-    gallery: ["/crochet/crochet-bunny-navy-full.webp"],
+    gallery: [
+      "/crochet/crochet-bunny-navy-full.webp",
+    ],
     summary:
       "A handmade white crochet bunny dressed in a cute navy-blue outfit, making a charming keepsake or thoughtful gift.",
     contents: [
@@ -1399,7 +1410,9 @@ const LATEST: Product[] = [
     handmade: true,
     categories: ["plushies", "crochet"],
     image: "/crochet/crochet-bunny-red.webp",
-    gallery: ["/crochet/crochet-bunny-red-full.webp"],
+    gallery: [
+      "/crochet/crochet-bunny-red-full.webp",
+    ],
     summary:
       "A soft handmade bunny dressed in a festive red outfit — perfect for birthdays, celebrations or simply making someone smile.",
     contents: [
@@ -1419,7 +1432,9 @@ const LATEST: Product[] = [
     handmade: true,
     categories: ["plushies", "crochet"],
     image: "/crochet/crochet-flower-turtle.webp",
-    gallery: ["/crochet/crochet-flower-turtle-full.webp"],
+    gallery: [
+      "/crochet/crochet-flower-turtle-full.webp",
+    ],
     summary:
       "A handmade crochet turtle decorated with colourful flowers — a sweet keepsake made to last long after the occasion.",
     contents: [
@@ -1438,7 +1453,9 @@ const LATEST: Product[] = [
     categories: ["for-him"],
     badge: "New",
     image: "/baskets/classic-mens-snack-box.webp",
-    gallery: ["/baskets/classic-mens-snack-box-full.webp"],
+    gallery: [
+      "/baskets/classic-mens-snack-box-full.webp",
+    ],
     summary:
       "A fun selection of favourite snacks, chocolates and drinks arranged in a premium gift box. Perfect for the guy who loves good snacks and a thoughtful surprise.",
     contents: [
@@ -1460,7 +1477,9 @@ const LATEST: Product[] = [
     categories: ["for-him"],
     badge: "New",
     image: "/baskets/batman-gift-box.webp",
-    gallery: ["/baskets/batman-gift-box-full.webp"],
+    gallery: [
+      "/baskets/batman-gift-box-full.webp",
+    ],
     summary:
       "A birthday-ready gift box filled with snacks, chocolates and drinks, finished with a glowing Happy Birthday banner and our own crochet Batman.",
     contents: [
@@ -1483,7 +1502,9 @@ const LATEST: Product[] = [
     categories: ["for-him", "for-her"],
     badge: "Eid",
     image: "/baskets/eid-dry-fruit-box.webp",
-    gallery: ["/baskets/eid-dry-fruit-box-full.webp"],
+    gallery: [
+      "/baskets/eid-dry-fruit-box-full.webp",
+    ],
     summary:
       "A beautifully arranged selection of premium dry fruits and nuts, presented in an elegant gift box with an Eid Mubarak finish. Perfect for thoughtful festive gifting.",
     contents: [
@@ -1502,7 +1523,9 @@ const LATEST: Product[] = [
     categories: ["for-him"],
     badge: "New",
     image: "/baskets/gym-performance-box.webp",
-    gallery: ["/baskets/gym-performance-box-full.webp"],
+    gallery: [
+      "/baskets/gym-performance-box-full.webp",
+    ],
     summary:
       "Everything for the one who never misses a session — protein, bars and training kit packed into a navy box with a cream bow.",
     contents: [
@@ -1522,7 +1545,9 @@ const LATEST: Product[] = [
     categories: ["for-him"],
     badge: "New",
     image: "/baskets/birthday-polo-box.webp",
-    gallery: ["/baskets/birthday-polo-box-full.webp"],
+    gallery: [
+      "/baskets/birthday-polo-box-full.webp",
+    ],
     summary:
       "A knit polo ribbon-tied beside his grooming line-up and a row of Dairy Milk, under a lit Happy Birthday banner.",
     contents: [
@@ -1543,7 +1568,9 @@ const LATEST: Product[] = [
     price: 12500,
     categories: ["for-him"],
     image: "/baskets/unstitched-suit-box.webp",
-    gallery: ["/baskets/unstitched-suit-box-full.webp"],
+    gallery: [
+      "/baskets/unstitched-suit-box-full.webp",
+    ],
     summary:
       "A J. unstitched suit wrapped and ribboned by hand, with a fragrance and grooming basics alongside it.",
     contents: [
@@ -1561,7 +1588,9 @@ const LATEST: Product[] = [
     categories: ["for-him"],
     badge: "New",
     image: "/baskets/birthday-wallet-tee-box.webp",
-    gallery: ["/baskets/birthday-wallet-tee-box-full.webp"],
+    gallery: [
+      "/baskets/birthday-wallet-tee-box-full.webp",
+    ],
     summary:
       "A wardrobe piece, a leather wallet and a fragrance boxed together with chocolate and a card to sign.",
     contents: [

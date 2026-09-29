@@ -123,6 +123,20 @@ ever comes back, that's the one place to change.
    the 1000×1000 house size and are softer than the older studio shots. Ask for
    the originals when he has them.
 
+## Photos must not have baked-in borders
+
+The owner does not want any photo with a frame in it. A batch of square cards
+had been made by **padding** the photo out to 1000x1000 instead of cropping it,
+which left cream bars (up to 27% a side) or black letterbox bars in the file.
+31 of those were deleted and the product now points at its clean `-full` shot;
+two more (`mini-mens-box`, `wooden-essentials-tray`) had no clean copy and were
+cropped in place.
+
+When adding a photo, **crop to square — never pad.** The detector that found
+these checks each edge for a run of near-uniform lines; re-run it after a photo
+drop. Cards and galleries both go through `object-cover`, so a non-square source
+is fine and a padded one is never necessary.
+
 ## Photo naming
 
 - `<slug>.webp` — 1000×1000 card image
