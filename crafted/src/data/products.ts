@@ -940,24 +940,25 @@ const LATEST: Product[] = [
   },
   {
     id: "n12",
+    // Slug deliberately left as eid-mubarak-box so the link the owner has been
+    // sharing keeps working; the display name is what changed.
     slug: "eid-mubarak-box",
-    name: "Eid Mubarak Box",
-    price: 15500,
-    pricePending: true,
+    name: "Energy & Care Box",
+    price: 15000,
     categories: ["for-him"],
-    badge: "Eid",
     image: "/baskets/eid-mubarak-box-full.webp",
     summary:
-      "A grooming set and sweets behind a clear panel, wrapped in Eid Mubarak ribbon and ready to hand over.",
+      "Energy drinks, grooming basics and a run of sweets behind a clear panel — packed and ribboned by hand.",
     contents: [
-      "Nivea Men Deep deodorant",
-      "Nivea Men Deep body wash",
-      "Nivea Men creme tin",
-      "Nivea Men face wash",
-      "Leather wallet",
-      "Kinder Bueno",
-      "Choco chip cookies",
-      "Black clear-panel box with Eid Mubarak ribbon",
+      "4 × Red Bull",
+      "Nivea face wash",
+      "Nivea face cream",
+      "Nivea body spray",
+      "Vaseline",
+      "4 × Sour Punk",
+      "Fini jelly",
+      "2 × Kinder Bueno",
+      "Chocolate chip cookies",
     ],
   },
   {
