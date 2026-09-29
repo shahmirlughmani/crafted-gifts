@@ -140,6 +140,21 @@ these checks each edge for a run of near-uniform lines; re-run it after a photo
 drop. Cards and galleries both go through `object-cover`, so a non-square source
 is fine and a padded one is never necessary.
 
+## Before deleting a photo, check the whole of `src/`
+
+Photo paths are **not only** in `products.ts`. The homepage hero and the About
+page hardcode a few. Deleting photos by checking `products.ts` alone broke the
+homepage hero once. The check that matters is:
+
+```bash
+for f in $(grep -rhoE '"/(baskets|crochet|products|cakes)/[a-z0-9-]+\.webp"'     src --include=*.tsx --include=*.ts | tr -d '"' | sort -u); do
+  [ -f "public$f" ] || echo "MISSING $f"
+done
+```
+
+Then crawl the built site and fetch every image it references — a missing file
+is a silent broken image, not a build error.
+
 ## Photo naming
 
 - `<slug>.webp` — 1000×1000 card image

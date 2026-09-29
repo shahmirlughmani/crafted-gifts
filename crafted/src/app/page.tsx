@@ -74,7 +74,7 @@ export default function Home() {
             <div className="relative aspect-[4/5] sm:aspect-[5/5] max-w-[30rem] mx-auto lg:max-w-none">
               <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-[0_40px_80px_-40px_rgba(31,51,36,.55)]">
                 <Image
-                  src="/baskets/lamb-sweetheart-basket.webp"
+                  src="/baskets/lamb-sweetheart-basket-catalogue-full.webp"
                   alt="Pink gift basket with a hand-crocheted lamb"
                   fill
                   priority
@@ -93,7 +93,7 @@ export default function Home() {
               </div>
               <div className="absolute -top-5 -right-3 sm:-right-6 w-28 sm:w-36 aspect-square rounded-2xl overflow-hidden ring-8 ring-cream-100 shadow-xl">
                 <Image
-                  src="/products/luxe-green-box.webp"
+                  src="/products/luxe-green-box-catalogue-full.webp"
                   alt="Luxe gift box"
                   fill
                   sizes="150px"
