@@ -624,10 +624,10 @@ const LEGACY: Product[] = [
     contents: ["Lama loafers","Lama shirt","Elegant gift presentation box"],
   },
   {
-    id: "l5", slug: "signature-gift-box", name: "Classic Gift Box", price: 18000,
+    id: "l5", slug: "signature-gift-box", name: "Classic Gift Box", price: 14500,
     categories: ["for-him"], image: "/products/signature-gift-box-catalogue-full.webp",
     summary: "A simple, versatile gift that can be customised for birthdays, celebrations or just because.",
-    contents: ["Engine shirt","Jafferjees wallet","Janan Sports mini fragrance","Handmade crochet rose","Mini letter bottle","Mini Bounty bar"],
+    contents: ["Engine shirt","Jafferjees wallet","Janan Sports mini fragrance","Mini letter bottle","Mini Bounty bar"],
   },
   {
     id: "l6", slug: "gentlemans-essentials-box", name: "Gentleman's Essentials Box", price: 23500,
@@ -928,17 +928,14 @@ const LATEST: Product[] = [
     id: "n11",
     slug: "cosy-clothing-box",
     name: "Cosy Clothing Box",
-    price: 27500,
-    pricePending: true,
+    price: 17500,
     categories: ["for-him"],
     badge: "New",
     image: "/baskets/cosy-clothing-box-full.webp",
     summary:
-      "Three pieces ribbon-tied in a two-tier black box, with a handwritten letter on burnt-edge paper in the lid.",
+      "Three Outfitters tees ribbon-tied in a two-tier black box, with a handwritten letter on burnt-edge paper in the lid.",
     contents: [
-      "White cotton T-shirt",
-      "Cream printed sweatshirt",
-      "Black knit cardigan",
+      "3 × Outfitters T-shirts",
       "Handwritten letter on burnt-edge paper",
       "Satin ribbons in black and blue",
       "Two-tier presentation box",
