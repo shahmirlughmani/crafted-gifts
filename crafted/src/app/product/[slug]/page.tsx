@@ -97,7 +97,12 @@ export default async function ProductPage({ params }: Params) {
         </nav>
 
         <div className="mt-6 grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-16 items-start">
-          <ProductGallery images={images} name={p.name} badge={p.badge} />
+          <ProductGallery
+            images={images}
+            name={p.name}
+            badge={p.badge}
+            aspect={p.imageW && p.imageH ? p.imageW / p.imageH : undefined}
+          />
 
           <div className="lg:sticky lg:top-28">
             {p.handmade && (

@@ -8,10 +8,13 @@ export function ProductGallery({
   images,
   name,
   badge,
+  aspect,
 }: {
   images: string[];
   name: string;
   badge?: string;
+  /** width / height of the main photo. Falls back to square. */
+  aspect?: number;
 }) {
   const [active, setActive] = useState(0);
   const [zoom, setZoom] = useState(false);
@@ -20,9 +23,12 @@ export function ProductGallery({
     <div>
       <div
         className={cx(
-          "relative aspect-square rounded-[1.5rem] overflow-hidden bg-cream-200 shadow-[0_30px_60px_-40px_rgba(31,51,36,.5)]",
+          "relative rounded-[1.5rem] overflow-hidden bg-cream-200 shadow-[0_30px_60px_-40px_rgba(31,51,36,.5)]",
+          !aspect && "aspect-square",
           images.length > 1 || zoom ? "cursor-zoom-in" : ""
         )}
+        // A square frame was cropping up to a third off the portrait shots.
+        style={aspect ? { aspectRatio: String(aspect) } : undefined}
         onClick={() => setZoom((z) => !z)}
       >
         <Image
