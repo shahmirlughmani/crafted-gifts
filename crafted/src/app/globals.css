@@ -156,11 +156,160 @@
   animation: u-marquee 38s linear infinite;
 }
 
+/* ---------- reveal variants ----------
+   `.reveal` above is the default rise. These change only the starting pose;
+   `.is-in` (set by <Reveal>) always resolves to the resting state. */
+.reveal-fade {
+  transform: none;
+}
+.reveal-scale {
+  transform: scale(0.94);
+}
+.reveal-left {
+  transform: translateX(-28px);
+}
+.reveal-right {
+  transform: translateX(28px);
+}
+.reveal-blur {
+  filter: blur(10px);
+  transform: translateY(12px);
+}
+.reveal-blur.is-in {
+  filter: blur(0);
+}
+
+/* ---------- stagger ----------
+   For grids where wrapping every child in <Reveal> would be noise: the parent
+   carries the observer, the children inherit a cascading delay. */
+.u-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: u-rise 0.62s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.u-stagger > *:nth-child(1) { animation-delay: 0.04s; }
+.u-stagger > *:nth-child(2) { animation-delay: 0.09s; }
+.u-stagger > *:nth-child(3) { animation-delay: 0.14s; }
+.u-stagger > *:nth-child(4) { animation-delay: 0.19s; }
+.u-stagger > *:nth-child(5) { animation-delay: 0.24s; }
+.u-stagger > *:nth-child(6) { animation-delay: 0.29s; }
+.u-stagger > *:nth-child(7) { animation-delay: 0.34s; }
+.u-stagger > *:nth-child(8) { animation-delay: 0.39s; }
+.u-stagger > *:nth-child(n + 9) { animation-delay: 0.44s; }
+
+@keyframes u-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- on-load entrance (above the fold, no observer) ---------- */
+.u-enter {
+  opacity: 0;
+  animation: u-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.u-enter-1 { animation-delay: 0.05s; }
+.u-enter-2 { animation-delay: 0.14s; }
+.u-enter-3 { animation-delay: 0.23s; }
+.u-enter-4 { animation-delay: 0.32s; }
+.u-enter-5 { animation-delay: 0.41s; }
+
+/* ---------- interaction micro-states ---------- */
+.u-lift {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.u-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px -28px rgba(31, 51, 36, 0.45);
+}
+
+.u-press {
+  transition: transform 0.16s ease-out, background-color 0.25s ease,
+    color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+}
+.u-press:active {
+  transform: scale(0.97);
+}
+
+/* A slow light sweep across primary buttons on hover. */
+.u-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.u-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 28%,
+    rgba(255, 255, 255, 0.22) 48%,
+    transparent 68%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.u-sheen:hover::after {
+  transform: translateX(120%);
+}
+
+/* Cart badge acknowledging a change. Re-keyed by the count, so it replays. */
+@keyframes u-pop {
+  0% { transform: scale(1); }
+  38% { transform: scale(1.38); }
+  100% { transform: scale(1); }
+}
+.u-pop {
+  animation: u-pop 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The saved-heart acknowledging a tap. */
+@keyframes u-beat {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.32); }
+  55% { transform: scale(0.94); }
+  100% { transform: scale(1); }
+}
+.u-beat {
+  animation: u-beat 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Gentle drift for decorative marks. */
+@keyframes u-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+.u-float {
+  animation: u-float 7s ease-in-out infinite;
+}
+
 /* ---------- shimmer for image placeholders ---------- */
 @keyframes u-shimmer {
   100% {
     transform: translateX(100%);
   }
+}
+/* Applied to the tile *behind* a next/image; the sweep is covered the moment
+   the photo paints, so it needs no JS to switch off. */
+.u-img-skeleton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: translateX(-100%);
+  /* Three passes, not infinite: by then the photo has painted over it, and
+     76 cards each running a forever-animation is wasted compositing. */
+  animation: u-shimmer 1.7s ease-in-out 3;
+  pointer-events: none;
 }
 
 /* ---------- scrollbars ---------- */
@@ -192,8 +341,28 @@ input[type="number"]::-webkit-inner-spin-button {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal {
+  .reveal,
+  .reveal-fade,
+  .reveal-scale,
+  .reveal-left,
+  .reveal-right,
+  .reveal-blur {
     opacity: 1;
     transform: none;
+    filter: none;
+  }
+  .u-stagger > *,
+  .u-enter {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+  .u-lift:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .u-sheen::after,
+  .u-img-skeleton::before {
+    display: none;
   }
 }

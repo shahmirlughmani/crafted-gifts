@@ -11,7 +11,7 @@ export default function NotFound() {
         The page may have moved, or the gift may have sold out.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
-        <Link href="/shop" className="rounded-full bg-forest-800 text-cream-50 px-7 py-3.5 font-medium hover:bg-forest-700 transition-colors">
+        <Link href="/shop" className="u-press u-sheen rounded-full bg-forest-800 text-cream-50 px-7 py-3.5 font-medium hover:bg-forest-700 transition-colors">
           Browse all gifts
         </Link>
         <Link href="/" className="rounded-full border border-forest-800 px-7 py-3.5 font-medium hover:bg-forest-100 transition-colors">

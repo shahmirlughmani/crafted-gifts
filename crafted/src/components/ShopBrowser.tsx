@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { CATEGORIES, PRODUCTS, type CategoryId } from "@/data/products";
@@ -20,13 +20,13 @@ const SORTS: { id: Sort; label: string }[] = [
 export function ShopBrowser({ fixedCategory }: { fixedCategory?: CategoryId }) {
   const sp = useSearchParams();
   const [q, setQ] = useState("");
-  const [cat, setCat] = useState<CategoryId | "all">(fixedCategory ?? "all");
   const [sort, setSort] = useState<Sort>("featured");
-
-  useEffect(() => {
-    const c = sp.get("category");
-    if (!fixedCategory && c) setCat(c as CategoryId);
-  }, [sp, fixedCategory]);
+  // Derived rather than synced in an effect: the ?category= in the URL is the
+  // starting point, and a chip the visitor taps takes over from there.
+  const [picked, setPicked] = useState<CategoryId | "all" | null>(null);
+  const cat: CategoryId | "all" =
+    fixedCategory ?? picked ?? ((sp.get("category") as CategoryId) || "all");
+  const setCat = (c: CategoryId | "all") => setPicked(c);
 
   const results = useMemo(() => {
     let list = [...PRODUCTS];
@@ -62,7 +62,7 @@ export function ShopBrowser({ fixedCategory }: { fixedCategory?: CategoryId }) {
 
   const reset = () => {
     setQ("");
-    if (!fixedCategory) setCat("all");
+    if (!fixedCategory) setPicked("all");
   };
 
   return (
@@ -157,20 +157,26 @@ export function ShopBrowser({ fixedCategory }: { fixedCategory?: CategoryId }) {
           <div className="mt-6 flex justify-center gap-3">
             <button
               onClick={reset}
-              className="rounded-full border border-forest-800 px-6 py-3 text-sm font-medium hover:bg-forest-100 transition-colors"
+              className="u-press rounded-full border border-forest-800 px-6 py-3 text-sm font-medium hover:bg-forest-100"
             >
               Clear filters
             </button>
             <Link
               href="/customize"
-              className="rounded-full bg-forest-800 text-cream-50 px-6 py-3 text-sm font-medium hover:bg-forest-700 transition-colors"
+              className="u-press u-sheen rounded-full bg-forest-800 text-cream-50 px-6 py-3 text-sm font-medium hover:bg-forest-700"
             >
               Build your own
             </Link>
           </div>
         </div>
       ) : (
-        <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10 lg:gap-x-7">
+        <div
+          // Re-keyed on category/sort so the grid cascades in again when the
+          // visitor changes what they are looking at. Deliberately not keyed on
+          // the search text — that would restart the cascade on every keystroke.
+          key={`${cat}-${sort}`}
+          className="u-stagger mt-6 grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10 lg:gap-x-7"
+        >
           {results.map((p, i) => (
             <ProductCard key={p.id} p={p} priority={i < 4} />
           ))}
@@ -194,7 +200,7 @@ function Chip({
       onClick={onClick}
       aria-pressed={active}
       className={cx(
-        "shrink-0 rounded-full border px-4 py-1.5 text-[0.78rem] whitespace-nowrap transition-colors",
+        "u-press shrink-0 rounded-full border px-4 py-1.5 text-[0.78rem] whitespace-nowrap",
         active
           ? "bg-forest-800 border-forest-800 text-cream-50"
           : "bg-cream-50 border-gold-300 text-forest-800 hover:border-forest-600"

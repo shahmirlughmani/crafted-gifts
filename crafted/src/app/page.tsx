@@ -39,7 +39,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/shop"
-                className="group inline-flex items-center gap-2 rounded-full bg-forest-800 text-cream-50 px-7 py-3.5 font-medium hover:bg-forest-700 transition-colors"
+                className="u-press u-sheen group inline-flex items-center gap-2 rounded-full bg-forest-800 text-cream-50 px-7 py-3.5 font-medium hover:bg-forest-700 transition-colors"
               >
                 Shop all gifts
                 <IconChevron className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />

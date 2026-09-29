@@ -13,9 +13,11 @@ export default function ShopPage() {
   return (
     <div className="u-wrap pt-10 pb-20">
       <header className="max-w-2xl">
-        <p className="u-eyebrow">The full collection</p>
-        <h1 className="mt-3 font-display text-4xl sm:text-5xl">All Gifts</h1>
-        <p className="mt-4 text-muted leading-relaxed">
+        <p className="u-eyebrow u-enter u-enter-1">The full collection</p>
+        <h1 className="mt-3 font-display text-4xl sm:text-5xl u-enter u-enter-2">
+          All Gifts
+        </h1>
+        <p className="mt-4 text-muted leading-relaxed u-enter u-enter-3">
           {PRODUCTS.length} pieces, all made or packed by hand. Search by name
           or by what&apos;s inside — the search looks through every item list.
         </p>

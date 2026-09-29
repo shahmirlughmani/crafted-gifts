@@ -21,7 +21,7 @@ export function ProductCard({
     <article className="group relative">
       <Link
         href={`/product/${p.slug}`}
-        className="block relative aspect-square overflow-hidden rounded-2xl bg-cream-200"
+        className="u-lift u-img-skeleton block relative aspect-square overflow-hidden rounded-2xl bg-cream-200"
       >
         <Image
           src={p.image}
@@ -33,7 +33,7 @@ export function ProductCard({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-forest-950/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         {p.badge && (
-          <span className="absolute top-3 left-3 rounded-full bg-cream-50/95 backdrop-blur-sm px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-gold-700 shadow-sm">
+          <span className="absolute top-3 left-3 z-10 rounded-full bg-cream-50/95 backdrop-blur-sm px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-gold-700 shadow-sm transition-transform duration-500 group-hover:-translate-y-0.5">
             {p.badge}
           </span>
         )}
@@ -47,13 +47,18 @@ export function ProductCard({
         aria-label={isSaved ? `Unsave ${p.name}` : `Save ${p.name}`}
         aria-pressed={isSaved}
         className={cx(
-          "absolute top-3 right-3 grid place-items-center w-9 h-9 rounded-full bg-cream-50/92 backdrop-blur-sm shadow-sm transition-colors",
+          "u-press absolute top-3 right-3 z-10 grid place-items-center w-9 h-9 rounded-full bg-cream-50/92 backdrop-blur-sm shadow-sm",
           isSaved
             ? "text-rose-500"
             : "text-forest-800 hover:text-rose-500"
         )}
       >
-        <IconHeart className="w-[1.05rem] h-[1.05rem]" filled={isSaved} />
+        <IconHeart
+          // Re-keyed so the beat replays each time it is toggled.
+          key={String(isSaved)}
+          className={cx("w-[1.05rem] h-[1.05rem]", isSaved && "u-beat")}
+          filled={isSaved}
+        />
       </button>
 
       <div className="pt-3.5">
@@ -77,7 +82,7 @@ export function ProductCard({
               addProduct(p.slug);
               say(`${p.name} added`);
             }}
-            className="inline-flex items-center gap-1.5 rounded-full border border-forest-800 px-3.5 py-1.5 text-[0.74rem] font-medium text-forest-900 hover:bg-forest-800 hover:text-cream-50 transition-colors"
+            className="u-press inline-flex items-center gap-1.5 rounded-full border border-forest-800 px-3.5 py-1.5 text-[0.74rem] font-medium text-forest-900 hover:bg-forest-800 hover:text-cream-50"
           >
             <IconBag className="w-3.5 h-3.5" />
             Add

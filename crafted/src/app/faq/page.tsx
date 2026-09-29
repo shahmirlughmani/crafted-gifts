@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CONFIG } from "@/lib/config";
+import { Reveal } from "@/components/Reveal";
 import { Accordion } from "@/components/Accordion";
 import { FulfilmentNote } from "@/components/FulfilmentNote";
 import { IconInstagram } from "@/components/Icons";
@@ -61,26 +62,26 @@ export default function FaqPage() {
       />
       <div className="u-wrap pt-12 pb-20 grid lg:grid-cols-[1fr_20rem] gap-12 items-start">
         <div>
-          <p className="u-eyebrow">Good to know</p>
-          <h1 className="mt-3 font-display text-4xl sm:text-5xl">
+          <p className="u-eyebrow u-enter u-enter-1">Good to know</p>
+          <h1 className="mt-3 font-display text-4xl sm:text-5xl u-enter u-enter-2">
             FAQ, delivery &amp; returns
           </h1>
-          <p className="mt-4 text-muted max-w-xl leading-relaxed">
+          <p className="mt-4 text-muted max-w-xl leading-relaxed u-enter u-enter-3">
             Everything people ask us most. If your question isn&apos;t here, our
             Instagram DMs are the fastest way to get a real answer.
           </p>
-          <div className="mt-9">
+          <Reveal className="mt-9" delay={60}>
             <Accordion items={FAQS} />
-          </div>
+          </Reveal>
         </div>
 
-        <aside className="lg:sticky lg:top-28 space-y-4">
+        <Reveal as="aside" variant="right" className="lg:sticky lg:top-28 space-y-4" delay={120}>
           <FulfilmentNote />
           <a
             href={CONFIG.contact.instagramDm}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-full py-3.5 font-medium text-white transition hover:brightness-110"
+            className="u-press u-sheen flex items-center justify-center gap-2 rounded-full py-3.5 font-medium text-white hover:brightness-110"
             style={{
               background:
                 "linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
@@ -91,11 +92,11 @@ export default function FaqPage() {
           </a>
           <Link
             href="/shop"
-            className="flex items-center justify-center rounded-full border border-forest-800 text-forest-900 py-3.5 font-medium hover:bg-forest-100 transition-colors"
+            className="u-press flex items-center justify-center rounded-full border border-forest-800 text-forest-900 py-3.5 font-medium hover:bg-forest-100"
           >
             Browse gifts
           </Link>
-        </aside>
+        </Reveal>
       </div>
     </>
   );

@@ -215,7 +215,7 @@ export function Checkout() {
         <div className="mt-7 flex flex-col sm:flex-row justify-center gap-3">
           <Link
             href="/shop"
-            className="rounded-full bg-forest-800 text-cream-50 px-7 py-3.5 font-medium hover:bg-forest-700 transition-colors"
+            className="u-press u-sheen rounded-full bg-forest-800 text-cream-50 px-7 py-3.5 font-medium hover:bg-forest-700 transition-colors"
           >
             Browse gifts
           </Link>
@@ -464,7 +464,7 @@ export function Checkout() {
                     ) : (
                       <IconGift className="w-6 h-6 absolute inset-0 m-auto text-gold-500" />
                     )}
-                    <span className="absolute -top-1 -right-1 min-w-[1.1rem] h-[1.1rem] px-1 grid place-items-center rounded-full bg-forest-800 text-cream-50 text-[0.6rem] font-semibold">
+                    <span className="u-press u-sheen absolute -top-1 -right-1 min-w-[1.1rem] h-[1.1rem] px-1 grid place-items-center rounded-full bg-forest-800 text-cream-50 text-[0.6rem] font-semibold">
                       {l.qty}
                     </span>
                   </span>
@@ -506,7 +506,7 @@ export function Checkout() {
               <button
                 onClick={place}
                 disabled={busy}
-                className="mt-3 w-full rounded-full bg-forest-800 text-cream-50 py-3.5 font-medium hover:bg-forest-700 transition-colors disabled:opacity-60 disabled:cursor-wait flex items-center justify-center gap-2"
+                className="u-press u-sheen mt-3 w-full rounded-full bg-forest-800 text-cream-50 py-3.5 font-medium hover:bg-forest-700 transition-colors disabled:opacity-60 disabled:cursor-wait flex items-center justify-center gap-2"
               >
                 {busy && (
                   <span className="w-4 h-4 rounded-full border-2 border-cream-50/40 border-t-cream-50 animate-spin" />

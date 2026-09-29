@@ -70,20 +70,22 @@ export default async function CategoryPage({ params }: Params) {
             <IconChevron className="w-3 h-3" />
             <span className="text-cream-100">{c.name}</span>
           </nav>
-          <p className="u-eyebrow text-gold-300 mt-5">{c.tagline}</p>
-          <h1 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl text-cream-50">
+          <p className="u-eyebrow text-gold-300 mt-5 u-enter u-enter-1">
+            {c.tagline}
+          </p>
+          <h1 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl text-cream-50 u-enter u-enter-2">
             {c.name}
           </h1>
-          <p className="mt-4 max-w-xl text-cream-200/80 leading-relaxed">
+          <p className="mt-4 max-w-xl text-cream-200/80 leading-relaxed u-enter u-enter-3">
             {c.blurb}
           </p>
           {c.note && (
-            <p className="mt-4 max-w-xl rounded-xl border border-gold-300/40 bg-cream-50/10 px-4 py-3 text-[0.82rem] text-gold-200 leading-relaxed">
+            <p className="mt-4 max-w-xl rounded-xl border border-gold-300/40 bg-cream-50/10 px-4 py-3 text-[0.82rem] text-gold-200 leading-relaxed u-enter u-enter-4">
               {c.note}
             </p>
           )}
           {items.length > 0 && (
-            <p className="mt-5 text-[0.8rem] text-cream-200/60">
+            <p className="mt-5 text-[0.8rem] text-cream-200/60 u-enter u-enter-5">
               {items.length} {items.length === 1 ? "piece" : "pieces"} available
             </p>
           )}
@@ -115,7 +117,7 @@ export default async function CategoryPage({ params }: Params) {
               </a>
               <Link
                 href="/shop"
-                className="rounded-full border border-forest-800 px-6 py-3 text-sm font-medium hover:bg-forest-100 transition-colors"
+                className="u-press rounded-full border border-forest-800 px-6 py-3 text-sm font-medium hover:bg-forest-100"
               >
                 Browse everything else
               </Link>
@@ -130,12 +132,12 @@ export default async function CategoryPage({ params }: Params) {
         {/* other categories */}
         <div className="mt-20 pt-10 border-t border-gold-200">
           <p className="u-eyebrow">Keep looking</p>
-          <div className="mt-5 flex flex-wrap gap-3">
+          <div className="mt-5 flex flex-wrap gap-3 u-stagger">
             {CATEGORIES.filter((o) => o.id !== c.id).map((o) => (
               <Link
                 key={o.id}
                 href={`/shop/${o.id}`}
-                className="group inline-flex items-center gap-2 rounded-full border border-gold-300 bg-cream-50 pl-2 pr-5 py-2 hover:border-forest-600 transition-colors"
+                className="u-press group inline-flex items-center gap-2 rounded-full border border-gold-300 bg-cream-50 pl-2 pr-5 py-2 hover:border-forest-600 hover:shadow-[0_10px_24px_-18px_rgba(31,51,36,.6)]"
               >
                 <span className="relative w-9 h-9 rounded-full overflow-hidden bg-cream-200">
                   {o.image && (

@@ -132,6 +132,24 @@ ever comes back, that's the one place to change.
   for these to lead, so they are the `image` and the older studio photo drops
   into the gallery behind them.
 
+## Motion
+
+All of it is CSS in `globals.css` — no animation library. Three ways in:
+
+- **`.u-enter` + `.u-enter-1…5`** — above-the-fold entrance. Pure CSS, runs on
+  load, needs no observer. Use for page headers.
+- **`.u-stagger`** on a grid — children cascade in by `nth-child` delay. Put a
+  `key` on the grid if you want it to replay when the contents change.
+- **`<Reveal>`** — IntersectionObserver, for anything below the fold.
+  `variant` takes `up` (default), `fade`, `scale`, `left`, `right`, `blur`.
+
+Micro-states: `.u-lift` (card hover), `.u-press` (tap feedback), `.u-sheen`
+(light sweep on primary buttons), `.u-pop` (cart badge), `.u-beat` (saved
+heart), `.u-float`, `.u-img-skeleton` (shimmer under a loading photo).
+
+`prefers-reduced-motion` neutralises every one of them at the bottom of the
+file. **Add any new animation class to that block as well.**
+
 ## Working with the owner
 
 He communicates in a mix of English, Urdu and Pashto, often in short bursts,

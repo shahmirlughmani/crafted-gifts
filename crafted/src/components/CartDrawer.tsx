@@ -74,7 +74,7 @@ export function CartDrawer() {
               <Link
                 href="/shop"
                 onClick={close}
-                className="rounded-full bg-forest-800 text-cream-50 px-6 py-3 text-sm font-medium hover:bg-forest-700 transition-colors"
+                className="u-press u-sheen rounded-full bg-forest-800 text-cream-50 px-6 py-3 text-sm font-medium hover:bg-forest-700 transition-colors"
               >
                 Browse gifts
               </Link>
@@ -192,7 +192,7 @@ export function CartDrawer() {
               <Link
                 href="/checkout"
                 onClick={close}
-                className="mt-2 flex items-center justify-center rounded-full bg-forest-800 text-cream-50 py-3.5 text-sm font-medium hover:bg-forest-700 transition-colors"
+                className="u-press u-sheen mt-2 flex items-center justify-center rounded-full bg-forest-800 text-cream-50 py-3.5 text-sm font-medium hover:bg-forest-700 transition-colors"
               >
                 Checkout · {money(total)}
               </Link>

@@ -115,7 +115,7 @@ export function Customizer() {
       <div className="space-y-12">
         {/* ---------------- step 1 ---------------- */}
         <Step n={1} title="Choose your vessel" hint="What it all sits in.">
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="u-stagger grid grid-cols-2 sm:grid-cols-3 gap-3">
             {VESSELS.map((v) => (
               <Tile
                 key={v.id}
@@ -136,7 +136,11 @@ export function Customizer() {
             vesselSizes.length === 1 ? "one size" : "these sizes"
           } — we'll tell you if you overfill.`}
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div
+            // Replays the cascade when a different vessel changes the choices.
+            key={vessel}
+            className="u-stagger grid grid-cols-2 sm:grid-cols-3 gap-3"
+          >
             {vesselSizes.map((s) => (
               <Tile
                 key={s.id}
@@ -187,7 +191,7 @@ export function Customizer() {
                         {g.name}
                       </b>
                       {inGroup > 0 && (
-                        <span className="ml-2.5 rounded-full bg-forest-800 text-cream-50 px-2 py-0.5 text-[0.66rem] font-semibold">
+                        <span className="u-press u-sheen ml-2.5 rounded-full bg-forest-800 text-cream-50 px-2 py-0.5 text-[0.66rem] font-semibold">
                           {inGroup}
                         </span>
                       )}
@@ -435,7 +439,7 @@ export function Customizer() {
 
             <button
               onClick={addToBasket}
-              className="mt-4 w-full rounded-full bg-forest-800 text-cream-50 py-3.5 font-medium hover:bg-forest-700 transition-colors"
+              className="u-press u-sheen mt-4 w-full rounded-full bg-forest-800 text-cream-50 py-3.5 font-medium hover:bg-forest-700 transition-colors"
             >
               Add to basket
             </button>
@@ -493,7 +497,7 @@ function Step({
   return (
     <section id={id} className="scroll-mt-28">
       <header className="flex items-start gap-3.5 mb-5">
-        <span className="grid place-items-center w-9 h-9 shrink-0 rounded-full bg-forest-800 text-cream-50 font-display text-sm">
+        <span className="u-press u-sheen grid place-items-center w-9 h-9 shrink-0 rounded-full bg-forest-800 text-cream-50 font-display text-sm">
           {n}
         </span>
         <div>
@@ -525,7 +529,7 @@ function Tile({
       onClick={onClick}
       aria-pressed={active}
       className={cx(
-        "relative rounded-2xl border p-4 text-left transition-all",
+        "u-press relative rounded-2xl border p-4 text-left transition-all",
         active
           ? "border-forest-700 bg-forest-100 shadow-[0_0_0_1px_var(--color-forest-700)]"
           : "border-gold-200 bg-cream-50 hover:border-gold-400"

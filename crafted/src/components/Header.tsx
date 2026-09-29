@@ -33,12 +33,23 @@ export function Header() {
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 8);
-    on();
     window.addEventListener("scroll", on, { passive: true });
-    return () => window.removeEventListener("scroll", on);
+    // Covers a reload that restores a scrolled position, without seeding
+    // state synchronously inside the effect body.
+    const id = window.requestAnimationFrame(on);
+    return () => {
+      window.cancelAnimationFrame(id);
+      window.removeEventListener("scroll", on);
+    };
   }, []);
 
-  useEffect(() => setMenu(false), [path]);
+  // Closing the drawer on navigation is an adjustment to a prop change, not a
+  // synchronisation with anything outside React, so it belongs in render.
+  const [menuPath, setMenuPath] = useState(path);
+  if (menuPath !== path) {
+    setMenuPath(path);
+    if (menu) setMenu(false);
+  }
 
   useEffect(() => {
     document.body.style.overflow = menu ? "hidden" : "";
@@ -130,11 +141,15 @@ export function Header() {
             <button
               onClick={open}
               aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}
-              className="relative grid place-items-center w-10 h-10 rounded-full text-forest-800 hover:bg-forest-100 transition-colors"
+              className="u-press relative grid place-items-center w-10 h-10 rounded-full text-forest-800 hover:bg-forest-100"
             >
               <IconBag className="w-[1.2rem] h-[1.2rem]" />
               {count > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 min-w-[1.15rem] h-[1.15rem] px-1 grid place-items-center rounded-full bg-forest-800 text-cream-50 text-[0.62rem] font-semibold tabular-nums">
+                <span
+                  // Re-keyed on the count so the pop replays on every add.
+                  key={count}
+                  className="u-pop absolute -top-0.5 -right-0.5 min-w-[1.15rem] h-[1.15rem] px-1 grid place-items-center rounded-full bg-forest-800 text-cream-50 text-[0.62rem] font-semibold tabular-nums"
+                >
                   {count}
                 </span>
               )}

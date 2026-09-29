@@ -74,7 +74,7 @@ export function ProductBuy({ p }: { p: Product }) {
             );
             say(`${p.name} × ${qty} added`);
           }}
-          className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-forest-800 text-cream-50 px-6 h-12 font-medium hover:bg-forest-700 transition-colors"
+          className="u-press u-sheen flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-forest-800 text-cream-50 px-6 h-12 font-medium hover:bg-forest-700 transition-colors"
         >
           <IconBag className="w-[1.1rem] h-[1.1rem]" />
           Add to basket · {money(p.price * qty)}
