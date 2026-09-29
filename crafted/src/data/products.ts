@@ -1490,6 +1490,31 @@ const LATEST: Product[] = [
       "Gold keyring and chain",
     ],
   },
+  {
+    id: "n42",
+    slug: "blue-snack-box",
+    name: "Blue Snack Box",
+    price: 32500,
+    categories: ["for-him"],
+    badge: "Best Seller",
+    image: "/products/blue-snack-box-full.webp",
+    summary:
+      "Our biggest snack spread — everything in blue, from six Red Bulls to Lindt and Doritos, laid out in a lit acrylic tray.",
+    contents: [
+      "2 × Doritos",
+      "2 × Lindt bars",
+      "6 × Red Bull",
+      "Fox's candy",
+      "2 × Takis",
+      "2 × Pringles",
+      "Cookie box",
+      "Smarties",
+      "Ice Breakers",
+      "Trident",
+      "Oreo wafers box",
+    ],
+    featured: true,
+  },
 ];
 
 export const PRODUCTS: Product[] = [...LATEST, ...BASKETS, ...LEGACY, ...HANDMADE];
