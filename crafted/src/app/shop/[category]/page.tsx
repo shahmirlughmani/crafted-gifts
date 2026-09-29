@@ -61,7 +61,10 @@ export default async function CategoryPage({ params }: Params) {
               className="object-cover"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-950/85 via-forest-950/65 to-forest-950/30" />
+          {/* On a phone the banner fills the width, so a left-to-right scrim
+              leaves the eyebrow sitting on bright photo. Go vertical and
+              heavier below the lg breakpoint, keep the original above it. */}
+          <div className="absolute inset-0 bg-gradient-to-t from-forest-950/94 via-forest-950/82 to-forest-950/70 lg:bg-gradient-to-r lg:from-forest-950/85 lg:via-forest-950/65 lg:to-forest-950/30" />
         </div>
         <div className="u-wrap relative py-16 lg:py-24 text-cream-50">
           <nav className="flex items-center gap-1.5 text-[0.75rem] text-cream-200/65">

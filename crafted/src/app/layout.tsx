@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Toast } from "@/components/Toast";
 import { InstagramFab } from "@/components/InstagramFab";
+import { Analytics } from "@/components/Analytics";
 import { CONFIG } from "@/lib/config";
 
 /* Fonts are self-hosted (no runtime call to Google) — faster and privacy-safe. */
@@ -67,8 +68,18 @@ export const metadata: Metadata = {
     description:
       "Handmade crochet, plushies and curated gift hampers. Build your own basket, or choose a ready-made box.",
     locale: "en_PK",
+    // Without this, pasting a link into WhatsApp or Instagram showed text and
+    // no picture. Product pages override it with the product's own photo.
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${CONFIG.brand.name} — ${CONFIG.brand.tagline}`,
+      },
+    ],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
   robots: { index: true, follow: true },
 };
 
@@ -87,6 +98,7 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${script.variable}`}
     >
       <body className="min-h-dvh flex flex-col">
+        <Analytics />
         <CartProvider>
           <a
             href="#main"

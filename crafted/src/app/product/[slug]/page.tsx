@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     openGraph: {
       title: `${p.name} · ${CONFIG.brand.name}`,
       description: p.summary,
-      images: [{ url: p.image, width: 1000, height: 1000, alt: p.name }],
+      images: [{ url: p.image, alt: p.name }],
       type: "website",
     },
   };

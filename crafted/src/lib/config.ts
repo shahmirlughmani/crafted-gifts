@@ -1,6 +1,6 @@
 export const CONFIG = {
   brand: {
-    name: "Crafted Gifts Bys",
+    name: "Crafted Gifts by S",
     short: "Crafted",
     tagline: "Thoughtful Gifts, Made with Love",
     // Must be the domain that actually serves the site: the Share button, the
@@ -56,6 +56,17 @@ export const CONFIG = {
     leadTime: "Cake orders must be placed at least 1 week before delivery.",
     areas: "Cakes are available in Islamabad & Rawalpindi only.",
     note: "Cake orders must be placed at least 1 week before delivery and are available in Islamabad & Rawalpindi only.",
+  },
+
+  /**
+   * Visitor tracking. Both are OFF until an id is pasted in — leave them empty
+   * and no script is loaded at all.
+   *   metaPixelId — Meta Events Manager > Data Sources > your pixel (a number)
+   *   ga4Id       — Google Analytics > Admin > Data Streams (looks like G-XXXXXXX)
+   */
+  analytics: {
+    metaPixelId: "",
+    ga4Id: "",
   },
 
   currency: "Rs.",
