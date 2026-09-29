@@ -736,7 +736,7 @@ const LATEST: Product[] = [
     name: "Pink Anniversary Basket",
     price: 16500,
     pricePending: true,
-    categories: ["for-her", "plushies"],
+    categories: ["for-her"],
     badge: "Anniversary",
     image: "/baskets/penguin-anniversary-basket-catalogue-full.webp",
     summary:
