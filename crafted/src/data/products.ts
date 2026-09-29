@@ -69,7 +69,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Soft & Squishable",
     blurb:
       "Cuddly companions for every gift — from our handmade crochet plushies to adorable teddy bears, perfect for adding a little extra love to your box.",
-    image: "/crochet/crochet-bunny-navy.webp",
+    image: "/crochet/crochet-bunny-navy-full.webp",
   },
   {
     id: "cakes",
@@ -77,7 +77,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Baked to Order",
     blurb:
       "Celebration cakes made fresh and finished to match your box, so the whole gift arrives together.",
-    image: "/cakes/birthday-floral-cake.webp",
+    image: "/cakes/birthday-floral-cake-full.webp",
     note: "Cake orders must be placed at least 1 week before delivery and are available in Islamabad & Rawalpindi only.",
   },
 ];
@@ -94,9 +94,8 @@ const BASKETS: Product[] = [
     price: 19000,
     categories: ["for-her"],
     badge: "Best Seller",
-    image: "/baskets/pink-sweetheart-basket-catalogue.webp",
+    image: "/baskets/pink-sweetheart-basket-catalogue-full.webp",
     gallery: [
-      "/baskets/pink-sweetheart-basket-catalogue-full.webp",
       "/baskets/pink-sweetheart-basket-full.webp",
     ],
     summary:
@@ -122,9 +121,8 @@ const BASKETS: Product[] = [
     name: "Pretty Pink Plushie Basket",
     price: 25000,
     categories: ["for-her", "plushies"],
-    image: "/baskets/lamb-sweetheart-basket-catalogue.webp",
+    image: "/baskets/lamb-sweetheart-basket-catalogue-full.webp",
     gallery: [
-      "/baskets/lamb-sweetheart-basket-catalogue-full.webp",
       "/baskets/lamb-sweetheart-basket-full.webp",
     ],
     summary:
@@ -215,9 +213,8 @@ const BASKETS: Product[] = [
     price: 28000,
     categories: ["for-her", "plushies"],
     badge: "New",
-    image: "/baskets/pink-fairy-box-catalogue.webp",
+    image: "/baskets/pink-fairy-box-catalogue-full.webp",
     gallery: [
-      "/baskets/pink-fairy-box-catalogue-full.webp",
       "/baskets/pink-fairy-box-full.webp",
     ],
     summary:
@@ -682,9 +679,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l5", slug: "signature-gift-box", name: "Classic Gift Box", price: 18000,
-    categories: ["for-him"], image: "/products/signature-gift-box-catalogue.webp",
+    categories: ["for-him"], image: "/products/signature-gift-box-catalogue-full.webp",
     gallery: [
-      "/products/signature-gift-box-catalogue-full.webp",
       "/products/signature-gift-box.webp",
     ],
     summary: "A simple, versatile gift that can be customised for birthdays, celebrations or just because.",
@@ -692,9 +688,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l6", slug: "gentlemans-essentials-box", name: "Gentleman's Essentials Box", price: 23500,
-    categories: ["for-him"], image: "/products/gentlemans-essentials-box-catalogue.webp",
+    categories: ["for-him"], image: "/products/gentlemans-essentials-box-catalogue-full.webp",
     gallery: [
-      "/products/gentlemans-essentials-box-catalogue-full.webp",
       "/products/gentlemans-essentials-box.webp",
     ],
     summary: "Everything he reaches for daily, upgraded — shirt, leather goods and a steel bracelet.",
@@ -702,9 +697,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l7", slug: "luxe-green-box", name: "Luxe Gentleman's Tray", price: 38500,
-    categories: ["for-him"], badge: "Premium", image: "/products/luxe-green-box-catalogue.webp",
+    categories: ["for-him"], badge: "Premium", image: "/products/luxe-green-box-catalogue-full.webp",
     gallery: [
-      "/products/luxe-green-box-catalogue-full.webp",
       "/products/luxe-green-box.webp",
     ],
     summary: "A statement gift — a luxury watch and sunglasses with an Outfitters knit polo, presented in an acrylic tray. A memorable choice for birthdays and special celebrations.",
@@ -712,9 +706,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l8", slug: "classic-snack-box", name: "The Snack Box", price: 17500,
-    categories: ["for-him"], image: "/products/classic-snack-box-catalogue.webp",
+    categories: ["for-him"], image: "/products/classic-snack-box-catalogue-full.webp",
     gallery: [
-      "/products/classic-snack-box-catalogue-full.webp",
       "/products/classic-snack-box.webp",
     ],
     summary: "Snacks and self-care together — the crowd-pleaser of our range.",
@@ -722,9 +715,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l9", slug: "cambridge-clothes-box", name: "Essentials Gift Box", price: 24500,
-    categories: ["for-him"], image: "/products/cambridge-clothes-box-catalogue.webp",
+    categories: ["for-him"], image: "/products/cambridge-clothes-box-catalogue-full.webp",
     gallery: [
-      "/products/cambridge-clothes-box-catalogue-full.webp",
       "/products/cambridge-clothes-box.webp",
     ],
     summary: "A sleek transparent gift box filled with carefully selected essentials. Modern, elegant and perfect for a special surprise.",
@@ -732,9 +724,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l10", slug: "deluxe-care-basket", name: "Gentleman's Grooming Basket", price: 15000,
-    categories: ["for-him"], image: "/products/deluxe-care-basket-catalogue.webp",
+    categories: ["for-him"], image: "/products/deluxe-care-basket-catalogue-full.webp",
     gallery: [
-      "/products/deluxe-care-basket-catalogue-full.webp",
       "/products/deluxe-care-basket.webp",
     ],
     summary: "A stylish basket filled with men's grooming essentials, chocolates and drinks, beautifully arranged and finished with a navy bow.",
@@ -742,9 +733,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l11", slug: "classic-care-basket", name: "The Luxe Men's Tray", price: 11000,
-    categories: ["for-him"], image: "/products/classic-care-basket-catalogue.webp",
+    categories: ["for-him"], image: "/products/classic-care-basket-catalogue-full.webp",
     gallery: [
-      "/products/classic-care-basket-catalogue-full.webp",
       "/products/classic-care-basket.webp",
     ],
     summary: "A premium navy gift tray featuring carefully selected grooming essentials, drinks and treats.",
@@ -752,9 +742,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l12", slug: "birthday-box", name: "Birthday Box", price: 20500,
-    categories: ["for-him"], image: "/products/birthday-box-catalogue.webp",
+    categories: ["for-him"], image: "/products/birthday-box-catalogue-full.webp",
     gallery: [
-      "/products/birthday-box-catalogue-full.webp",
       "/products/birthday-box.webp",
     ],
     summary: "A refined gift set featuring a polo shirt, a fragrance and carefully selected essentials, presented under a lit Happy Birthday banner.",
@@ -762,9 +751,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l13", slug: "cougar-shirt-box", name: "The Gentleman's Gift Basket", price: 17500,
-    categories: ["for-him"], image: "/products/cougar-shirt-box-catalogue.webp",
+    categories: ["for-him"], image: "/products/cougar-shirt-box-catalogue-full.webp",
     gallery: [
-      "/products/cougar-shirt-box-catalogue-full.webp",
       "/products/cougar-shirt-box.webp",
     ],
     summary: "A complete gift basket for him featuring grooming essentials and chocolate, finished with a classic navy-blue bow.",
@@ -778,9 +766,8 @@ const LEGACY: Product[] = [
   },
   {
     id: "l15", slug: "snack-care-box", name: "Especially For You — Men's Box", price: 14500,
-    categories: ["for-him"], image: "/products/snack-care-box-catalogue.webp",
+    categories: ["for-him"], image: "/products/snack-care-box-catalogue-full.webp",
     gallery: [
-      "/products/snack-care-box-catalogue-full.webp",
       "/products/snack-care-box.webp",
     ],
     summary: "A thoughtfully curated box combining men's grooming essentials with chocolates, biscuits and favourite snacks — the perfect all-in-one gift for him.",
@@ -843,11 +830,7 @@ const LATEST: Product[] = [
     pricePending: true,
     categories: ["for-her", "plushies"],
     badge: "Anniversary",
-    image: "/baskets/penguin-anniversary-basket-catalogue.webp",
-    gallery: [
-      "/baskets/penguin-anniversary-basket-catalogue-full.webp",
-      "/baskets/penguin-anniversary-basket-full.webp",
-    ],
+    image: "/baskets/penguin-anniversary-basket-catalogue-full.webp",
     summary:
       "A romantic gift basket filled with a soft plushie, chocolates, flowers and thoughtful little surprises, finished with a delicate pink ribbon. A beautiful way to celebrate your special someone.",
     contents: [
@@ -1100,10 +1083,7 @@ const LATEST: Product[] = [
     price: 8000,
     categories: ["cakes"],
     badge: "New",
-    image: "/cakes/birthday-floral-cake.webp",
-    gallery: [
-      "/cakes/birthday-floral-cake-full.webp",
-    ],
+    image: "/cakes/birthday-floral-cake-full.webp",
     summary:
       "A beautiful celebration cake decorated with purple buttercream flowers, butterflies and a personalised birthday message.",
     contents: [
@@ -1122,10 +1102,7 @@ const LATEST: Product[] = [
     price: 18000,
     categories: ["cakes"],
     badge: "New",
-    image: "/cakes/blue-balloon-cake-box.webp",
-    gallery: [
-      "/cakes/blue-balloon-cake-box-full.webp",
-    ],
+    image: "/cakes/blue-balloon-cake-box-full.webp",
     summary:
       "A dreamy arrangement of clear balloons trimmed with delicate blue bows, over a celebration cake finished in a lit acrylic box.",
     contents: [
@@ -1142,10 +1119,7 @@ const LATEST: Product[] = [
     name: "Acrylic Cake Box with Chocolates",
     price: 13000,
     categories: ["cakes"],
-    image: "/cakes/acrylic-chocolate-cake-box.webp",
-    gallery: [
-      "/cakes/acrylic-chocolate-cake-box-full.webp",
-    ],
+    image: "/cakes/acrylic-chocolate-cake-box-full.webp",
     summary:
       "A layered German fudge cake dressed with white roses and Dairy Milk bars, finished in a ribboned acrylic box.",
     contents: [
@@ -1163,10 +1137,7 @@ const LATEST: Product[] = [
     handmade: true,
     categories: ["plushies", "crochet"],
     badge: "New",
-    image: "/crochet/crochet-bunny-navy.webp",
-    gallery: [
-      "/crochet/crochet-bunny-navy-full.webp",
-    ],
+    image: "/crochet/crochet-bunny-navy-full.webp",
     summary:
       "A handmade white crochet bunny dressed in a cute navy-blue outfit, making a charming keepsake or thoughtful gift.",
     contents: [
@@ -1185,10 +1156,7 @@ const LATEST: Product[] = [
     price: 3200,
     handmade: true,
     categories: ["plushies", "crochet"],
-    image: "/crochet/crochet-bunny-red.webp",
-    gallery: [
-      "/crochet/crochet-bunny-red-full.webp",
-    ],
+    image: "/crochet/crochet-bunny-red-full.webp",
     summary:
       "A soft handmade bunny dressed in a festive red outfit — perfect for birthdays, celebrations or simply making someone smile.",
     contents: [
@@ -1207,10 +1175,7 @@ const LATEST: Product[] = [
     price: 4000,
     handmade: true,
     categories: ["plushies", "crochet"],
-    image: "/crochet/crochet-flower-turtle.webp",
-    gallery: [
-      "/crochet/crochet-flower-turtle-full.webp",
-    ],
+    image: "/crochet/crochet-flower-turtle-full.webp",
     summary:
       "A handmade crochet turtle decorated with colourful flowers — a sweet keepsake made to last long after the occasion.",
     contents: [
@@ -1228,10 +1193,7 @@ const LATEST: Product[] = [
     price: 16500,
     categories: ["for-him"],
     badge: "New",
-    image: "/baskets/classic-mens-snack-box.webp",
-    gallery: [
-      "/baskets/classic-mens-snack-box-full.webp",
-    ],
+    image: "/baskets/classic-mens-snack-box-full.webp",
     summary:
       "A fun selection of favourite snacks, chocolates and drinks arranged in a premium gift box. Perfect for the guy who loves good snacks and a thoughtful surprise.",
     contents: [
@@ -1252,10 +1214,7 @@ const LATEST: Product[] = [
     price: 10500,
     categories: ["for-him"],
     badge: "New",
-    image: "/baskets/batman-gift-box.webp",
-    gallery: [
-      "/baskets/batman-gift-box-full.webp",
-    ],
+    image: "/baskets/batman-gift-box-full.webp",
     summary:
       "A birthday-ready gift box filled with snacks, chocolates and drinks, finished with a glowing Happy Birthday banner and our own crochet Batman.",
     contents: [
@@ -1277,10 +1236,7 @@ const LATEST: Product[] = [
     price: 14000,
     categories: ["for-him", "for-her"],
     badge: "Eid",
-    image: "/baskets/eid-dry-fruit-box.webp",
-    gallery: [
-      "/baskets/eid-dry-fruit-box-full.webp",
-    ],
+    image: "/baskets/eid-dry-fruit-box-full.webp",
     summary:
       "A beautifully arranged selection of premium dry fruits and nuts, presented in an elegant gift box with an Eid Mubarak finish. Perfect for thoughtful festive gifting.",
     contents: [
@@ -1298,10 +1254,7 @@ const LATEST: Product[] = [
     price: 24500,
     categories: ["for-him"],
     badge: "New",
-    image: "/baskets/gym-performance-box.webp",
-    gallery: [
-      "/baskets/gym-performance-box-full.webp",
-    ],
+    image: "/baskets/gym-performance-box-full.webp",
     summary:
       "Everything for the one who never misses a session — protein, bars and training kit packed into a navy box with a cream bow.",
     contents: [
@@ -1320,10 +1273,7 @@ const LATEST: Product[] = [
     price: 21500,
     categories: ["for-him"],
     badge: "New",
-    image: "/baskets/birthday-polo-box.webp",
-    gallery: [
-      "/baskets/birthday-polo-box-full.webp",
-    ],
+    image: "/baskets/birthday-polo-box-full.webp",
     summary:
       "A knit polo ribbon-tied beside his grooming line-up and a row of Dairy Milk, under a lit Happy Birthday banner.",
     contents: [
@@ -1343,10 +1293,7 @@ const LATEST: Product[] = [
     name: "Unstitched Suit Box",
     price: 12500,
     categories: ["for-him"],
-    image: "/baskets/unstitched-suit-box.webp",
-    gallery: [
-      "/baskets/unstitched-suit-box-full.webp",
-    ],
+    image: "/baskets/unstitched-suit-box-full.webp",
     summary:
       "A J. unstitched suit wrapped and ribboned by hand, with a fragrance and grooming basics alongside it.",
     contents: [
@@ -1363,10 +1310,7 @@ const LATEST: Product[] = [
     price: 22000,
     categories: ["for-him"],
     badge: "New",
-    image: "/baskets/birthday-wallet-tee-box.webp",
-    gallery: [
-      "/baskets/birthday-wallet-tee-box-full.webp",
-    ],
+    image: "/baskets/birthday-wallet-tee-box-full.webp",
     summary:
       "A wardrobe piece, a leather wallet and a fragrance boxed together with chocolate and a card to sign.",
     contents: [
