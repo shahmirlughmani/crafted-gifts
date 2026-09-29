@@ -592,30 +592,6 @@ const HANDMADE: Product[] = [
    -------------------------------------------------------------------------- */
 const LEGACY: Product[] = [
   {
-    id: "l1", slug: "blue-snack-box", name: "Blue Snack Box", price: 32500,
-    categories: ["for-him"], badge: "Best Seller", image: "/products/blue-snack-box.webp",
-    summary: "Our biggest snack spread — an overflowing box of imported chocolate, chips and energy drinks.",
-    contents: ["2 × Doritos","2 × Lindt chocolate bars","6 × Red Bull","Fox's candy tin","2 × Takis","2 × Pringles","Cookie box","Smarties","Ice Breakers mints","Trident gum","Oreo wafers box"],
-  },
-  {
-    id: "l2", slug: "eastern-clothes-box", name: "Eastern Clothes Box", price: 35000,
-    categories: ["for-him"], badge: "Premium", image: "/products/eastern-clothes-box.webp",
-    summary: "A complete eastern look, boxed — tailored suit, handmade chappal and finishing details.",
-    contents: ["Dynasty unstitched suit","Mocciani Peshawari chappal","Royal Tag cufflinks"],
-  },
-  {
-    id: "l3", slug: "dry-fruit-basket", name: "Dry Fruit Basket", price: 9000,
-    categories: ["for-him"], image: "/products/dry-fruit-basket.webp",
-    summary: "Six premium dry fruits arranged in a woven basket — the gift that always lands well.",
-    contents: ["Almonds","Cashews","Pistachios","Walnuts","Dried apricots","Raisins","Presented in a woven gift basket"],
-  },
-  {
-    id: "l4", slug: "western-clothes-box", name: "Western Clothes Box", price: 23000,
-    categories: ["for-him"], image: "/products/western-clothes-box.webp",
-    summary: "Smart-casual essentials in an elegant presentation box.",
-    contents: ["Lama loafers","Lama shirt","Elegant gift presentation box"],
-  },
-  {
     id: "l5", slug: "signature-gift-box", name: "Classic Gift Box", price: 14500,
     categories: ["for-him"], image: "/products/signature-gift-box-catalogue-full.webp",
     summary: "A simple, versatile gift that can be customised for birthdays, celebrations or just because.",
@@ -668,12 +644,6 @@ const LEGACY: Product[] = [
     categories: ["for-him"], image: "/products/cougar-shirt-box-catalogue-full.webp",
     summary: "A complete gift basket for him featuring grooming essentials and chocolate, finished with a classic navy-blue bow.",
     contents: ["Cougar shirt","Nivea body spray","Nivea face wash","Janan Sports mini fragrance","Bounty bar","Letter bottle"],
-  },
-  {
-    id: "l14", slug: "mini-treat-box", name: "Mini Treat Box", price: 5000,
-    categories: ["for-him"], badge: "Popular", image: "/products/mini-treat-box.webp",
-    summary: "Small, sweet and always in stock — perfect as an add-on or a first gift.",
-    contents: ["Nike body spray","Pepsi Diet","Piper's Gold biscuits","Vaseline lip balm","2 × Mars bars"],
   },
   {
     id: "l15", slug: "snack-care-box", name: "Especially For You — Men's Box", price: 14500,
