@@ -18,8 +18,8 @@ export type Vessel = {
   id: string;
   name: string;
   note: string;
-  /** Which sizes this vessel is actually made in. */
-  sizes: SizeId[];
+  /** Price per size. Only the sizes listed here are offered for this vessel. */
+  prices: Partial<Record<SizeId, number>>;
 };
 
 export type ItemGroup = {
@@ -30,48 +30,50 @@ export type ItemGroup = {
 };
 
 /**
- * Step 1 — what the gift is presented in.
- *
- * The owner's price list gives the vessels and the sizes each one comes in, but
- * no vessel prices: the vessel is included and the final figure is confirmed on
- * WhatsApp. So nothing here is priced and the builder totals the contents only.
+ * Step 1 — what the gift is presented in, priced per size.
  */
 export const VESSELS: Vessel[] = [
   {
     id: "classic-box",
     name: "Classic Gift Box",
     note: "Rigid magnetic box with a ribbon",
-    sizes: ["small", "large"],
+    prices: { small: 1250, large: 2000 },
   },
   {
     id: "pvc-box",
     name: "PVC Box",
     note: "Clear-panel box — everything on show",
-    sizes: ["small", "medium", "large"],
+    prices: { small: 850, medium: 950, large: 1050 },
   },
   {
     id: "acrylic-box",
     name: "Acrylic Gift Box",
     note: "Clear acrylic, fairy lights optional",
-    sizes: ["large"],
+    prices: { large: 5500 },
   },
   {
     id: "acrylic-tray",
     name: "Acrylic Tray",
     note: "Flat and clear — shows everything at once",
-    sizes: ["large"],
+    prices: { large: 4500 },
   },
   {
     id: "wooden-tray",
     name: "Wooden Gift Tray",
     note: "Warm wood finished with a satin bow",
-    sizes: ["small", "large"],
+    prices: { small: 3000, large: 4000 },
   },
   {
     id: "white-basket",
     name: "White Basket",
     note: "Woven basket — holds the most",
-    sizes: ["small", "medium", "large"],
+    prices: { small: 3500, medium: 4000, large: 4500 },
+  },
+  {
+    id: "gift-bag",
+    name: "Transparent Gift Bag",
+    note: "The lightest way to send something small",
+    prices: { small: 550 },
   },
 ];
 
@@ -234,5 +236,13 @@ export const ALL_ITEMS: Record<string, Option & { group: string }> =
 /** The sizes a given vessel is offered in. */
 export const sizesFor = (vesselId: string): Size[] => {
   const v = VESSELS.find((x) => x.id === vesselId);
-  return v ? SIZES.filter((s) => v.sizes.includes(s.id)) : SIZES;
+  return v ? SIZES.filter((s) => v.prices[s.id] !== undefined) : SIZES;
 };
+
+/** What this vessel costs in this size. */
+export const vesselPrice = (vesselId: string, size: SizeId): number =>
+  VESSELS.find((v) => v.id === vesselId)?.prices[size] ?? 0;
+
+/** Cheapest size of a vessel — shown as "from Rs. X" on the tile. */
+export const vesselFrom = (v: Vessel): number =>
+  Math.min(...Object.values(v.prices).filter((n): n is number => n !== undefined));

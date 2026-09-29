@@ -8,6 +8,8 @@ import {
   ITEM_GROUPS,
   ALL_ITEMS,
   sizesFor,
+  vesselPrice,
+  vesselFrom,
   type SizeId,
 } from "@/data/customizer";
 import { useCart } from "@/lib/cart";
@@ -56,9 +58,8 @@ export function Customizer() {
     [picked]
   );
 
-  // The vessel and its size are included — the owner's list prices them with the
-  // final quote, so only the contents and the card are totalled here.
-  const total = itemsTotal + cardOpt.price;
+  const containerPrice = vesselPrice(vessel, sizeOpt.id);
+  const total = containerPrice + itemsTotal + cardOpt.price;
   const overCapacity = itemCount > sizeOpt.maxItems;
 
   const bump = (id: string, delta: number) =>
@@ -123,6 +124,8 @@ export function Customizer() {
                 onClick={() => setVessel(v.id)}
                 title={v.name}
                 sub={v.note}
+                price={vesselFrom(v)}
+                priceLabel="from"
               />
             ))}
           </div>
@@ -148,6 +151,7 @@ export function Customizer() {
                 onClick={() => setSize(s.id)}
                 title={s.name}
                 sub={s.guide}
+                price={vesselPrice(vessel, s.id)}
               />
             ))}
           </div>
@@ -382,7 +386,9 @@ export function Customizer() {
               <span className="text-[0.82rem] text-muted">
                 {vesselOpt.name} · {sizeOpt.name}
               </span>
-              <span className="text-[0.82rem] text-gold-700">Included</span>
+              <span className="text-[0.82rem] tabular-nums text-forest-900">
+                {money(containerPrice)}
+              </span>
             </div>
 
             {itemCount === 0 ? (
@@ -434,7 +440,8 @@ export function Customizer() {
               </span>
             </div>
             <p className="text-[0.7rem] text-muted mt-0.5">
-              Vessel included · delivery {CONFIG.delivery.quotedLabel.toLowerCase()}
+              Vessel, contents and card · delivery{" "}
+              {CONFIG.delivery.quotedLabel.toLowerCase()}
             </p>
 
             <button
@@ -516,13 +523,15 @@ function Tile({
   title,
   sub,
   price,
+  priceLabel,
 }: {
   active: boolean;
   onClick: () => void;
   title: string;
   sub?: string;
-  /** Omitted for vessels and sizes — those are included in the final quote. */
   price?: number;
+  /** e.g. "from", for a vessel whose sizes differ in price. */
+  priceLabel?: string;
 }) {
   return (
     <button
@@ -548,7 +557,9 @@ function Tile({
       )}
       {price !== undefined && (
         <span className="block text-[0.78rem] text-gold-700 mt-1.5 tabular-nums">
-          {price === 0 ? "Free" : `+ ${money(price)}`}
+          {price === 0
+            ? "Free"
+            : `${priceLabel ? `${priceLabel} ` : "+ "}${money(price)}`}
         </span>
       )}
     </button>
