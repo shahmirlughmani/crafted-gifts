@@ -32,6 +32,9 @@ export type Product = {
   featured?: boolean;
   /** true = price is a placeholder awaiting confirmation */
   pricePending?: boolean;
+  /** Overrides the category note on this product's page, e.g. a shorter
+   *  lead time than the rest of the category. */
+  note?: string;
   handmade?: boolean;
 };
 
@@ -42,7 +45,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Gifts He'll Love",
     blurb:
       "Trays, boxes and hampers filled with things he'll actually love — grooming essentials, snacks, clothing and thoughtful little extras, packed and finished by hand.",
-    image: "/baskets/midnight-snack-tray-full.webp",
+    image: "/baskets/classic-mens-snack-box-full.webp",
   },
   {
     id: "for-her",
@@ -84,28 +87,6 @@ export const CATEGORIES: Category[] = [
    PRICES ARE PLACEHOLDERS (pricePending: true) until confirmed.
    -------------------------------------------------------------------------- */
 const BASKETS: Product[] = [
-  {
-    id: "b1",
-    slug: "pink-blossom-basket",
-    name: "Pink Blossom Basket",
-    price: 8500,
-    pricePending: true,
-    categories: ["for-her"],
-    image: "/baskets/pink-blossom-basket-full.webp",
-    summary:
-      "A soft pink basket built around a hand-crocheted lamb, with skincare, sweets and dried blooms tucked in around it.",
-    contents: [
-      "Hand-crocheted lamb plushie",
-      "Sadoer sheet mask",
-      "Hand cream",
-      "Mogu Mogu lychee drink",
-      "Mint gum & chocolate",
-      "Padded headband",
-      "Heart hair clip",
-      "Dried pink gypsophila",
-    ],
-    featured: true,
-  },
   {
     id: "b2",
     slug: "pink-sweetheart-basket",
@@ -210,122 +191,6 @@ const BASKETS: Product[] = [
     ],
   },
   {
-    id: "b6",
-    slug: "midnight-snack-tray",
-    name: "Midnight Snack Tray",
-    price: 18500,
-    pricePending: true,
-    categories: ["for-him"],
-    badge: "Best Seller",
-    image: "/baskets/midnight-snack-tray-full.webp",
-    summary:
-      "A lit acrylic tray packed edge to edge in navy — energy drinks, imported chocolate and everything salty.",
-    contents: [
-      "4 × Red Bull",
-      "Piper's Gold chocolate",
-      "Pringles",
-      "Oreo",
-      "Lindt chocolate bar",
-      "Takis",
-      "Fox's Fruity Mints",
-      "Ice Breakers mints",
-      "Merci chocolates",
-      "Fairy lights",
-    ],
-    featured: true,
-  },
-  {
-    id: "b7",
-    slug: "snack-and-tee-tray",
-    name: "Snack & Tee Tray",
-    price: 13500,
-    pricePending: true,
-    categories: ["for-him"],
-    image: "/baskets/snack-and-tee-tray-full.webp",
-    summary:
-      "A black tray with a folded tee under a full row of snacks, finished with a hand-crocheted tulip.",
-    contents: [
-      "Black cotton T-shirt",
-      "Hand-crocheted blue tulip",
-      "Piper's Gold biscuits",
-      "Mallows marshmallows",
-      "Lay's & Lay's Maxx",
-      "2 × Nestlé Nesfruta",
-      "Smarties",
-      "Pringles",
-      "Fox's mints",
-      "White rose",
-    ],
-  },
-  {
-    id: "b8",
-    slug: "floral-glam-basket",
-    name: "Floral Glam Basket",
-    price: 21500,
-    pricePending: true,
-    categories: ["for-her"],
-    badge: "Premium",
-    image: "/baskets/floral-glam-basket-full.webp",
-    summary:
-      "Fresh chrysanthemums packed around Color WOW haircare, makeup and a glass mug — our most giftable basket.",
-    contents: [
-      "Color WOW hair mist",
-      "Color WOW root spray",
-      "Eyeshadow palette",
-      "Lipstick & mascara",
-      "Perfume",
-      "Glass mug",
-      "Fresh white & purple chrysanthemums",
-      "Wicker basket with satin-wrapped handle",
-    ],
-    featured: true,
-  },
-  {
-    id: "b9",
-    slug: "birthday-celebration-box",
-    name: "Birthday Celebration Box",
-    price: 16500,
-    pricePending: true,
-    categories: ["for-him"],
-    badge: "With Cake",
-    image: "/baskets/birthday-celebration-box-full.webp",
-    summary:
-      "A lit box with a Happy Birthday banner and a matching iced cake alongside — the whole celebration in one delivery.",
-    contents: [
-      "Happy Birthday banner & fairy lights",
-      "Iced birthday cake",
-      "Black graphic T-shirt",
-      "Kotton gift boxes",
-      "Pringles",
-      "Piper's Gold biscuits",
-      "Handwritten card",
-    ],
-    featured: true,
-  },
-  {
-    id: "b10",
-    slug: "wooden-essentials-tray",
-    name: "Wooden Essentials Tray",
-    price: 9500,
-    pricePending: true,
-    categories: ["for-him"],
-    image: "/baskets/wooden-essentials-tray.webp",
-    gallery: [
-      "/baskets/wooden-essentials-tray-full.webp",
-    ],
-    summary:
-      "A clean wooden tray with a folded tee, grooming basics and white roses — simple, and it always lands.",
-    contents: [
-      "Black cotton T-shirt",
-      "Nivea Men Deep deodorant",
-      "Nivea Men shower gel",
-      "Nivea Men creme",
-      "White foam roses",
-      "Mini letter bottle",
-      "Navy satin ribbon",
-    ],
-  },
-  {
     id: "b11",
     slug: "gym-essentials-box",
     name: "Gym Essentials Box",
@@ -341,74 +206,6 @@ const BASKETS: Product[] = [
       "Training hoodie",
       "Shaker accessories",
       "Navy clear-panel gift box",
-    ],
-  },
-  {
-    id: "b12",
-    slug: "blue-rose-snack-tray",
-    name: "Blue Rose Snack Tray",
-    price: 12500,
-    pricePending: true,
-    categories: ["for-him"],
-    image: "/baskets/blue-rose-snack-tray-full.webp",
-    summary:
-      "Deep blue roses and lavender packed alongside Nivea Men grooming and Italian wafers on a wooden tray.",
-    contents: [
-      "2 × Pepsi",
-      "Nivea Men Protect & Care shower gel",
-      "2 × Nivea Men deodorant",
-      "Balocco wafer cubes",
-      "Kimkomix snacks",
-      "Blue foam roses",
-      "Dried lavender",
-    ],
-  },
-  {
-    id: "b13",
-    slug: "grooms-grand-box",
-    name: "Groom's Grand Box",
-    price: 42500,
-    pricePending: true,
-    categories: ["for-him"],
-    badge: "Premium",
-    image: "/baskets/grooms-grand-box-full.webp",
-    summary:
-      "Our largest men's set — a full navy suit and shoes on an acrylic tray, with a complete grooming line-up beneath.",
-    contents: [
-      "Navy suit",
-      "Mocciani leather sandals",
-      "Bioblas shampoo",
-      "Axe body spray",
-      "Nivea Men Black & White deodorant",
-      "Nivea Men Deep face wash",
-      "Nivea Men creme",
-      "Beard oil & beard kit",
-      "Closeup toothpaste",
-      "Listerine Tartar Control",
-      "Labello lip balm",
-      "White roses & fairy lights",
-    ],
-    featured: true,
-  },
-  {
-    id: "b14",
-    slug: "mini-mens-box",
-    name: "Mini Men's Box",
-    price: 5500,
-    pricePending: true,
-    categories: ["for-him"],
-    badge: "Popular",
-    image: "/baskets/mini-mens-box.webp",
-    gallery: [
-      "/baskets/mini-mens-box-full.webp",
-    ],
-    summary:
-      "Small, sharp and always in stock — grooming basics and energy drinks in a black clear-panel box.",
-    contents: [
-      "Nivea Men creme tin",
-      "Nivea Men deodorant",
-      "2 × Red Bull",
-      "Black clear-panel gift box",
     ],
   },
   {
@@ -524,25 +321,6 @@ const BASKETS: Product[] = [
       "Best Wishes card",
     ],
     featured: true,
-  },
-  {
-    id: "b16",
-    slug: "movie-night-snack-box",
-    name: "Movie Night Snack Box",
-    price: 8500,
-    pricePending: true,
-    categories: ["for-him"],
-    image: "/baskets/movie-night-snack-box-full.webp",
-    summary:
-      "Pure snacks, nothing else — crisps, sour sweets and gummies packed into a clear-panel box.",
-    contents: [
-      "Lay's Wavy",
-      "Lay's Maxx",
-      "Cheetos Flamin' Hot",
-      "Hoopix watermelon bites",
-      "Sour Root Bomb",
-      "Assorted gummies & candy",
-    ],
   },
 ];
 
@@ -1019,20 +797,18 @@ const LATEST: Product[] = [
     id: "n1",
     slug: "birthday-cupcake-box",
     name: "Birthday Cupcake Box",
-    price: 18500,
-    pricePending: true,
+    price: 8000,
     categories: ["cakes"],
     badge: "New",
     image: "/cakes/birthday-cupcake-box-full.webp",
+    note: "Book 5 days before your desired date.",
     summary:
-      "Charcoal-frosted cupcakes and macarons under a lit acrylic lid, with a black-wrapped red rose bouquet alongside.",
+      "A cake platter under a lit acrylic lid — a bento cake ringed with cupcakes, finished with a ribbon.",
     contents: [
-      "6 × cupcakes with charcoal buttercream",
-      "Macarons & chocolate roses",
-      "Happy Birthday cookie topper",
-      "Baby's breath & fairy lights",
-      "Clear acrylic box with organza ribbon",
-      "Red rose bouquet in black wrap",
+      "Cake platter in an acrylic box",
+      "Bento cake",
+      "7 cupcakes",
+      "Colours can be customised",
     ],
     featured: true,
   },

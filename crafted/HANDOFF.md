@@ -38,22 +38,25 @@ utility, which silently breaks `text-cream-50` on dark sections.
 | What | File |
 |---|---|
 | Payment, WhatsApp, Instagram, pickup wording, delivery rules, cake lead time | `src/lib/config.ts` |
-| All 76 products | `src/data/products.ts` |
+| All 66 products | `src/data/products.ts` |
 | Gift builder vessels, items and prices | `src/data/customizer.ts` |
 | Product photos | `public/baskets`, `public/crochet`, `public/products`, `public/cakes` |
 
 `src/data/products.ts` has four arrays that merge into `PRODUCTS`:
 
-- `LATEST` — 26 products added from the owner's own studio photography (`n1`–`n26`)
-- `BASKETS` — 20 baskets and boxes (`b1`–`b20`)
+- `LATEST` — 26 products from the owner's own studio photography (`n1`–`n26`)
+- `BASKETS` — 10 baskets and boxes (`b2`–`b5`, `b11`, `b15`, `b17`–`b20`)
 - `LEGACY` — 15 boxes from the original site (`l1`–`l15`)
 - `HANDMADE` — 15 crochet and plushie pieces (`h1`–`h15`)
 
-> **The `b`/`l`/`n` ids are the safety net.** A gap in the sequence means a
-> product was deleted. `b10` and `b13` went missing in commit `37c8a8a` and were
-> only caught because their photos were still sitting unreferenced in
-> `public/baskets`. Before committing a products change, check the id sequence
-> and check that every `.webp` on disk is referenced.
+> **The `b` sequence has deliberate gaps.** `b1`, `b6`–`b10`, `b12`–`b14` and
+> `b16` were retired by the owner — ten products whose photography was old
+> phone shots he no longer wanted on the site. Don't "restore" them. Anything
+> else missing from `l`/`n` or from the `b` numbers still listed above *is* an
+> accident: `b10` and `b13` once vanished in commit `37c8a8a` and were only
+> caught because their photos sat unreferenced in `public/baskets`. Before
+> committing a products change, check the id sequence and check that every
+> `.webp` on disk is still referenced.
 
 ## Categories
 

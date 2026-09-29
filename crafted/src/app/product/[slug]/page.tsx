@@ -133,9 +133,11 @@ export default async function ProductPage({ params }: Params) {
               <ProductBuy p={p} />
             </div>
 
-            {p.categories.includes("cakes") && (
+            {(p.note || p.categories.includes("cakes")) && (
               <p className="mt-7 rounded-2xl border border-gold-300 bg-gold-100 px-5 py-4 text-[0.85rem] text-gold-700 leading-relaxed">
-                {CONFIG.cakes.note}
+                {p.note
+                  ? `${p.note} ${CONFIG.cakes.areas}`
+                  : CONFIG.cakes.note}
               </p>
             )}
 
