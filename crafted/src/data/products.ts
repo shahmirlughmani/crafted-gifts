@@ -1243,6 +1243,31 @@ const LATEST: Product[] = [
     ],
     featured: true,
   },
+  {
+    id: "n27",
+    slug: "spiderman-snack-box",
+    name: "Spider-Man Snack Box",
+    price: 7500,
+    categories: ["for-him"],
+    badge: "New",
+    image: "/baskets/spiderman-snack-box-full.webp",
+    summary:
+      "A red-and-black snack box built around our own crocheted Spider-Man, with drinks, chocolate and crisps packed in under a clear lid.",
+    contents: [
+      "Hand-crocheted Spider-Man",
+      "Spider-Man card",
+      "Coca-Cola",
+      "Pepsi",
+      "Gatorade",
+      "2 × KitKat",
+      "Cocomo",
+      "2 × Loacker wafers",
+      "Triotos tortilla chips",
+      "2 × Kracks chips",
+      "Sour Punk",
+    ],
+    featured: true,
+  },
 ];
 
 export const PRODUCTS: Product[] = [...LATEST, ...BASKETS, ...LEGACY, ...HANDMADE];
