@@ -114,6 +114,11 @@ export default async function ProductPage({ params }: Params) {
             <div className="mt-3 flex items-baseline gap-3 flex-wrap">
               <p className="font-display text-3xl text-forest-900 tabular-nums">
                 {money(p.price)}
+                {p.unit && (
+                  <span className="ml-2 font-body text-base text-muted">
+                    {p.unit}
+                  </span>
+                )}
               </p>
               {p.pricePending && (
                 <span className="rounded-full bg-gold-100 text-gold-700 px-2.5 py-1 text-[0.66rem] font-medium">

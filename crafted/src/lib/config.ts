@@ -3,7 +3,9 @@ export const CONFIG = {
     name: "Crafted Gifts Bys",
     short: "Crafted",
     tagline: "Thoughtful Gifts, Made with Love",
-    url: "https://craftedgiftsbys.vercel.app",
+    // Must be the domain that actually serves the site: the Share button, the
+    // sitemap, robots.txt and every link preview are built from this.
+    url: "https://crafted-giftss.vercel.app",
   },
 
   /** Google Apps Script Web App URL — orders are written to your Sheet. */

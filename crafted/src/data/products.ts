@@ -38,6 +38,9 @@ export type Product = {
   /** Overrides the category note on this product's page, e.g. a shorter
    *  lead time than the rest of the category. */
   note?: string;
+  /** Set when `price` buys one piece rather than the whole set in the photo,
+   *  e.g. "per pot". Rendered next to the price so it can't be misread. */
+  unit?: string;
   handmade?: boolean;
 };
 
@@ -176,21 +179,19 @@ const BASKETS: Product[] = [
     id: "b5",
     slug: "umrah-mubarak-box",
     name: "Umrah Mubarak Box",
-    price: 12500,
-    pricePending: true,
+    price: 14000,
     categories: ["for-him"],
     image: "/baskets/umrah-mubarak-box-full.webp",
     summary:
-      "A keepsake box for the return from Umrah — a cream polo, grooming basics and a printed Umrah Mubarak card.",
+      "A keepsake box for the return from Umrah — an Outfitters polo, grooming basics and a printed Umrah Mubarak card.",
     contents: [
-      "Outfitters cream polo shirt",
-      "Nivea Men Deep deodorant",
-      "Nivea Men face wash",
-      "Vaseline petroleum jelly",
-      "2 × Noms baked snacks",
-      "Fox's Crystal Clear mints",
+      "Outfitters polo shirt",
+      "Nivea face wash",
+      "Nivea body spray",
+      "Vaseline 50 ml",
+      "2 × Noms nacho chips",
+      "Fox's candy",
       "Umrah Mubarak card",
-      "Navy satin ribbon",
     ],
   },
   {
@@ -323,15 +324,15 @@ const HANDMADE: Product[] = [
   {
     id: "h1",
     slug: "duckling-plushie-basket",
-    name: "Duckling Plushie Basket",
-    price: 4500,
-    pricePending: true,
+    name: "Crochet Duckling Chicks",
+    price: 550,
+    unit: "per chick",
     handmade: true,
     categories: ["crochet"],
     badge: "New",
     image: "/crochet/duck-plushie-set.webp",
     summary:
-      "A nest of hand-crocheted ducklings in bonnets and wings — soft, weighted just right, and impossible to put down.",
+      "Hand-crocheted ducklings in bonnets and wings — soft, weighted just right, and impossible to put down. Sold individually; pick as many as you like.",
     contents: [
       "4 × crocheted duckling plushies",
       "Woven display basket",
@@ -360,15 +361,15 @@ const HANDMADE: Product[] = [
   {
     id: "h3",
     slug: "mini-doll-basket",
-    name: "Mini Doll Basket",
-    price: 6500,
-    pricePending: true,
+    name: "Mini Crochet Dolls",
+    price: 750,
+    unit: "per doll",
     handmade: true,
     categories: ["crochet"],
     badge: "Bundle",
     image: "/crochet/mini-doll-basket.webp",
     summary:
-      "An assortment of tiny crocheted dolls in different outfits — pick the basket, or ask us to build a set around a theme.",
+      "A basketful of tiny hand-crocheted dolls, each one dressed differently. Sold individually, so build your own set.",
     contents: [
       "Assorted mini crochet dolls",
       "Woven display basket",
@@ -807,14 +808,14 @@ const LATEST: Product[] = [
   {
     id: "n6",
     slug: "tulip-rose-pot-pair",
-    name: "Tulip & Rose Pot Pair",
-    price: 3400,
-    pricePending: true,
+    name: "Tulip & Rose Pots",
+    price: 1100,
+    unit: "per pot",
     handmade: true,
     categories: ["crochet"],
     image: "/crochet/tulip-rose-pot-pair-full.webp",
     summary:
-      "Two little potted flowers — a butter-yellow tulip and a deep red rose — in scalloped crochet pots that sit anywhere.",
+      "Little potted crochet flowers that never wilt — a butter-yellow tulip and a deep red rose in scalloped pots. Sold individually, so take one or take both.",
     contents: [
       "1 × crocheted tulip in a pot",
       "1 × crocheted rose in a pot",

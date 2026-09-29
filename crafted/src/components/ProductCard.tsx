@@ -76,6 +76,11 @@ export function ProductCard({
         <div className="mt-2.5 flex items-center justify-between gap-2">
           <b className="font-display text-lg text-forest-900 tabular-nums">
             {money(p.price)}
+            {p.unit && (
+              <span className="ml-1.5 font-body text-[0.72rem] font-normal text-muted">
+                {p.unit}
+              </span>
+            )}
           </b>
           <button
             onClick={() => {
