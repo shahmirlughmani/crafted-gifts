@@ -11,6 +11,9 @@ export type Category = {
   tagline: string;
   blurb: string;
   image: string | null;
+  /** Wide hero image. The square `image` is for cards and chips; stretching it
+   *  across a full-width banner looked soft and badly cropped. */
+  banner?: string;
   /** Shown when the category has no products yet. */
   comingSoon?: string;
   /** Standing condition on the whole category, e.g. cake lead times. */
@@ -46,6 +49,7 @@ export const CATEGORIES: Category[] = [
     blurb:
       "Trays, boxes and hampers filled with things he'll actually love — grooming essentials, snacks, clothing and thoughtful little extras, packed and finished by hand.",
     image: "/baskets/classic-mens-snack-box-full.webp",
+    banner: "/banners/for-him.webp",
   },
   {
     id: "for-her",
@@ -54,6 +58,7 @@ export const CATEGORIES: Category[] = [
     blurb:
       "Thoughtful little luxuries, pretty keepsakes and feel-good treats — all put together with care and wrapped beautifully.",
     image: "/baskets/hello-kitty-hamper-full.webp",
+    banner: "/banners/for-her.webp",
   },
   {
     id: "crochet",
@@ -62,6 +67,7 @@ export const CATEGORIES: Category[] = [
     blurb:
       "Flowers that never wilt, soft toys with real character, and keepsakes made by hand in our studio. Every piece is crocheted to order.",
     image: "/crochet/rose-tulip-bouquet.webp",
+    banner: "/banners/crochet.webp",
   },
   {
     id: "plushies",
@@ -70,6 +76,7 @@ export const CATEGORIES: Category[] = [
     blurb:
       "Cuddly companions for every gift — from our handmade crochet plushies to adorable teddy bears, perfect for adding a little extra love to your box.",
     image: "/crochet/crochet-bunny-navy-full.webp",
+    banner: "/banners/plushies.webp",
   },
   {
     id: "cakes",
@@ -78,6 +85,7 @@ export const CATEGORIES: Category[] = [
     blurb:
       "Celebration cakes made fresh and finished to match your box, so the whole gift arrives together.",
     image: "/cakes/birthday-floral-cake-full.webp",
+    banner: "/banners/cakes.webp",
     note: "Cake orders must be placed at least 1 week before delivery and are available in Islamabad & Rawalpindi only.",
   },
 ];

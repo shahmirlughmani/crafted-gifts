@@ -51,9 +51,9 @@ export default async function CategoryPage({ params }: Params) {
       {/* banner */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0">
-          {c.image && (
+          {(c.banner ?? c.image) && (
             <Image
-              src={c.image}
+              src={(c.banner ?? c.image) as string}
               alt=""
               fill
               priority
