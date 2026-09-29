@@ -10,7 +10,12 @@ import {
   type CategoryId,
 } from "@/data/products";
 import { ShopBrowser } from "@/components/ShopBrowser";
-import { IconChevron, IconGift, IconInstagram } from "@/components/Icons";
+import {
+  IG_GRADIENT,
+  IconChevron,
+  IconGift,
+  IconInstagram,
+} from "@/components/Icons";
 import { CONFIG } from "@/lib/config";
 
 type Params = { params: Promise<{ category: string }> };
@@ -109,7 +114,7 @@ export default async function CategoryPage({ params }: Params) {
                 className="inline-flex items-center gap-2 rounded-full text-white px-6 py-3 text-sm font-medium transition hover:brightness-110"
                 style={{
                   background:
-                    "linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+                    IG_GRADIENT,
                 }}
               >
                 <IconInstagram className="w-4 h-4" />

@@ -45,11 +45,19 @@ export const IconWhatsApp = ({ className }: P) => (
   </svg>
 );
 
+/**
+ * Instagram's current brand gradient — warm yellow through magenta to indigo.
+ * One constant so the FAB, the order buttons and the CTAs can't drift apart.
+ */
+export const IG_GRADIENT =
+  "radial-gradient(circle at 28% 108%, #fdf497 0%, #fdf497 5%, #fd5949 42%, #d6249f 62%, #285aeb 92%)";
+
 export const IconInstagram = ({ className }: P) => (
-  <svg viewBox="0 0 24 24" fill={base} stroke="currentColor" strokeWidth="1.5" className={className}>
-    <rect x="3" y="3" width="18" height="18" rx="5" />
-    <circle cx="12" cy="12" r="4" />
-    <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
+  <svg viewBox="0 0 24 24" fill={base} stroke="currentColor" strokeWidth="1.7" className={className}>
+    {/* Corners are rounder and the lens smaller than the older mark. */}
+    <rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.8" />
+    <circle cx="12" cy="12" r="4.1" />
+    <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none" />
   </svg>
 );
 

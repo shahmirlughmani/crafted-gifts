@@ -7,6 +7,7 @@ import { useCart } from "@/lib/cart";
 import { CONFIG } from "@/lib/config";
 import { money, orderId as newOrderId, cx } from "@/lib/format";
 import {
+  IG_GRADIENT,
   IconCheck,
   IconCopy,
   IconGift,
@@ -184,7 +185,7 @@ export function Checkout() {
           className="mt-7 inline-flex items-center gap-2 rounded-full text-white px-7 py-3.5 font-medium transition hover:brightness-110"
           style={{
             background:
-              "linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+              IG_GRADIENT,
           }}
         >
           <IconInstagram className="w-5 h-5" />

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CONFIG } from "@/lib/config";
-import { IconInstagram } from "./Icons";
+import { IG_GRADIENT, IconInstagram } from "./Icons";
 import { cx } from "@/lib/format";
 
 /** Floating "DM us on Instagram" button — opens a direct message thread. */
@@ -30,7 +30,7 @@ export function InstagramFab() {
       )}
       style={{
         background:
-          "linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+          IG_GRADIENT,
       }}
     >
       <span className="grid place-items-center w-14 h-14 shrink-0">

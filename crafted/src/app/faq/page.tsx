@@ -4,7 +4,7 @@ import { CONFIG } from "@/lib/config";
 import { Reveal } from "@/components/Reveal";
 import { Accordion } from "@/components/Accordion";
 import { FulfilmentNote } from "@/components/FulfilmentNote";
-import { IconInstagram } from "@/components/Icons";
+import { IG_GRADIENT, IconInstagram } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "FAQ, Delivery & Returns",
@@ -84,7 +84,7 @@ export default function FaqPage() {
             className="u-press u-sheen flex items-center justify-center gap-2 rounded-full py-3.5 font-medium text-white hover:brightness-110"
             style={{
               background:
-                "linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+                IG_GRADIENT,
             }}
           >
             <IconInstagram className="w-5 h-5" />
