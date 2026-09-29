@@ -99,7 +99,7 @@ const BASKETS: Product[] = [
     id: "b2",
     slug: "pink-sweetheart-basket",
     name: "Pink Celebration Basket",
-    price: 19000,
+    price: 16500,
     categories: ["for-her"],
     badge: "Best Seller",
     image: "/baskets/pink-sweetheart-basket-catalogue-full.webp",
