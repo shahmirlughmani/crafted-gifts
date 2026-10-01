@@ -44,7 +44,8 @@ export function Checkout() {
   const [f, setF] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Partial<Record<keyof Fields | "shot", string>>>({});
   const [shot, setShot] = useState<{ data: string; name: string } | null>(null);
-  const [method, setMethod] = useState<"transfer" | "cod">("transfer");
+  // Bank transfer is the only way to pay — the owner removed cash on delivery.
+  const method = "transfer" as const;
   const [busy, setBusy] = useState(false);
   const [placed, setPlaced] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -156,11 +157,10 @@ export function Checkout() {
       subtotal,
       delivery,
       total,
-      paymentMethod:
-        method === "transfer" ? CONFIG.payment.method : "Cash on delivery",
+      paymentMethod: CONFIG.payment.method,
       screenshot: shot?.data ?? "",
       screenshotName: shot?.name ?? "",
-      status: method === "transfer" ? "Pending Verification" : "COD — Unpaid",
+      status: "Pending Verification",
     };
 
     try {
@@ -172,9 +172,14 @@ export function Checkout() {
       setPlaced(id);
       clear();
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch {
+    } catch (err) {
+      // Google refused or the network dropped. The basket is untouched, and the
+      // Instagram button below already carries the full order text.
+      console.error("Order could not be sent to the order sheet:", err);
       setBusy(false);
-      say("Couldn't reach us — try Instagram instead");
+      say(
+        "Our order system didn't respond — tap 'Order on Instagram instead' and your order is already written out for you."
+      );
     }
   };
 
@@ -351,41 +356,14 @@ export function Checkout() {
           <section>
             <h2 className="font-display text-2xl">Payment</h2>
 
-            <div className="mt-5 grid sm:grid-cols-2 gap-3">
-              <button
-                onClick={() => setMethod("transfer")}
-                aria-pressed={method === "transfer"}
-                className={cx(
-                  "rounded-2xl border p-4 text-left transition-all",
-                  method === "transfer"
-                    ? "border-forest-700 bg-forest-100"
-                    : "border-gold-200 bg-cream-50 hover:border-gold-400"
-                )}
-              >
-                <b className="block text-[0.94rem] text-forest-900">
-                  {CONFIG.payment.method}
-                </b>
-                <span className="block text-[0.76rem] text-muted mt-0.5">
-                  Send now, upload the screenshot
-                </span>
-              </button>
-              <button
-                onClick={() => setMethod("cod")}
-                aria-pressed={method === "cod"}
-                className={cx(
-                  "rounded-2xl border p-4 text-left transition-all",
-                  method === "cod"
-                    ? "border-forest-700 bg-forest-100"
-                    : "border-gold-200 bg-cream-50 hover:border-gold-400"
-                )}
-              >
-                <b className="block text-[0.94rem] text-forest-900">
-                  Cash on delivery
-                </b>
-                <span className="block text-[0.76rem] text-muted mt-0.5">
-                  We&apos;ll confirm on WhatsApp first
-                </span>
-              </button>
+            <div className="mt-5 rounded-2xl border border-forest-700 bg-forest-100 p-4">
+              <b className="block text-[0.94rem] text-forest-900">
+                {CONFIG.payment.method}
+              </b>
+              <span className="block text-[0.76rem] text-muted mt-0.5">
+                Send the amount, then upload the screenshot. We confirm every
+                order on WhatsApp before it is made.
+              </span>
             </div>
 
             {method === "transfer" && (
