@@ -173,7 +173,7 @@ export function Checkout() {
         </p>
         <p className="mt-5 text-sm text-muted leading-relaxed">
           {method === "transfer"
-            ? `We'll verify your ${CONFIG.payment.method} payment and confirm with you shortly.`
+            ? `We'll verify your bank transfer and confirm with you shortly.`
             : "We'll confirm your order with you shortly."}{" "}
           {CONFIG.fulfilment.readyIn}.
         </p>
@@ -312,7 +312,7 @@ export function Checkout() {
                 )}
               >
                 <b className="block text-[0.94rem] text-forest-900">
-                  {CONFIG.payment.method} transfer
+                  {CONFIG.payment.method}
                 </b>
                 <span className="block text-[0.76rem] text-muted mt-0.5">
                   Send now, upload the screenshot
@@ -346,15 +346,19 @@ export function Checkout() {
 
                 <dl className="mt-5 space-y-2.5 text-sm">
                   <div className="flex justify-between gap-4">
+                    <dt className="text-muted">Bank</dt>
+                    <dd className="font-medium text-forest-900">
+                      {CONFIG.payment.bank}
+                    </dd>
+                  </div>
+                  <div className="flex justify-between gap-4">
                     <dt className="text-muted">Account title</dt>
                     <dd className="font-medium text-forest-900">
                       {CONFIG.payment.name}
                     </dd>
                   </div>
                   <div className="flex justify-between items-center gap-4">
-                    <dt className="text-muted">
-                      {CONFIG.payment.method} number
-                    </dt>
+                    <dt className="text-muted">{CONFIG.payment.numberLabel}</dt>
                     <dd>
                       <button
                         onClick={async () => {

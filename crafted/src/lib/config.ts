@@ -13,9 +13,11 @@ export const CONFIG = {
     "https://script.google.com/macros/s/AKfycbxr79LZn5yLUqucllvJX-mqrD-xqubzoM5UXhk_0Ptfime7N7S8zPPDVwTUIVuYydebcA/exec",
 
   payment: {
-    method: "NayaPay",
-    name: "Saba Khan",
-    number: "0304-5400058",
+    method: "Bank transfer",
+    bank: "MCB",
+    name: "SABA KHAN",
+    number: "1729288611004257",
+    numberLabel: "Account number",
   },
 
   contact: {

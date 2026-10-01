@@ -3,7 +3,7 @@ import { Checkout } from "@/components/Checkout";
 
 export const metadata: Metadata = {
   title: "Checkout",
-  description: "Complete your order — pay by NayaPay and upload your receipt.",
+  description: "Complete your order — pay by bank transfer and upload your receipt.",
   robots: { index: false, follow: false },
 };
 

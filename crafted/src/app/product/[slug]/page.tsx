@@ -188,7 +188,7 @@ export default async function ProductPage({ params }: Params) {
                   },
                   {
                     q: "How do I pay?",
-                    a: `We accept ${CONFIG.payment.method} transfer. At checkout you'll see the account details, send the amount, then upload a screenshot of the payment. We confirm every order with you before it's made.`,
+                    a: `We accept bank transfer (${CONFIG.payment.bank}). At checkout you'll see the account details, send the amount, then upload a screenshot of the payment. We confirm every order with you before it's made.`,
                   },
                   {
                     q: "Care instructions",

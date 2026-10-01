@@ -75,6 +75,12 @@ export const VESSELS: Vessel[] = [
     note: "The lightest way to send something small",
     prices: { small: 550 },
   },
+  {
+    id: "mini-bucket",
+    name: "Mini Bucket",
+    note: "Max 4–5 chocolates space",
+    prices: { small: 400 },
+  },
 ];
 
 /** Step 2 — size. Sets a soft item guide; the vessel decides which are offered. */
@@ -208,9 +214,7 @@ export const ITEM_GROUPS: ItemGroup[] = [
     hint: "The small touches people remember.",
     items: [
       { id: "letter-bottle", name: "Letter bottle", price: 150 },
-      { id: "facemask", name: "Face mask", price: 550 },
-      { id: "handcream", name: "Hand cream", price: 400 },
-      { id: "lipgloss", name: "Lip gloss", price: 500 },
+      { id: "helium-balloon", name: "Helium balloon", price: 200 },
       { id: "bow-balloon", name: "Bow balloon", price: 550 },
       { id: "polaroid", name: "Polaroid with frame", price: 1150 },
     ],

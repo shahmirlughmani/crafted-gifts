@@ -9,7 +9,7 @@ import { IG_GRADIENT, IconInstagram } from "@/components/Icons";
 export const metadata: Metadata = {
   title: "FAQ, Delivery & Returns",
   description:
-    "Delivery charges, pickup in E-11 Islamabad, urgent orders, payment by NayaPay and customisation.",
+    "Delivery charges, pickup in E-11 Islamabad, urgent orders, payment by bank transfer and customisation.",
 };
 
 const FAQS = [
@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     q: "How do I pay?",
-    a: `${CONFIG.payment.method} transfer to ${CONFIG.payment.name} (${CONFIG.payment.number}), or cash on delivery. For transfers, send the amount and upload a screenshot at checkout — we verify it and confirm before anything is made.`,
+    a: `Bank transfer to ${CONFIG.payment.name}, ${CONFIG.payment.bank}, account ${CONFIG.payment.number} — or cash on delivery. For transfers, send the amount and upload a screenshot at checkout — we verify it and confirm before anything is made.`,
   },
   {
     q: "Can I change what's inside a box?",
