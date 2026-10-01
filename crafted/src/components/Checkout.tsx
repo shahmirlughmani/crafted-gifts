@@ -5,6 +5,15 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { useCart } from "@/lib/cart";
 import { CONFIG } from "@/lib/config";
+import { PRODUCTS } from "@/data/products";
+import {
+  CITIES,
+  OTHER_CITY,
+  deliveryFor,
+  cakesDeliverTo,
+  zoneOf,
+  ZONE_LABEL,
+} from "@/data/delivery";
 import { money, orderId as newOrderId, cx } from "@/lib/format";
 import {
   IG_GRADIENT,
@@ -30,7 +39,7 @@ const EMPTY: Fields = { name: "", phone: "", city: "", address: "", note: "" };
 const MAX_MB = 5;
 
 export function Checkout() {
-  const { lines, subtotal, delivery, total, clear, say, count } = useCart();
+  const { lines, subtotal, clear, say, count } = useCart();
 
   const [f, setF] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Partial<Record<keyof Fields | "shot", string>>>({});
@@ -64,12 +73,24 @@ export function Checkout() {
     r.readAsDataURL(file);
   };
 
+  // Delivery is worked out from the city: flat for the twin cities, TCS zone
+  // rates elsewhere, and "quoted" when the city isn't in our list.
+  const cityChosen = f.city !== "" && f.city !== OTHER_CITY;
+  const delivery = cityChosen ? deliveryFor(f.city) : null;
+  const total = subtotal + (delivery ?? 0);
+  const hasCake = lines.some((l) =>
+    PRODUCTS.find((p) => p.slug === l.slug)?.categories.includes("cakes")
+  );
+  const cakeBlocked = hasCake && cityChosen && !cakesDeliverTo(f.city);
+
   const validate = () => {
     const e: typeof errors = {};
     if (!f.name.trim()) e.name = "We need a name for the order";
     if (!/^0?3\d{2}[-\s]?\d{7}$/.test(f.phone.replace(/\s/g, "")))
       e.phone = "Enter a valid Pakistani mobile number";
     if (!f.city.trim()) e.city = "Which city?";
+    if (cakeBlocked)
+      e.city = "Cakes are made fresh and only delivered in Islamabad & Rawalpindi.";
     if (!f.address.trim()) e.address = "We need a delivery address";
     if (method === "transfer" && !shot)
       e.shot = "Upload your payment screenshot";
@@ -262,14 +283,44 @@ export function Checkout() {
                 autoComplete="tel"
                 inputMode="tel"
               />
-              <Field
-                label="City"
-                value={f.city}
-                onChange={set("city")}
-                error={errors.city}
-                placeholder="Islamabad"
-                autoComplete="address-level2"
-              />
+              <label className="block" data-invalid={!!errors.city}>
+                <span className="text-sm font-medium text-forest-900">City</span>
+                <select
+                  value={f.city}
+                  onChange={(e) => set("city")(e.target.value)}
+                  autoComplete="address-level2"
+                  className={cx(
+                    "mt-2 w-full rounded-xl border bg-cream-50 px-4 py-3 text-sm outline-none transition-colors",
+                    errors.city
+                      ? "border-red-400 focus:border-red-500"
+                      : "border-gold-300 focus:border-forest-600"
+                  )}
+                >
+                  <option value="">Choose your city</option>
+                  {CITIES.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                  <option value={OTHER_CITY}>{OTHER_CITY}</option>
+                </select>
+                {errors.city && (
+                  <span className="block mt-1.5 text-[0.78rem] text-red-600">
+                    {errors.city}
+                  </span>
+                )}
+                {!errors.city && cityChosen && zoneOf(f.city) && (
+                  <span className="block mt-1.5 text-[0.78rem] text-muted">
+                    {ZONE_LABEL[zoneOf(f.city)!]} · delivery {money(delivery ?? 0)}
+                  </span>
+                )}
+                {f.city === OTHER_CITY && (
+                  <span className="block mt-1.5 text-[0.78rem] text-muted">
+                    We&apos;ll message you the TCS charge for your city before
+                    dispatch.
+                  </span>
+                )}
+              </label>
               <Field
                 label="Address"
                 value={f.address}

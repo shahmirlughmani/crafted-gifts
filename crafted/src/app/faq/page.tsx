@@ -19,7 +19,7 @@ const FAQS = [
   },
   {
     q: "How much is delivery?",
-    a: `${CONFIG.delivery.chargeLine} ${CONFIG.delivery.localLine}. ${CONFIG.delivery.outsideLine}.`,
+    a: `${CONFIG.delivery.chargeLine} Pick your city at checkout and the exact charge shows before you pay. ${CONFIG.delivery.localLine}. ${CONFIG.delivery.outsideLine}.`,
   },
   {
     q: "When will my order arrive?",

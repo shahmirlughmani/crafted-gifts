@@ -77,7 +77,7 @@ Checkout POSTs to a Google Apps Script Web App (URL in `config.ts`), which
 writes a row to the owner's Google Sheet and saves the payment screenshot to
 Drive. Same backend as the old site — deliberately unchanged.
 
-Payment is **NayaPay — Saba Khan, 0327-5023235**. The customer transfers, then
+Payment is **bank transfer — MCB, SABA KHAN, 1729288611004257**. The customer transfers, then
 uploads a screenshot at checkout. Cash on delivery is also offered, and a
 "send this order to WhatsApp" path exists on product pages and at checkout.
 
@@ -87,15 +87,25 @@ worth flagging if the business grows.
 
 ## Delivery
 
-There is **no flat delivery fee**. Per the owner's *Choose Your Vessel* brief:
+Charged by destination, computed at checkout from a city dropdown. All of it
+lives in `src/data/delivery.ts`:
 
-- Islamabad — within 3 days; outside Islamabad — within 6–7 days.
-- Orders are confirmed only after full advance payment.
-- The charge depends on the address and is quoted on WhatsApp after confirmation.
+- **Islamabad & Rawalpindi** — flat Rs. 1,000, own rider.
+- **Everywhere else** — TCS from Islamabad, priced by zone: major / secondary /
+  remote. `CITY_ZONES` maps ~90 cities to a zone; `ZONE_FEES` holds the three
+  figures.
+- **"Other city"** — not in the list; the charge is quoted on WhatsApp.
+- **Cakes** only deliver to Islamabad & Rawalpindi (`CAKE_CITIES`). Checkout
+  refuses to place an order that has a cake going anywhere else.
 
-So `useCart().delivery` is `null` and `total === subtotal`. The cart and
-checkout render "Quoted on WhatsApp" where the figure used to be. If a flat fee
-ever comes back, that's the one place to change.
+The cart drawer can't know the city, so `useCart().delivery` stays `null`
+there and it says "worked out at checkout"; `Checkout.tsx` derives the real
+`delivery` and `total` from `f.city`.
+
+> **The zone figures are estimates.** Neither TCS nor Leopards publishes a
+> per-city rate card — TCS's online "rate calculator" is a contact form. The
+> numbers came from third-party rate guides for a ~3 kg parcel. The owner should
+> correct `ZONE_FEES` from his own bookings; nothing else needs touching.
 
 ## Still outstanding
 

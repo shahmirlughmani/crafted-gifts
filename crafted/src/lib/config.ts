@@ -44,14 +44,15 @@ export const CONFIG = {
     outsideAreas: "Outside Islamabad",
     outsideLine: "Outside Islamabad — delivery within 6–7 days",
     /**
-     * There is no flat rate any more. The charge depends on the address and is
-     * quoted on WhatsApp once the order is confirmed, so the cart never adds a
-     * delivery line — see `delivery: null` in lib/cart.tsx.
+     * Islamabad & Rawalpindi are a flat Rs. 1,000 by our own rider. Everywhere
+     * else goes by TCS at a zone rate — see src/data/delivery.ts. The cart
+     * can't know the city yet, so it shows "worked out at checkout"; checkout
+     * computes the real figure from the chosen city.
      */
     chargeLine:
-      "Delivery charges depend on your location and are shared on WhatsApp once your order is confirmed.",
-    shortNote: "Islamabad in 3 days · elsewhere 6–7 · delivery quoted on WhatsApp",
-    quotedLabel: "Quoted on WhatsApp",
+      "Islamabad & Rawalpindi Rs. 1,000 flat. Other cities ship by TCS from Islamabad and the charge is added at checkout from your city.",
+    shortNote: "Islamabad in 3 days · elsewhere 6–7 by TCS · delivery added at checkout",
+    quotedLabel: "Worked out at checkout",
   },
 
   cakes: {
