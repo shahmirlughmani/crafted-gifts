@@ -96,6 +96,16 @@ an "Order on Instagram instead" button that copies the written-out order.
 > New version → Deploy, then send the Web app URL. If the URL changes, update
 > `CONFIG.scriptUrl`. Until then, if the POST fails checkout tells the customer
 > to use "Order on Instagram instead" and keeps their basket.
+>
+> **Update, 9 Nov:** when the owner opened Extensions → Apps Script on her
+> Sheet she got a brand-new empty project ("This project has not been deployed
+> yet"), so the original script is not in her account — it most likely lives in
+> the June developer's. Rather than chase that, `apps-script/Code.gs` is a
+> replacement that accepts the exact payload `Checkout.tsx` sends, appends a
+> row to an `Orders` tab and saves the screenshot to a Drive folder. She pastes
+> it in, deploys as a Web app (Anyone), and the new URL goes into
+> `CONFIG.scriptUrl`. `doGet` returns `{"ok":true}` so the URL can be checked
+> with curl before changing anything.
 
 Prices come from the client, so they can be tampered with. Acceptable for now
 given every order is confirmed manually on WhatsApp before it's made, but
