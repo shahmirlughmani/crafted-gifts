@@ -14,7 +14,7 @@ export const CONFIG = {
    * 9 Nov 2026. It must answer {"ok":true} to a plain GET.
    */
   scriptUrl:
-    "https://script.google.com/macros/s/AKfycbxhyqf1iTgO9d8uvpZVIjV7Ny-aUTLoam6ePrkdglEKxH00LUPyviaP7VavOT-XCC4WCQ/exec",
+    "https://script.google.com/macros/s/AKfycbzzR7v6b0dEn3qL_i-zIKxVMRMot2_e6vPhBMhBmL26el4RsjO98qtINSt77frv-oZcIA/exec",
 
   payment: {
     method: "Bank transfer",

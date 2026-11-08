@@ -87,34 +87,26 @@ and don't let it creep back into copy (the FAQ had kept the old wording until
 9 Nov). Product pages have a "send this order to WhatsApp" path; checkout has
 an "Order on Instagram instead" button that copies the written-out order.
 
-> **Orders are currently not reaching the Sheet.** The Apps Script deployment
-> answers `403` with a Google sign-in page to anyone not logged into the
-> owner's account — still the case on 9 Nov 2026. That means "Who has access"
-> on the deployment is *Only myself* or *Anyone with a Google account* instead
-> of **Anyone**. Only the owner can fix it, on a laptop: Sheet → Extensions →
-> Apps Script → Deploy → Manage deployments → pencil → Who has access: Anyone →
-> New version → Deploy, then send the Web app URL. If the URL changes, update
-> `CONFIG.scriptUrl`. Until then, if the POST fails checkout tells the customer
-> to use "Order on Instagram instead" and keeps their basket.
+> **Order backend, as of 9 Nov 2026 (working).** The original June script
+> was never in the owner's account (Extensions → Apps Script opened an empty
+> project, and the old URL answered 403). The replacement is
+> `apps-script/Code.gs`: it accepts the exact payload `Checkout.tsx` sends,
+> appends a row to an `Orders` tab and saves the screenshot to a Drive folder
+> called "Crafted Gifts - Payment Screenshots". It was pasted into a project
+> bound to her Sheet, authorised under saba38018@gmail.com, and deployed as a
+> Web app (Execute as: Me, Who has access: Anyone). A plain GET on
+> `CONFIG.scriptUrl` answers `{"ok":true,"service":"crafted-gifts-orders"}`
+> and a test POST got `{"ok":true,"orderId":...}` back.
 >
-> **Update, 9 Nov:** when the owner opened Extensions → Apps Script on her
-> Sheet she got a brand-new empty project ("This project has not been deployed
-> yet"), so the original script is not in her account — it most likely lives in
-> the June developer's. Rather than chase that, `apps-script/Code.gs` is a
-> replacement that accepts the exact payload `Checkout.tsx` sends, appends a
-> row to an `Orders` tab and saves the screenshot to a Drive folder. She pastes
-> it in, deploys as a Web app (Anyone), and the new URL goes into
-> `CONFIG.scriptUrl`. `doGet` returns `{"ok":true}` so the URL can be checked
-> with curl before changing anything.
+> Checkout reads that reply and only shows "order placed" on `{"ok":true}`;
+> anything else sends the customer to "Order on Instagram instead" with their
+> basket kept. If the URL ever changes (a *new deployment* rather than a *new
+> version*), update `CONFIG.scriptUrl`.
 >
-> **Later on 9 Nov:** she deployed a Web app from her own account with access
-> *Anyone* (a plain GET no longer 403s) and that URL is now `CONFIG.scriptUrl`,
-> live. But she deployed **before pasting the code**, so the URL still answers
-> "Script function not found: doGet". Next step for her: paste `Code.gs`, then
-> Deploy → Manage deployments → pencil → Version: *New version* → Deploy, which
-> keeps the same URL. Checkout now reads the reply and only shows "order
-> placed" on `{"ok":true}`, so until then a customer is sent to the Instagram
-> path rather than told their order was saved.
+> To test from a shell, POST without following redirects and then GET the
+> `Location` header: Apps Script runs the function on the first hop and
+> redirects to an echo URL for the reply, so `curl -L` re-POSTs to the echo
+> endpoint and shows a Google error page even though the row was written.
 
 Prices come from the client, so they can be tampered with. Acceptable for now
 given every order is confirmed manually on WhatsApp before it's made, but
