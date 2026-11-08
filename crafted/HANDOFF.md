@@ -106,6 +106,15 @@ an "Order on Instagram instead" button that copies the written-out order.
 > it in, deploys as a Web app (Anyone), and the new URL goes into
 > `CONFIG.scriptUrl`. `doGet` returns `{"ok":true}` so the URL can be checked
 > with curl before changing anything.
+>
+> **Later on 9 Nov:** she deployed a Web app from her own account with access
+> *Anyone* (a plain GET no longer 403s) and that URL is now `CONFIG.scriptUrl`,
+> live. But she deployed **before pasting the code**, so the URL still answers
+> "Script function not found: doGet". Next step for her: paste `Code.gs`, then
+> Deploy → Manage deployments → pencil → Version: *New version* → Deploy, which
+> keeps the same URL. Checkout now reads the reply and only shows "order
+> placed" on `{"ok":true}`, so until then a customer is sent to the Instagram
+> path rather than told their order was saved.
 
 Prices come from the client, so they can be tampered with. Acceptable for now
 given every order is confirmed manually on WhatsApp before it's made, but
