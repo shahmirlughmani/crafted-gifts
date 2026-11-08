@@ -8,9 +8,13 @@ export const CONFIG = {
     url: "https://crafted-giftss.vercel.app",
   },
 
-  /** Google Apps Script Web App URL — orders are written to your Sheet. */
+  /**
+   * Google Apps Script Web App URL — orders are written to the owner's Sheet.
+   * The script is apps-script/Code.gs, deployed from her own account on
+   * 9 Nov 2026. It must answer {"ok":true} to a plain GET.
+   */
   scriptUrl:
-    "https://script.google.com/macros/s/AKfycbxr79LZn5yLUqucllvJX-mqrD-xqubzoM5UXhk_0Ptfime7N7S8zPPDVwTUIVuYydebcA/exec",
+    "https://script.google.com/macros/s/AKfycbxhyqf1iTgO9d8uvpZVIjV7Ny-aUTLoam6ePrkdglEKxH00LUPyviaP7VavOT-XCC4WCQ/exec",
 
   payment: {
     method: "Bank transfer",

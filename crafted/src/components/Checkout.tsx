@@ -164,11 +164,16 @@ export function Checkout() {
     };
 
     try {
-      await fetch(CONFIG.scriptUrl, {
+      const res = await fetch(CONFIG.scriptUrl, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload),
       });
+      // The script answers {"ok":true} once it has written the row. Anything
+      // else (an HTML error page, {"ok":false}) means nothing was saved, and
+      // the customer must not be told it was.
+      const reply = (await res.json()) as { ok?: boolean; error?: string };
+      if (!reply.ok) throw new Error(reply.error || "order sheet said no");
       setPlaced(id);
       clear();
       window.scrollTo({ top: 0, behavior: "smooth" });
