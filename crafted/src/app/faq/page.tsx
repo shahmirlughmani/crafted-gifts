@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     q: "How do I pay?",
-    a: `Bank transfer to ${CONFIG.payment.name}, ${CONFIG.payment.bank}, account ${CONFIG.payment.number} — or cash on delivery. For transfers, send the amount and upload a screenshot at checkout — we verify it and confirm before anything is made.`,
+    a: `Bank transfer to ${CONFIG.payment.name}, ${CONFIG.payment.bank}, account ${CONFIG.payment.number}. Send the full amount, then upload a screenshot at checkout — we verify it and confirm before anything is made. We don't offer cash on delivery.`,
   },
   {
     q: "Can I change what's inside a box?",

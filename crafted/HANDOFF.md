@@ -1,6 +1,7 @@
 # Project handoff — Crafted Gifts by S
 
-Read this first. It's the state of the project as of the last commit.
+Read this first. It's the state of the project as of the last commit
+(refreshed 9 Nov 2026).
 
 ## What this is
 
@@ -38,22 +39,24 @@ utility, which silently breaks `text-cream-50` on dark sections.
 | What | File |
 |---|---|
 | Payment, WhatsApp, Instagram, pickup wording, delivery rules, cake lead time | `src/lib/config.ts` |
-| All 66 products | `src/data/products.ts` |
+| All 77 products | `src/data/products.ts` |
 | Gift builder vessels, items and prices | `src/data/customizer.ts` |
 | Product photos | `public/baskets`, `public/crochet`, `public/products`, `public/cakes` |
 
 `src/data/products.ts` has four arrays that merge into `PRODUCTS`:
 
-- `LATEST` — 26 products from the owner's own studio photography (`n1`–`n26`)
+- `LATEST` — 42 products from the owner's own studio photography (`n1`–`n42`)
 - `BASKETS` — 10 baskets and boxes (`b2`–`b5`, `b11`, `b15`, `b17`–`b20`)
-- `LEGACY` — 15 boxes from the original site (`l1`–`l15`)
+- `LEGACY` — 10 boxes from the original site (`l5`–`l13`, `l15`)
 - `HANDMADE` — 15 crochet and plushie pieces (`h1`–`h15`)
 
-> **The `b` sequence has deliberate gaps.** `b1`, `b6`–`b10`, `b12`–`b14` and
-> `b16` were retired by the owner — ten products whose photography was old
-> phone shots he no longer wanted on the site. Don't "restore" them. Anything
-> else missing from `l`/`n` or from the `b` numbers still listed above *is* an
-> accident: `b10` and `b13` once vanished in commit `37c8a8a` and were only
+> **The `b` and `l` sequences have deliberate gaps.** `b1`, `b6`–`b10`,
+> `b12`–`b14` and `b16` were retired by the owner — ten products whose
+> photography was old phone shots he no longer wanted on the site. `l1`–`l4`
+> and `l14` were deleted at his request in commit `cb38660` (the Blue Snack Box
+> later came back under a new `n` id). Don't "restore" any of them. Anything
+> else missing from `n`/`h` or from the `b`/`l` numbers still listed above *is*
+> an accident: `b10` and `b13` once vanished in commit `37c8a8a` and were only
 > caught because their photos sat unreferenced in `public/baskets`. Before
 > committing a products change, check the id sequence and check that every
 > `.webp` on disk is still referenced.
@@ -77,9 +80,22 @@ Checkout POSTs to a Google Apps Script Web App (URL in `config.ts`), which
 writes a row to the owner's Google Sheet and saves the payment screenshot to
 Drive. Same backend as the old site — deliberately unchanged.
 
-Payment is **bank transfer — MCB, SABA KHAN, 1729288611004257**. The customer transfers, then
-uploads a screenshot at checkout. Cash on delivery is also offered, and a
-"send this order to WhatsApp" path exists on product pages and at checkout.
+Payment is **bank transfer only — MCB, SABA KHAN, 1729288611004257**. The
+customer transfers, then uploads a screenshot at checkout. **Cash on delivery
+was removed by the owner on 2 Oct 2026** (commit `b976659`) — don't add it back,
+and don't let it creep back into copy (the FAQ had kept the old wording until
+9 Nov). Product pages have a "send this order to WhatsApp" path; checkout has
+an "Order on Instagram instead" button that copies the written-out order.
+
+> **Orders are currently not reaching the Sheet.** The Apps Script deployment
+> answers `403` with a Google sign-in page to anyone not logged into the
+> owner's account — still the case on 9 Nov 2026. That means "Who has access"
+> on the deployment is *Only myself* or *Anyone with a Google account* instead
+> of **Anyone**. Only the owner can fix it, on a laptop: Sheet → Extensions →
+> Apps Script → Deploy → Manage deployments → pencil → Who has access: Anyone →
+> New version → Deploy, then send the Web app URL. If the URL changes, update
+> `CONFIG.scriptUrl`. Until then, if the POST fails checkout tells the customer
+> to use "Order on Instagram instead" and keeps their basket.
 
 Prices come from the client, so they can be tampered with. Acceptable for now
 given every order is confirmed manually on WhatsApp before it's made, but
@@ -107,21 +123,29 @@ there and it says "worked out at checkout"; `Checkout.tsx` derives the real
 > numbers came from third-party rate guides for a ~3 kg parcel. The owner should
 > correct `ZONE_FEES` from his own bookings; nothing else needs touching.
 
+## Pricing history
+
+Every product is priced — `pricePending` is no longer set on anything, and the
+six builder vessels are priced per size in `customizer.ts`. For Him / For Her
+boxes went **+20 %** (1 Oct, `f902291`) and then **−10 % rounded to the nearest
+Rs. 100** (3 Oct, `70ae175`), so they sit about 8 % above where they started.
+Crochet, plushies and cakes were untouched by both moves.
+
+When prices change, the owner's phone tends to show a cached shop grid next to
+fresh product pages and he reports a "mismatch". It has never been a real one —
+check with a crawl, then tell him to hard-refresh.
+
 ## Still outstanding
 
-1. **45 products still have placeholder prices** (`pricePending: true` shows a
-   "Price to be confirmed" badge). The owner's price list covered For Him, the
-   four For Her baskets, the cakes and the plushies; the remaining baskets and
-   most crochet pieces are still waiting on real numbers.
-2. **Two products need a decision.** The owner's list names both `l6`
-   (Rs. 23,500) and `l12` (Rs. 20,500) "Gentleman's Essentials Box". `l12` kept
-   its old name, *Birthday Box*, to avoid the collision — ask him which is which.
-   And the Pink Anniversary Basket (`n3`) is the one product in his list with no
-   price against it.
-3. **Vessel prices are missing.** The builder offers the six vessels and their
-   sizes but prices none of them — the list gives sizes only. Right now the
-   vessel shows as "Included" and the builder totals the contents and card. Get
-   vessel prices and they slot straight into `VESSELS` in `customizer.ts`.
+1. **The Google Apps Script deployment** — see *Orders* above. This is the one
+   thing stopping real orders.
+2. **Two products need a decision.** The owner's list named both `l6`
+   (now Rs. 25,400) and `l12` (now Rs. 22,100) "Gentleman's Essentials Box".
+   `l12` kept its old name, *Birthday Box*, to avoid the collision — ask him
+   which is which.
+3. **TCS zone fees are estimates** (`ZONE_FEES` in `delivery.ts`: major 1,600 /
+   secondary 1,900 / remote 2,300 for ~3 kg). The owner was asked for his real
+   TCS charges and typical box weight and hasn't answered.
 4. **Contents lists for the older baskets were written from the photos**, not
    from the owner. Some items are guesses (the Gym Essentials Box especially).
    Everything covered by his price list is now his own wording.
@@ -131,7 +155,10 @@ there and it says "worked out at checkout"; `Checkout.tsx` derives the real
 6. Product pages still route orders through WhatsApp, but the floating contact
    button was changed to an Instagram DM. The owner hasn't said whether the
    rest should move to Instagram too.
-7. **Photo resolution.** Every product photo taken from his Word document was
+7. **A stale `Update` branch sits on GitHub.** It is just the 19 Aug "new
+   storefront" commit, an ancestor of `main`. Nothing on it is newer; it can
+   be deleted.
+8. **Photo resolution.** Every product photo taken from his Word document was
    extracted from an embedded image (~500–1100 px), so the cards are upscaled to
    the 1000×1000 house size and are softer than the older studio shots. Ask for
    the originals when he has them.
