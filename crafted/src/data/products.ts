@@ -1800,6 +1800,37 @@ const LATEST: Product[] = [
       "Face mask",
     ],
   },
+  {
+    id: "n49",
+    slug: "bunny-pamper-basket",
+    name: "Bunny Pamper Basket",
+    price: 28000,
+    categories: ["for-her"],
+    badge: "New",
+    image: "/baskets/bunny-pamper-basket-full.webp",
+    imageW: 896,
+    imageH: 1200,
+    summary:
+      "A white wicker basket piled with pink pamper treats, sweets and a mini painting, with a big crochet bunny plushie and a matcha keychain tucked in — finished with a pink satin bow.",
+    contents: [
+      "Crochet bunny plushie",
+      "Crochet matcha keychain",
+      "Mini hairbrush",
+      "Hair towel",
+      "Headband",
+      "Makeup sponges",
+      "Eyelash curler",
+      "Mirror",
+      "Hair catcher",
+      "Tissue pack",
+      "Mini painting",
+      "Lily flower",
+      "Trident gum",
+      "Marshmallows",
+      "Nom nachos",
+      "Greeting card",
+    ],
+  },
 ];
 
 export const PRODUCTS: Product[] = [...LATEST, ...BASKETS, ...LEGACY, ...HANDMADE];
