@@ -142,6 +142,19 @@ boxes went **+20 %** (1 Oct, `f902291`) and then **−10 % rounded to the neares
 Rs. 100** (3 Oct, `70ae175`), so they sit about 8 % above where they started.
 Crochet, plushies and cakes were untouched by both moves.
 
+On **10 Nov 2026** (`8efd66f`) the owner had every price rounded up, by a rule
+confirmed with them before it was applied:
+
+- products at Rs. 2,000 and above go up to the next **even** thousand
+  (2,500 → 4,000, 3,000 → 4,000, 14,500 → 16,000; 8,000 stays);
+- products under Rs. 2,000 go up to the next Rs. 500 (350 → 500, 1,100 → 1,500);
+- Build Your Own: every vessel size, item and greeting card gets a flat
+  Rs. 100 added; "No card" stays free;
+- delivery charges are untouched.
+
+`PRICE_CHANGES.md` lists every before and after. If new products are added,
+price them on the same steps unless the owner says otherwise.
+
 When prices change, the owner's phone tends to show a cached shop grid next to
 fresh product pages and he reports a "mismatch". It has never been a real one —
 check with a crawl, then tell him to hard-refresh.
