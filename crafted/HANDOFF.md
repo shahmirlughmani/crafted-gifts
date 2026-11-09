@@ -39,13 +39,13 @@ utility, which silently breaks `text-cream-50` on dark sections.
 | What | File |
 |---|---|
 | Payment, WhatsApp, Instagram, pickup wording, delivery rules, cake lead time | `src/lib/config.ts` |
-| All 84 products | `src/data/products.ts` |
+| All 88 products | `src/data/products.ts` |
 | Gift builder vessels, items and prices | `src/data/customizer.ts` |
 | Product photos | `public/baskets`, `public/crochet`, `public/products`, `public/cakes` |
 
 `src/data/products.ts` has four arrays that merge into `PRODUCTS`:
 
-- `LATEST` — 49 products from the owner's own studio photography (`n1`–`n49`)
+- `LATEST` — 53 products from the owner's own studio photography (`n1`–`n53`)
 - `BASKETS` — 10 baskets and boxes (`b2`–`b5`, `b11`, `b15`, `b17`–`b20`)
 - `LEGACY` — 10 boxes from the original site (`l5`–`l13`, `l15`)
 - `HANDMADE` — 15 crochet and plushie pieces (`h1`–`h15`)
