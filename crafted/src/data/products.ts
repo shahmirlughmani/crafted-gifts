@@ -1674,6 +1674,26 @@ const LATEST: Product[] = [
     ],
     featured: true,
   },
+  {
+    id: "n43",
+    slug: "party-monster-mini-cake",
+    name: "Party Monster Mini Cake",
+    price: 1500,
+    categories: ["cakes"],
+    badge: "New",
+    image: "/cakes/party-monster-mini-cake-full.webp",
+    imageW: 896,
+    imageH: 1193,
+    summary:
+      "A half-pound mini cake with a big personality — piped in pink buttercream with googly eyes, a red nose and a little party hat.",
+    contents: [
+      "0.5 lb mini cake",
+      "Pink piped buttercream",
+      "Googly eyes & red nose",
+      "Party hat topper",
+      "Gold cake board",
+    ],
+  },
 ];
 
 export const PRODUCTS: Product[] = [...LATEST, ...BASKETS, ...LEGACY, ...HANDMADE];
