@@ -152,7 +152,15 @@ confirmed with them before it was applied:
   Rs. 100 added; "No card" stays free;
 - delivery charges are untouched.
 
-`PRICE_CHANGES.md` lists every before and after. If new products are added,
+`PRICE_CHANGES.md` lists every before and after. One exception since: the
+owner set the Crochet Duckling Chicks to **Rs. 600 per chick** (12 Nov), off
+the 500 step on purpose.
+
+**Shop order.** The grid's default sort is featured-first, then file order, so
+the newest items go at the *top* of `LATEST` with `featured: true` (and
+`handmade: true` for crochet pieces, which also puts them in the homepage
+handmade row). The owner wants the new cute things first; keep doing this
+when adding products. If new products are added,
 price them on the same steps unless the owner says otherwise.
 
 When prices change, the owner's phone tends to show a cached shop grid next to
