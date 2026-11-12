@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -37,6 +37,30 @@ export function Customizer() {
   const [date, setDate] = useState("");
   const [notes, setNotes] = useState("");
   const [openGroup, setOpenGroup] = useState<string>(ITEM_GROUPS[0].id);
+  // Set by a tap on a group header; the effect below scrolls that group into
+  // view after the previously open group has collapsed, so the group you
+  // tapped never ends up above or below the screen.
+  const wantScroll = useRef<string | null>(null);
+
+  useEffect(() => {
+    const id = wantScroll.current;
+    if (!id || id !== openGroup) return;
+    wantScroll.current = null;
+    const el = document.getElementById(`group-${id}`);
+    if (!el) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const go = () =>
+      el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    // Collapse animation is 300ms; scroll once the layout has settled.
+    const t = window.setTimeout(go, reduce ? 0 : 320);
+    return () => window.clearTimeout(t);
+  }, [openGroup]);
+
+  const toggleGroup = (id: string) => {
+    const opening = openGroup !== id;
+    wantScroll.current = opening ? id : null;
+    setOpenGroup(opening ? id : "");
+  };
 
   const vesselOpt = VESSELS.find((v) => v.id === vessel)!;
   const vesselSizes = sizesFor(vessel);
@@ -215,10 +239,11 @@ export function Customizer() {
               return (
                 <div
                   key={g.id}
-                  className="rounded-2xl border border-gold-200 bg-cream-50 overflow-hidden"
+                  id={`group-${g.id}`}
+                  className="scroll-mt-24 lg:scroll-mt-28 rounded-2xl border border-gold-200 bg-cream-50 overflow-hidden"
                 >
                   <button
-                    onClick={() => setOpenGroup(open ? "" : g.id)}
+                    onClick={() => toggleGroup(g.id)}
                     aria-expanded={open}
                     className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
                   >
@@ -465,6 +490,29 @@ export function Customizer() {
           <FulfilmentNote compact />
         </div>
       </aside>
+
+      {/* Phone-only dock: the summary panel sits far below the steps on small
+          screens, so the running total and the add button ride along at the
+          bottom of the screen instead. */}
+      <div className="u-dock lg:hidden fixed inset-x-0 bottom-0 z-[80] border-t border-gold-200 bg-cream-50/95 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+        <div className="flex items-center justify-between gap-3 max-w-lg mx-auto">
+          <div className="min-w-0">
+            <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted truncate">
+              {itemCount} {itemCount === 1 ? "item" : "items"} · {sizeOpt.name}{" "}
+              {vesselOpt.name}
+            </p>
+            <p className="font-display text-xl text-forest-900 tabular-nums leading-tight">
+              {money(total)}
+            </p>
+          </div>
+          <button
+            onClick={addToBasket}
+            className="u-press u-sheen shrink-0 rounded-full bg-forest-800 text-cream-50 px-5 py-3 text-sm font-medium hover:bg-forest-700 transition-colors"
+          >
+            Add to basket
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

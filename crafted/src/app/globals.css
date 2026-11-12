@@ -131,6 +131,17 @@
     radial-gradient(circle at 85% 70%, rgba(69, 106, 72, 0.05), transparent 45%);
 }
 
+/* While a page shows the phone dock (Build Your Own), lift the floating
+   Instagram button above it and leave room under the content. */
+@media (max-width: 1023px) {
+  body:has(.u-dock) .u-fab {
+    bottom: 5.5rem;
+  }
+  body:has(.u-dock) main {
+    padding-bottom: 5rem;
+  }
+}
+
 /* ---------- reveal on scroll ---------- */
 .reveal {
   opacity: 0;

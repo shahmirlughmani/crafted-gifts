@@ -23,7 +23,7 @@ export function InstagramFab() {
       rel="noopener noreferrer"
       aria-label="Send us a DM on Instagram"
       className={cx(
-        "group fixed z-[100] bottom-5 right-5 flex items-center gap-0 overflow-hidden rounded-full text-white shadow-[0_10px_30px_-8px_rgba(193,53,132,.65)] transition-all duration-300 hover:scale-[1.03]",
+        "u-fab group fixed z-[100] bottom-5 right-5 flex items-center gap-0 overflow-hidden rounded-full text-white shadow-[0_10px_30px_-8px_rgba(193,53,132,.65)] transition-all duration-300 hover:scale-[1.03]",
         show
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4 pointer-events-none"

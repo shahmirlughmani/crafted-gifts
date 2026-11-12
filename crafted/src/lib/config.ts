@@ -43,10 +43,10 @@ export const CONFIG = {
   },
 
   delivery: {
-    localAreas: "Islamabad",
-    localLine: "Islamabad — delivery within 3 days",
-    outsideAreas: "Outside Islamabad",
-    outsideLine: "Outside Islamabad — delivery within 6–7 days",
+    localAreas: "Islamabad & Rawalpindi",
+    localLine: "Islamabad & Rawalpindi — delivery within 3 days",
+    outsideAreas: "Other cities",
+    outsideLine: "Other cities — delivery within 6–7 days by TCS",
     /**
      * Islamabad & Rawalpindi are a flat Rs. 1,000 by our own rider. Everywhere
      * else goes by TCS at a zone rate — see src/data/delivery.ts. The cart
@@ -55,7 +55,7 @@ export const CONFIG = {
      */
     chargeLine:
       "Islamabad & Rawalpindi Rs. 1,000 flat. Other cities ship by TCS from Islamabad and the charge is added at checkout from your city.",
-    shortNote: "Islamabad in 3 days · elsewhere 6–7 by TCS · delivery added at checkout",
+    shortNote: "Islamabad & Rawalpindi in 3 days · elsewhere 6–7 by TCS · delivery added at checkout",
     quotedLabel: "Worked out at checkout",
   },
 
