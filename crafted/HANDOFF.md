@@ -154,8 +154,15 @@ confirmed with them before it was applied:
 
 `PRICE_CHANGES.md` lists every before and after. One exception since: the
 owner set the Crochet Duckling Chicks to **Rs. 600 per chick** and the
-Crochet Lipgloss Holder to **Rs. 850 each** (12 Nov), off the 500 step on
-purpose.
+Crochet Lipgloss Holder, Teddy Bear Keyring and Strawberry & Daisy Keyring
+to **Rs. 850** (12 Nov), off the 500 step on purpose.
+Also 12 Nov: Crochet Bunny in Navy and in Red (8.5 in) to **Rs. 3,000**, off
+the even-thousand step on purpose; Eid Dry Fruit Box and Dry Fruit Tray taken
+out of For Her (For Him only).
+
+**Build Your Own vessel photos** come from `image` on each vessel in
+`customizer.ts`, borrowed from product photos that show that vessel. The
+Transparent Gift Bag and Mini Bucket have none yet — ask the owner.
 
 **Shop order.** The grid's default sort is featured-first, then file order, so
 the newest items go at the *top* of `LATEST` with `featured: true` (and

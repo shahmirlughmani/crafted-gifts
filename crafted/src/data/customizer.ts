@@ -20,6 +20,9 @@ export type Vessel = {
   note: string;
   /** Price per size. Only the sizes listed here are offered for this vessel. */
   prices: Partial<Record<SizeId, number>>;
+  /** A product photo that shows this vessel, for the picker card. Omit until
+   *  the owner has one — the card then shows text only. */
+  image?: string;
 };
 
 export type ItemGroup = {
@@ -35,36 +38,42 @@ export type ItemGroup = {
 export const VESSELS: Vessel[] = [
   {
     id: "classic-box",
+    image: "/baskets/red-snack-box-full.webp",
     name: "Classic Gift Box",
     note: "Rigid magnetic box with a ribbon",
     prices: { small: 1350, large: 2100 },
   },
   {
     id: "pvc-box",
+    image: "/baskets/spiderman-snack-box-full.webp",
     name: "PVC Box",
     note: "Clear-panel box — everything on show",
     prices: { small: 950, medium: 1050, large: 1150 },
   },
   {
     id: "acrylic-box",
+    image: "/cakes/acrylic-chocolate-cake-box-full.webp",
     name: "Acrylic Gift Box",
     note: "Clear acrylic, fairy lights optional",
     prices: { large: 5600 },
   },
   {
     id: "acrylic-tray",
+    image: "/products/blue-snack-box-full.webp",
     name: "Acrylic Tray",
     note: "Flat and clear — shows everything at once",
     prices: { large: 4600 },
   },
   {
     id: "wooden-tray",
+    image: "/products/classic-care-basket-catalogue-full.webp",
     name: "Wooden Gift Tray",
     note: "Warm wood finished with a satin bow",
     prices: { small: 3100, large: 4100 },
   },
   {
     id: "white-basket",
+    image: "/baskets/bunny-pamper-basket-full.webp",
     name: "White Basket",
     note: "Woven basket — holds the most",
     prices: { small: 3600, medium: 4100, large: 4600 },

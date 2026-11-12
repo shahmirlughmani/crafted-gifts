@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   CARDS,
   VESSELS,
@@ -124,6 +125,7 @@ export function Customizer() {
                 onClick={() => setVessel(v.id)}
                 title={v.name}
                 sub={v.note}
+                image={v.image}
                 price={vesselFrom(v)}
                 priceLabel="from"
               />
@@ -524,12 +526,15 @@ function Tile({
   sub,
   price,
   priceLabel,
+  image,
 }: {
   active: boolean;
   onClick: () => void;
   title: string;
   sub?: string;
   price?: number;
+  /** Photo shown above the text, e.g. a vessel in use. */
+  image?: string;
   /** e.g. "from", for a vessel whose sizes differ in price. */
   priceLabel?: string;
 }) {
@@ -538,7 +543,7 @@ function Tile({
       onClick={onClick}
       aria-pressed={active}
       className={cx(
-        "u-press relative rounded-2xl border p-4 text-left transition-all",
+        "u-press relative rounded-2xl border p-4 text-left transition-all overflow-hidden",
         active
           ? "border-forest-700 bg-forest-100 shadow-[0_0_0_1px_var(--color-forest-700)]"
           : "border-gold-200 bg-cream-50 hover:border-gold-400"
@@ -547,6 +552,17 @@ function Tile({
       {active && (
         <span className="absolute top-3 right-3 grid place-items-center w-5 h-5 rounded-full bg-forest-700 text-cream-50">
           <IconCheck className="w-3 h-3" />
+        </span>
+      )}
+      {image && (
+        <span className="u-img-skeleton block relative aspect-[4/3] -mx-4 -mt-4 mb-3 overflow-hidden rounded-t-2xl bg-cream-200">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(min-width:640px) 33vw, 50vw"
+            className="object-cover"
+          />
         </span>
       )}
       <b className="block text-[0.92rem] font-medium text-forest-900 pr-6">
