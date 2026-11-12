@@ -3,6 +3,8 @@ export type Option = {
   name: string;
   price: number;
   note?: string;
+  /** Small product shot for the picker card; omitted = no picture. */
+  image?: string;
 };
 
 export type SizeId = "small" | "medium" | "large";
@@ -38,7 +40,7 @@ export type ItemGroup = {
 export const VESSELS: Vessel[] = [
   {
     id: "classic-box",
-    image: "/baskets/red-snack-box-full.webp",
+    image: "/vessels/classic-box.webp",
     name: "Classic Gift Box",
     note: "Rigid magnetic box with a ribbon",
     prices: { small: 1350, large: 2100 },
@@ -86,13 +88,8 @@ export const VESSELS: Vessel[] = [
     prices: { small: 2500, medium: 3500, large: 4500 },
   },
   {
-    id: "gift-bag",
-    name: "Transparent Gift Bag",
-    note: "The lightest way to send something small",
-    prices: { small: 650 },
-  },
-  {
     id: "mini-bucket",
+    image: "/vessels/mini-bucket.webp",
     name: "Mini Bucket",
     note: "Max 4–5 chocolates space",
     prices: { small: 500 },
@@ -113,14 +110,15 @@ export const ITEM_GROUPS: ItemGroup[] = [
     name: "Chocolates",
     hint: "Not dispatched outside Rawalpindi/Islamabad in peak summer — they melt.",
     items: [
-      { id: "kitkat-2", name: "KitKat 2 Finger", price: 350, note: "17.7 g" },
-      { id: "kitkat-4", name: "KitKat 4 Finger", price: 600, note: "41 g" },
-      { id: "twix", name: "Twix bar", price: 600, note: "50 g" },
-      { id: "snickers", name: "Snickers bar", price: 600, note: "50 g" },
+      { id: "kitkat-2", name: "KitKat 2 Finger", price: 350, note: "17.7 g", image: "/items/kitkat-2.webp" },
+      { id: "kitkat-4", name: "KitKat 4 Finger", price: 600, note: "41 g", image: "/items/kitkat-4.webp" },
+      { id: "bueno", name: "Kinder Bueno", price: 850, note: "2 fingers", image: "/items/bueno.webp" },
+      { id: "twix", name: "Twix bar", price: 600, note: "50 g", image: "/items/twix.webp" },
+      { id: "snickers", name: "Snickers bar", price: 600, note: "50 g", image: "/items/snickers.webp" },
       { id: "mars", name: "Mars bar", price: 600, note: "51 g" },
-      { id: "mrbeast", name: "Mr. Beast Milk Crunch", price: 2100, note: "60 g" },
+      { id: "mrbeast", name: "Mr. Beast Milk Crunch", price: 2100, note: "60 g", image: "/items/mrbeast.webp" },
       { id: "dairymilk", name: "Cadbury Dairy Milk", price: 350, note: "36 g" },
-      { id: "ferrero", name: "Ferrero Rocher T3", price: 1000 },
+      { id: "ferrero", name: "Ferrero Rocher T3", price: 1000, image: "/items/ferrero.webp" },
     ],
   },
   {
