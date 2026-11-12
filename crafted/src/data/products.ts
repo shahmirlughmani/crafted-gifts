@@ -389,7 +389,7 @@ const HANDMADE: Product[] = [
     id: "h3",
     slug: "mini-doll-basket",
     name: "Crochet Lipgloss Holder",
-    price: 1000,
+    price: 850,
     unit: "each",
     handmade: true,
     categories: ["crochet"],

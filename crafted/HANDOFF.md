@@ -153,8 +153,9 @@ confirmed with them before it was applied:
 - delivery charges are untouched.
 
 `PRICE_CHANGES.md` lists every before and after. One exception since: the
-owner set the Crochet Duckling Chicks to **Rs. 600 per chick** (12 Nov), off
-the 500 step on purpose.
+owner set the Crochet Duckling Chicks to **Rs. 600 per chick** and the
+Crochet Lipgloss Holder to **Rs. 850 each** (12 Nov), off the 500 step on
+purpose.
 
 **Shop order.** The grid's default sort is featured-first, then file order, so
 the newest items go at the *top* of `LATEST` with `featured: true` (and
