@@ -4,6 +4,7 @@ import { CATEGORIES, PRODUCTS } from "@/data/products";
 import { CONFIG } from "@/lib/config";
 import { Reveal } from "@/components/Reveal";
 import { LogoMark } from "@/components/Logo";
+import { ProductCard } from "@/components/ProductCard";
 import {
   IconChevron,
   IconGift,
@@ -20,94 +21,127 @@ export default function Home() {
     <>
       {/* ============================= HERO ============================= */}
       <section className="relative overflow-hidden u-paper">
-        <div className="u-wrap grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center pt-14 pb-16 lg:pt-20 lg:pb-24">
-          <Reveal>
-            <p className="u-eyebrow">Handmade in Islamabad</p>
-            <h1 className="mt-4 font-display text-[2.6rem] sm:text-6xl lg:text-[4.2rem] leading-[1.02] text-forest-900">
-              Every gift,
-              <br />
-              <span className="font-script text-gold-600 text-[1.15em] leading-[1.3] block -mt-1">
-                made by hand
-              </span>
-            </h1>
-            <p className="mt-6 text-[1.02rem] text-muted max-w-lg leading-relaxed">
-              Choose something ready-made or build a basket from scratch, item
-              by item. Crocheted flowers that never wilt, plushies with real
-              character, and gift boxes packed one at a time.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/shop"
-                className="u-press u-sheen group inline-flex items-center gap-2 rounded-full bg-forest-800 text-cream-50 px-7 py-3.5 font-medium hover:bg-forest-700 transition-colors"
-              >
-                Shop all gifts
-                <IconChevron className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-              <Link
-                href="/customize"
-                className="group inline-flex items-center gap-2 rounded-full border border-forest-800 text-forest-900 px-7 py-3.5 font-medium hover:bg-forest-800 hover:text-cream-50 transition-colors"
-              >
-                <IconGift className="w-[1.1rem] h-[1.1rem]" />
-                Build your own
-              </Link>
-            </div>
-
-            <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-[0.8rem] text-muted">
-              <li className="flex items-center gap-2">
-                <IconPin className="w-4 h-4 text-gold-600" />
-                Pickup in {CONFIG.fulfilment.pickupArea}
-              </li>
-              <li className="flex items-center gap-2">
-                <IconTruck className="w-4 h-4 text-gold-600" />
-                Nationwide delivery
-              </li>
-              <li className="flex items-center gap-2">
-                <IconClock className="w-4 h-4 text-gold-600" />
-                {CONFIG.fulfilment.readyIn}
-              </li>
-            </ul>
-          </Reveal>
-
-          {/* image collage */}
-          <Reveal delay={120} className="relative">
-            <div className="relative aspect-[4/5] sm:aspect-[5/5] max-w-[30rem] mx-auto lg:max-w-none">
-              <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-[0_40px_80px_-40px_rgba(31,51,36,.55)]">
-                <Image
-                  src="/baskets/lamb-sweetheart-basket-catalogue-full.webp"
-                  alt="Pink gift basket with a hand-crocheted lamb"
-                  fill
-                  priority
-                  sizes="(min-width:1024px) 46vw, 90vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-4 sm:-left-8 w-32 sm:w-44 aspect-square rounded-2xl overflow-hidden ring-8 ring-cream-100 shadow-xl">
-                <Image
-                  src="/crochet/duck-plushie-set.webp"
-                  alt="Crocheted duckling plushies"
-                  fill
-                  sizes="180px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute -top-5 -right-3 sm:-right-6 w-28 sm:w-36 aspect-square rounded-2xl overflow-hidden ring-8 ring-cream-100 shadow-xl">
-                <Image
-                  src="/products/luxe-green-box-catalogue-full.webp"
-                  alt="Luxe gift box"
-                  fill
-                  sizes="150px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute top-1/2 -right-4 sm:-right-10 -translate-y-1/2 rounded-full bg-cream-50 shadow-lg px-4 py-3 text-center hidden sm:block">
-                <p className="font-script text-2xl text-gold-600 leading-none">
-                  Especially
+        <div className="u-wrap pt-5 lg:pt-8 pb-10 lg:pb-14">
+          <div className="grid lg:grid-cols-[1.55fr_1fr] gap-4 lg:gap-5">
+            {/* main banner */}
+            <Reveal
+              variant="fade"
+              className="relative min-h-[27rem] sm:min-h-[30rem] lg:min-h-[34rem] rounded-[1.75rem] overflow-hidden bg-forest-900 shadow-[0_40px_80px_-50px_rgba(31,51,36,.6)]"
+            >
+              <Image
+                src="/baskets/bunny-pamper-basket-full.webp"
+                alt="A white wicker basket packed with pink pamper treats and a crochet bunny"
+                fill
+                priority
+                sizes="(min-width:1024px) 62vw, 100vw"
+                className="object-cover object-[60%_45%]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-forest-950/85 via-forest-950/45 to-forest-950/5" />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/60 via-transparent to-transparent lg:hidden" />
+              <div className="absolute inset-0 flex flex-col justify-end lg:justify-center p-6 sm:p-10 lg:p-14">
+                <p className="u-eyebrow text-gold-300 u-enter u-enter-1">
+                  Handmade in Islamabad
                 </p>
-                <p className="u-eyebrow text-[0.55rem] mt-1">for you</p>
+                <h1 className="mt-3 font-display text-[2.5rem] sm:text-5xl lg:text-[3.8rem] leading-[1.02] text-cream-50 max-w-xl u-enter u-enter-2">
+                  Thoughtful gifts,
+                  <span className="font-script text-gold-300 text-[1.15em] leading-[1.25] block -mt-1">
+                    made with love
+                  </span>
+                </h1>
+                <p className="mt-4 text-[0.98rem] text-cream-100/85 max-w-md leading-relaxed u-enter u-enter-3">
+                  Baskets, boxes, plushies and cakes, each one packed by hand
+                  and sent anywhere in Pakistan.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3 u-enter u-enter-4">
+                  <Link
+                    href="/shop"
+                    className="u-press u-sheen group inline-flex items-center gap-2 rounded-full bg-gold-500 text-forest-950 px-6 py-3 font-semibold hover:bg-gold-400 transition-colors"
+                  >
+                    Shop all gifts
+                    <IconChevron className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                  <Link
+                    href="/customize"
+                    className="inline-flex items-center gap-2 rounded-full border border-cream-50/70 text-cream-50 px-6 py-3 font-medium hover:bg-cream-50 hover:text-forest-900 transition-colors"
+                  >
+                    <IconGift className="w-[1.1rem] h-[1.1rem]" />
+                    Build your own
+                  </Link>
+                </div>
               </div>
+            </Reveal>
+
+            {/* side tiles */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 gap-4 lg:gap-5">
+              <Reveal delay={120} variant="scale" className="h-full">
+                <Link
+                  href="/shop/plushies"
+                  className="group relative block h-full min-h-[15rem] rounded-[1.75rem] overflow-hidden bg-cream-200"
+                >
+                  <Image
+                    src="/crochet/crochet-kitty-strawberry-hat-full.webp"
+                    alt="Crochet kitty in a strawberry hat"
+                    fill
+                    sizes="(min-width:1024px) 36vw, (min-width:640px) 50vw, 100vw"
+                    className="object-cover object-[center_38%] transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/85 via-forest-950/15 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6 text-cream-50">
+                    <p className="u-eyebrow text-gold-300 text-[0.58rem]">New in</p>
+                    <h2 className="font-display text-2xl text-cream-50 mt-1 flex items-center gap-1.5">
+                      Chunky crochet plushies
+                      <IconChevron className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                    </h2>
+                    <p className="text-[0.82rem] text-cream-100/80 mt-1">
+                      10.5 inches of squish, from Rs. 4,000
+                    </p>
+                  </div>
+                </Link>
+              </Reveal>
+              <Reveal delay={200} variant="scale" className="h-full">
+                <Link
+                  href="/customize"
+                  className="group relative block h-full min-h-[15rem] rounded-[1.75rem] overflow-hidden bg-cream-200"
+                >
+                  <Image
+                    src="/vessels/gift-basket.webp"
+                    alt="Build your own gift basket"
+                    fill
+                    sizes="(min-width:1024px) 36vw, (min-width:640px) 50vw, 100vw"
+                    className="object-cover object-[center_60%] transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/85 via-forest-950/15 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6 text-cream-50">
+                    <p className="u-eyebrow text-gold-300 text-[0.58rem]">
+                      Build your own
+                    </p>
+                    <h2 className="font-display text-2xl text-cream-50 mt-1 flex items-center gap-1.5">
+                      Customise a gift basket
+                      <IconChevron className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                    </h2>
+                    <p className="text-[0.82rem] text-cream-100/80 mt-1">
+                      Pick the basket, the size and every item inside
+                    </p>
+                  </div>
+                </Link>
+              </Reveal>
             </div>
-          </Reveal>
+          </div>
+
+          <ul className="mt-6 flex flex-wrap gap-x-7 gap-y-3 text-[0.8rem] text-muted">
+            <li className="flex items-center gap-2">
+              <IconPin className="w-4 h-4 text-gold-600" />
+              Pickup in {CONFIG.fulfilment.pickupArea}
+            </li>
+            <li className="flex items-center gap-2">
+              <IconTruck className="w-4 h-4 text-gold-600" />
+              Nationwide delivery
+            </li>
+            <li className="flex items-center gap-2">
+              <IconClock className="w-4 h-4 text-gold-600" />
+              {CONFIG.fulfilment.readyIn}
+            </li>
+          </ul>
         </div>
 
         {/* scrolling ribbon */}
@@ -138,6 +172,37 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* =========================== NEW IN STORE ======================== */}
+      <section className="u-wrap pt-14 lg:pt-20">
+        <Reveal className="flex items-end justify-between gap-4">
+          <div>
+            <p className="u-eyebrow">Just added</p>
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl">
+              New in store
+            </h2>
+          </div>
+          <Link
+            href="/shop"
+            className="group hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-forest-800 border-b border-gold-400 pb-0.5 hover:text-gold-700 transition-colors"
+          >
+            Shop all products
+            <IconChevron className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </Reveal>
+        <div className="u-stagger mt-10 grid grid-cols-2 md:grid-cols-4 gap-5 lg:gap-6">
+          {PRODUCTS.slice(0, 8).map((p, i) => (
+            <ProductCard key={p.id} p={p} priority={i < 4} />
+          ))}
+        </div>
+        <Link
+          href="/shop"
+          className="sm:hidden mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-forest-800 border-b border-gold-400 pb-0.5"
+        >
+          Shop all products
+          <IconChevron className="w-3.5 h-3.5" />
+        </Link>
       </section>
 
       {/* =========================== CATEGORIES ========================== */}
@@ -200,9 +265,10 @@ export default function Home() {
               piece by piece
             </h2>
             <p className="mt-5 text-cream-200/80 max-w-lg leading-relaxed">
-              Choose the basket or hatbox, pick the size, then tick exactly what
-              goes inside — chocolates, skincare, dry fruit, a crocheted bouquet,
-              a candle. The price updates as you go, so there are no surprises.
+              Choose the box, tray or basket, pick the size, then tap exactly
+              what goes inside: chocolates, snacks, dry fruit, skincare, a
+              crochet keychain. The price updates as you go, so there are no
+              surprises.
             </p>
             <Link
               href="/customize"
@@ -216,10 +282,10 @@ export default function Home() {
           <Reveal delay={140}>
             <ol className="space-y-5">
               {[
-                ["Pick your vessel", "Basket, hatbox, crate, bucket or tray."],
-                ["Choose a size", "Mini through Grande — we guide the item count."],
-                ["Fill it", "Tick items from eight categories, watch the total."],
-                ["Add a card", "Choose a card and we'll write your message."],
+                ["Pick your vessel", "Box, tray, basket or mini bucket, with a photo of each."],
+                ["Choose a size", "Small, medium or large. We guide the item count."],
+                ["Fill it", "Tap items from the picture cards and watch the total."],
+                ["Add a card", "Choose a card and we'll handwrite your message."],
               ].map(([t, d], i) => (
                 <li key={t} className="flex gap-4">
                   <span className="grid place-items-center w-9 h-9 shrink-0 rounded-full border border-gold-400/50 text-gold-300 font-display text-sm">

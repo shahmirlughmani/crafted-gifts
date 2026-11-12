@@ -244,6 +244,20 @@ is a silent broken image, not a build error.
   for these to lead, so they are the `image` and the older studio photo drops
   into the gallery behind them.
 
+## Homepage and builder layout (12 Nov 2026)
+
+The owner asked for the look of shopatshams.com.pk: a big banner with two
+promo tiles beside it, a "New in store" row, and a gift builder where every
+item is a picture card and the chosen vessel shows as a large preview.
+
+- Homepage hero: one banner (`bunny-pamper-basket`) plus two tiles that link
+  to Plushies and to Build Your Own. Below it, "New in store" is simply
+  `PRODUCTS.slice(0, 8)`, so the newest items at the top of `LATEST` lead.
+- Builder: vessel tiles carry photos; a preview panel under them shows the
+  chosen vessel, size and price; items render through `ItemCard` (photo,
+  name, price, Add, then a stepper). Items without a photo get a gift icon
+  placeholder; add `image` on the item to replace it.
+
 ## Motion
 
 All of it is CSS in `globals.css` — no animation library. Three ways in:

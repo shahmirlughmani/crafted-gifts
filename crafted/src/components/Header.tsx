@@ -110,7 +110,7 @@ export function Header() {
                   key={n.href}
                   href={n.href}
                   className={cx(
-                    "relative px-3.5 py-2 text-[0.82rem] font-medium rounded-full transition-colors",
+                    "relative px-3.5 py-2 text-[0.82rem] font-medium rounded-full whitespace-nowrap transition-colors",
                     active
                       ? "text-forest-900"
                       : "text-muted hover:text-forest-800"

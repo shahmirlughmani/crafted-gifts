@@ -11,6 +11,7 @@ import {
   sizesFor,
   vesselPrice,
   vesselFrom,
+  type Option,
   type SizeId,
 } from "@/data/customizer";
 import { useCart } from "@/lib/cart";
@@ -131,6 +132,35 @@ export function Customizer() {
               />
             ))}
           </div>
+
+          {vesselOpt.image && (
+            <div
+              // Re-keyed so the preview fades in again when the vessel changes.
+              key={vessel}
+              className="u-enter mt-5 grid sm:grid-cols-[minmax(0,17rem)_1fr] gap-5 items-center rounded-2xl border border-gold-200 bg-cream-50 p-4"
+            >
+              <div className="u-img-skeleton relative aspect-[4/3] rounded-xl overflow-hidden bg-cream-200">
+                <Image
+                  src={vesselOpt.image}
+                  alt={vesselOpt.name}
+                  fill
+                  sizes="(min-width:640px) 17rem, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <p className="u-eyebrow">Your pick</p>
+                <h3 className="mt-1.5 font-display text-2xl text-forest-900">
+                  {vesselOpt.name}
+                </h3>
+                <p className="mt-1 text-sm text-muted">{vesselOpt.note}</p>
+                <p className="mt-3 text-sm text-forest-900 tabular-nums">
+                  {sizeOpt.name} · {money(containerPrice)} · fits about{" "}
+                  {sizeOpt.guide}
+                </p>
+              </div>
+            </div>
+          )}
         </Step>
 
         {/* ---------------- step 2 ---------------- */}
@@ -226,68 +256,16 @@ export function Customizer() {
                     )}
                   >
                     <div className="overflow-hidden">
-                      <ul className="px-3 pb-3 grid sm:grid-cols-2 gap-1.5">
-                        {g.items.map((i) => {
-                          const qty = picked[i.id] ?? 0;
-                          return (
-                            <li
-                              key={i.id}
-                              className={cx(
-                                "flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 transition-colors",
-                                qty > 0 ? "bg-forest-100" : "hover:bg-cream-200"
-                              )}
-                            >
-                              <button
-                                onClick={() => bump(i.id, qty > 0 ? -qty : 1)}
-                                className="flex items-center gap-2.5 text-left flex-1 min-w-0"
-                              >
-                                <span
-                                  className={cx(
-                                    "grid place-items-center w-5 h-5 rounded-md border shrink-0 transition-colors",
-                                    qty > 0
-                                      ? "bg-forest-700 border-forest-700 text-cream-50"
-                                      : "border-gold-400"
-                                  )}
-                                >
-                                  {qty > 0 && (
-                                    <IconCheck className="w-3 h-3" />
-                                  )}
-                                </span>
-                                <span className="min-w-0">
-                                  <span className="block text-[0.86rem] text-forest-900 truncate">
-                                    {i.name}
-                                  </span>
-                                  <span className="block text-[0.72rem] text-muted tabular-nums">
-                                    {money(i.price)}
-                                  </span>
-                                </span>
-                              </button>
-
-                              {qty > 0 && (
-                                <span className="inline-flex items-center rounded-full border border-gold-300 bg-cream-50 shrink-0">
-                                  <button
-                                    onClick={() => bump(i.id, -1)}
-                                    aria-label={`One fewer ${i.name}`}
-                                    className="w-7 h-7 grid place-items-center text-forest-800 hover:text-gold-700"
-                                  >
-                                    −
-                                  </button>
-                                  <span className="w-5 text-center text-[0.78rem] tabular-nums">
-                                    {qty}
-                                  </span>
-                                  <button
-                                    onClick={() => bump(i.id, 1)}
-                                    aria-label={`One more ${i.name}`}
-                                    className="w-7 h-7 grid place-items-center text-forest-800 hover:text-gold-700"
-                                  >
-                                    +
-                                  </button>
-                                </span>
-                              )}
-                            </li>
-                          );
-                        })}
-                      </ul>
+                      <div className="px-3 pb-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                        {g.items.map((i) => (
+                          <ItemCard
+                            key={i.id}
+                            item={i}
+                            qty={picked[i.id] ?? 0}
+                            onBump={(d) => bump(i.id, d)}
+                          />
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -372,15 +350,27 @@ export function Customizer() {
       {/* ---------------- summary ---------------- */}
       <aside className="lg:sticky lg:top-28">
         <div className="rounded-2xl border border-gold-200 bg-cream-50 overflow-hidden">
-          <div className="px-5 py-4 border-b border-gold-200 bg-forest-900 text-cream-50">
-            <h2 className="font-display text-xl text-cream-50 flex items-center gap-2">
-              <IconGift className="w-5 h-5 text-gold-300" />
-              Your basket
-            </h2>
-            <p className="text-[0.72rem] text-cream-200/65 mt-0.5">
-              {itemCount} {itemCount === 1 ? "item" : "items"} ·{" "}
-              {sizeOpt.name} {vesselOpt.name}
-            </p>
+          <div className="px-5 py-4 border-b border-gold-200 bg-forest-900 text-cream-50 flex items-center gap-4">
+            {vesselOpt.image ? (
+              <span className="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden ring-2 ring-gold-400/60">
+                <Image
+                  src={vesselOpt.image}
+                  alt=""
+                  fill
+                  sizes="56px"
+                  className="object-cover"
+                />
+              </span>
+            ) : (
+              <IconGift className="w-6 h-6 text-gold-300 shrink-0" />
+            )}
+            <div className="min-w-0">
+              <h2 className="font-display text-xl text-cream-50">Your basket</h2>
+              <p className="text-[0.72rem] text-cream-200/65 mt-0.5 truncate">
+                {itemCount} {itemCount === 1 ? "item" : "items"} ·{" "}
+                {sizeOpt.name} {vesselOpt.name}
+              </p>
+            </div>
           </div>
 
           <div className="px-5 py-4 space-y-2 max-h-[22rem] overflow-y-auto u-scroll">
@@ -475,6 +465,108 @@ export function Customizer() {
           <FulfilmentNote compact />
         </div>
       </aside>
+    </div>
+  );
+}
+
+/**
+ * One item in "Fill it up": photo on top, name and price under it, then an
+ * Add button that turns into a quantity stepper once picked. Items without a
+ * photo yet get a soft placeholder so the grid stays even.
+ */
+function ItemCard({
+  item,
+  qty,
+  onBump,
+}: {
+  item: Option;
+  qty: number;
+  onBump: (delta: number) => void;
+}) {
+  const on = qty > 0;
+  return (
+    <div
+      className={cx(
+        "u-lift relative flex flex-col rounded-2xl border bg-cream-50 overflow-hidden transition-colors",
+        on
+          ? "border-forest-700 shadow-[0_0_0_1px_var(--color-forest-700)]"
+          : "border-gold-200 hover:border-gold-400"
+      )}
+    >
+      <button
+        type="button"
+        onClick={() => onBump(on ? -qty : 1)}
+        aria-pressed={on}
+        className="text-left flex-1"
+      >
+        <span className="relative block aspect-square bg-white">
+          {item.image ? (
+            <Image
+              src={item.image}
+              alt=""
+              fill
+              sizes="(min-width:1024px) 170px, (min-width:640px) 28vw, 45vw"
+              className="object-contain p-3 transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <span className="absolute inset-0 grid place-items-center bg-cream-100 text-gold-400">
+              <IconGift className="w-9 h-9" />
+            </span>
+          )}
+          {on && (
+            <span className="u-pop absolute top-2 right-2 grid place-items-center w-6 h-6 rounded-full bg-forest-700 text-cream-50 shadow">
+              <IconCheck className="w-3.5 h-3.5" />
+            </span>
+          )}
+        </span>
+        <span className="block px-3 pt-2.5 pb-1">
+          <span className="block text-[0.84rem] leading-snug text-forest-900 line-clamp-2 min-h-[2.5em]">
+            {item.name}
+          </span>
+          {item.note && (
+            <span className="block text-[0.68rem] text-muted mt-0.5 truncate">
+              {item.note}
+            </span>
+          )}
+          <span className="block text-[0.82rem] font-medium text-gold-700 tabular-nums mt-1">
+            {money(item.price)}
+          </span>
+        </span>
+      </button>
+
+      <div className="px-3 pb-3">
+        {on ? (
+          <span className="flex w-full items-center justify-between rounded-full border border-forest-700 bg-forest-100">
+            <button
+              type="button"
+              onClick={() => onBump(-1)}
+              aria-label={`One fewer ${item.name}`}
+              className="w-8 h-8 grid place-items-center text-forest-800 hover:text-gold-700"
+            >
+              −
+            </button>
+            <span className="text-[0.8rem] tabular-nums text-forest-900">
+              {qty}
+            </span>
+            <button
+              type="button"
+              onClick={() => onBump(1)}
+              aria-label={`One more ${item.name}`}
+              className="w-8 h-8 grid place-items-center text-forest-800 hover:text-gold-700"
+            >
+              +
+            </button>
+          </span>
+        ) : (
+          <button
+            type="button"
+            onClick={() => onBump(1)}
+            className="u-press w-full rounded-full border border-forest-800 py-1.5 text-[0.74rem] font-medium text-forest-900 hover:bg-forest-800 hover:text-cream-50 transition-colors"
+          >
+            Add
+          </button>
+        )}
+      </div>
     </div>
   );
 }
