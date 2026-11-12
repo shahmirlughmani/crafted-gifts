@@ -161,8 +161,11 @@ the even-thousand step on purpose; Eid Dry Fruit Box and Dry Fruit Tray taken
 out of For Her (For Him only).
 
 **Build Your Own vessel photos** come from `image` on each vessel in
-`customizer.ts`, borrowed from product photos that show that vessel. The
-Transparent Gift Bag and Mini Bucket have none yet — ask the owner.
+`customizer.ts`. The owner's own vessel shots live in `public/vessels/`
+(six of them, 12 Nov); the Classic Gift Box still borrows a product photo,
+and the Transparent Gift Bag and Mini Bucket have none yet — ask the owner.
+The Gift Basket vessel (small 2,500 / medium 3,500 / large 4,500) was added
+at her prices on 12 Nov.
 
 **Shop order.** The grid's default sort is featured-first, then file order, so
 the newest items go at the *top* of `LATEST` with `featured: true` (and
